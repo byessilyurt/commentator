@@ -383,10 +383,10 @@ export default function RecordPage() {
                                                 onClick={handleUpload}
                                                 disabled={isUploading || uploadSuccess}
                                                 className={`w-full py-3 rounded-lg font-semibold text-lg ${uploadSuccess
-                                                        ? "bg-green-600 cursor-not-allowed"
-                                                        : isUploading
-                                                            ? "bg-gray-600 cursor-not-allowed"
-                                                            : "bg-blue-600 hover:bg-blue-700"
+                                                    ? "bg-green-600 cursor-not-allowed"
+                                                    : isUploading
+                                                        ? "bg-gray-600 cursor-not-allowed"
+                                                        : "bg-blue-600 hover:bg-blue-700"
                                                     }`}
                                             >
                                                 {uploadSuccess ? "Uploaded Successfully!" : isUploading ? "Uploading..." : "Upload Commentary"}
@@ -416,8 +416,8 @@ export default function RecordPage() {
                                 <div
                                     key={match.id}
                                     className={`p-4 rounded-lg cursor-pointer transition-colors ${selectedMatch === match.id
-                                            ? "bg-blue-700"
-                                            : "bg-gray-700 hover:bg-gray-600"
+                                        ? "bg-blue-700"
+                                        : "bg-gray-700 hover:bg-gray-600"
                                         }`}
                                     onClick={() => handleMatchSelect(match.id)}
                                 >
