@@ -1,98 +1,64 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { v4 as uuidv4 } from 'uuid';
-
-// This would be a database in a real application
-let commentaries: any[] = [
-    {
-        id: '1',
-        title: 'Premier League: Arsenal vs Liverpool',
-        commentator: 'John Smith',
-        matchId: 1,
-        date: '2023-10-08',
-        duration: '90:00',
-        audioUrl: '/commentaries/1.mp3'
-    },
-    {
-        id: '2',
-        title: 'La Liga: Barcelona vs Real Madrid',
-        commentator: 'Maria Garcia',
-        matchId: 2,
-        date: '2023-10-21',
-        duration: '92:30',
-        audioUrl: '/commentaries/2.mp3'
-    },
-    {
-        id: '3',
-        title: 'Champions League: Bayern vs PSG',
-        commentator: 'David Johnson',
-        matchId: 3,
-        date: '2023-11-02',
-        duration: '94:15',
-        audioUrl: '/commentaries/3.mp3'
-    },
-];
+import { prisma } from '../../lib/db';
+import { getUserFromRequest } from '../../lib/auth';
+import { saveAudioFile } from '../../lib/file-storage';
 
 // GET /api/commentaries - Get all commentaries
-export async function GET(request: NextRequest) {
-    // Optional filtering by matchId
-    const { searchParams } = new URL(request.url);
-    const matchId = searchParams.get('matchId');
+export async function GET(req: NextRequest) {
+    try {
+        const commentaries = await prisma.commentary.findMany({
+            orderBy: { createdAt: 'desc' },
+        });
 
-    if (matchId) {
-        const filteredCommentaries = commentaries.filter(
-            commentary => commentary.matchId === Number(matchId)
+        return NextResponse.json(commentaries);
+    } catch (error) {
+        console.error('Error fetching commentaries:', error);
+        return NextResponse.json(
+            { error: 'Failed to fetch commentaries' },
+            { status: 500 }
         );
-        return NextResponse.json(filteredCommentaries);
     }
-
-    return NextResponse.json(commentaries);
 }
 
 // POST /api/commentaries - Create a new commentary
-export async function POST(request: NextRequest) {
+export async function POST(req: NextRequest) {
     try {
-        const formData = await request.formData();
+        const { user, error } = await getUserFromRequest(req);
+        if (error) {
+            return NextResponse.json({ error }, { status: 401 });
+        }
 
-        // In a real application, you would process and store the audio file
-        // For now, we're just simulating it
-        const audioBlob = formData.get('audio') as File;
-        const title = formData.get('title') as string;
-        const commentator = formData.get('commentator') as string;
-        const matchId = Number(formData.get('matchId'));
-        const duration = formData.get('duration') as string;
+        const data = await req.json();
 
-        if (!audioBlob || !title || !commentator || !matchId) {
+        // Validate required fields
+        if (!data.title || !data.match || !data.audioData) {
             return NextResponse.json(
-                { error: "Missing required fields" },
+                { error: 'Missing required fields' },
                 { status: 400 }
             );
         }
 
-        // Generate a unique ID
-        const id = uuidv4();
+        // Save audio file
+        const audioUrl = await saveAudioFile(data.audioData);
 
-        // In a real app, you'd save the audio file to a storage service
-        // and get back a URL to access it
-        const audioUrl = `/commentaries/${id}.mp3`;
+        // Create commentary record
+        const commentary = await prisma.commentary.create({
+            data: {
+                title: data.title,
+                description: data.description || '',
+                match: data.match,
+                audioUrl,
+                userId: user?.id,
+                duration: data.duration || 0,
+                timeMarkers: data.timeMarkers || null,
+            },
+        });
 
-        const newCommentary = {
-            id,
-            title,
-            commentator,
-            matchId,
-            date: new Date().toISOString().split('T')[0],
-            duration,
-            audioUrl
-        };
-
-        // Add to our "database"
-        commentaries.push(newCommentary);
-
-        return NextResponse.json(newCommentary, { status: 201 });
+        return NextResponse.json(commentary, { status: 201 });
     } catch (error) {
-        console.error("Error creating commentary:", error);
+        console.error('Error creating commentary:', error);
         return NextResponse.json(
-            { error: "Failed to create commentary" },
+            { error: 'Failed to create commentary' },
             { status: 500 }
         );
     }

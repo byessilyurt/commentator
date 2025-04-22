@@ -1,74 +1,119 @@
 # Commentator
 
-Commentator is a web application and browser extension that allows you to enjoy football matches with alternative commentary.
+A platform to enhance football matches with alternative commentary. Watch any football stream and enjoy commentary from your favorite commentators, perfectly synchronized with the action.
 
 ## Features
 
-- **Alternative Commentary**: Choose from a variety of commentators or record your own
-- **Works with Any Stream**: Use with any football streaming service or platform
-- **Manual Synchronization**: Easily sync the commentary with your video player
-- **Record Your Own**: Become a commentator and share your commentary with others
+- **Watch with Custom Commentary**: Mute your original stream and listen to our commentators.
+- **Record Your Commentary**: Become a commentator and share your insights.
+- **Synchronization Tools**: Easily match the commentary with your video.
+- **Chrome Extension**: Control commentaries directly from your browser.
+- **Works with Any Stream**: Use with any football streaming service.
 
-## How It Works
+## Tech Stack
 
-1. **Watch Your Match**: Play the football match in your preferred streaming service
-2. **Mute Original Commentary**: Mute the original commentators on your video stream
-3. **Pick a Commentator**: Browse available commentaries and select your favorite
-4. **Sync & Enjoy**: Use our synchronization tools to match the commentary with your video
-
-## Implementation Details
-
-The project consists of two main components:
-
-### Web Application
-
-A Next.js application that allows users to:
-- Browse available commentaries
-- Record and upload their own commentaries
-- Play selected commentaries with manual synchronization controls
-
-### Chrome Extension
-
-A browser extension that:
-- Works with any streaming site
-- Provides easy synchronization tools
-- Allows quick context menu access for timing adjustments
-- Remembers your preferred commentaries
-
-## Technical Architecture
-
-- **Frontend**: Next.js with TypeScript and Tailwind CSS
-- **Audio Recording**: Web Audio API for recording commentaries
-- **API**: RESTful API for managing commentaries and matches
-- **Extension**: JavaScript/TypeScript Chrome extension
-
-## Synchronization Approach
-
-We use a manual synchronization approach that:
-1. Allows users to enter the current game time from their video
-2. Provides fine-tuning controls (forward/backward skipping)
-3. For commentators, includes time announcements to help listeners sync
-
-## Commentary Recording
-
-When recording commentary:
-1. Set the starting game time before recording
-2. Include periodic time announcements (e.g., "It's now 27 minutes into the game")
-3. Describe key events that help listeners sync (goals, cards, etc.)
+- **Frontend**: Next.js, React, TailwindCSS
+- **Backend**: Next.js API Routes
+- **Database**: SQLite (easily adaptable to other databases)
+- **Authentication**: JWT-based auth
+- **Audio**: Web Audio API, WaveSurfer.js
+- **Chrome Extension**: JavaScript/TypeScript
 
 ## Getting Started
 
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Run the development server: `npm run dev`
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+### Prerequisites
 
-## Chrome Extension Installation
+- Node.js (v18 or newer)
+- npm or yarn
 
-1. Navigate to the `chrome-extension` directory
-2. Open Chrome and go to `chrome://extensions/`
-3. Enable Developer Mode
-4. Click "Load unpacked" and select the `chrome-extension` directory
+### Installation
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/commentator.git
+   cd commentator/commentator-app
+   ```
+
+2. Install dependencies:
+   ```
+   npm install
+   ```
+
+3. Set up the database:
+   ```
+   npx prisma migrate dev
+   ```
+
+4. Start the development server:
+   ```
+   npm run dev
+   ```
+
+The application should now be running at http://localhost:3000.
+
+### Chrome Extension
+
+1. Navigate to the Chrome Extension directory:
+   ```
+   cd chrome-extension
+   ```
+
+2. Build the extension:
+   ```
+   npm install
+   npm run build
+   ```
+
+3. Load the extension in Chrome:
+   - Open Chrome and go to `chrome://extensions/`
+   - Enable "Developer mode"
+   - Click "Load unpacked" and select the `chrome-extension/build` directory
+
+## Deployment
+
+### Server Requirements
+
+- Node.js (v18 or newer)
+- npm or yarn
+- PM2 (optional, for process management)
+
+### Deployment Steps
+
+1. Clone the repository on your server
+2. Set up environment variables in a `.env` file:
+   ```
+   JWT_SECRET=your_secure_jwt_secret
+   NODE_ENV=production
+   ```
+
+3. Run the deployment script:
+   ```
+   chmod +x scripts/deploy.sh
+   ./scripts/deploy.sh
+   ```
+
+4. For manual deployment:
+   ```
+   npm ci
+   npx prisma generate
+   npx prisma migrate deploy
+   npm run build
+   npm start
+   ```
+
+## Structure
+
+- `/app`: Main application code
+  - `/api`: API routes
+  - `/components`: React components
+  - `/lib`: Utility functions and libraries
+- `/chrome-extension`: Chrome extension code
+- `/prisma`: Database schema and migrations
+- `/public`: Static assets
+
+## License
+
+[MIT License](LICENSE)
 
 ## Contributing
 

@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String       @id @default(uuid())
+  email           String       @unique
+  name            String
+  password        String
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  commentaries    Commentary[]
+  favoriteMatches Match[]      @relation("UserFavoriteMatches")
+}
+
+model Match {
+  id           String       @id @default(uuid())
+  title        String
+  description  String?
+  competition  String
+  homeTeam     String
+  awayTeam     String
+  date         DateTime
+  duration     Int          @default(5400) // Duration in seconds, default 90 mins
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  commentaries Commentary[]
+  favoritedBy  User[]       @relation("UserFavoriteMatches")
+}
+
+model Commentary {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  audioUrl    String
+  duration    Int // Duration in seconds
+  startTime   Int      @default(0) // Start time in seconds from match beginning
+  likes       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String
+  match       Match    @relation(fields: [matchId], references: [id])
+  matchId     String
+}

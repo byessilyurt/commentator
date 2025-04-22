@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import ClientAuth from "./components/ClientAuth";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-blue-900 to-black text-white">
+    <>
+      <ClientAuth />
       <div className="container mx-auto px-4 py-16">
         <h1 className="text-4xl md:text-6xl font-bold text-center mb-8">Commentator</h1>
         <p className="text-xl text-center mb-12 max-w-3xl mx-auto">
@@ -112,11 +114,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-        <footer className="mt-20 pt-8 border-t border-blue-700 text-center">
-          <p>© {new Date().getFullYear()} Commentator - Enhance your football watching experience</p>
-        </footer>
       </div>
-    </main>
+    </>
   );
 }
