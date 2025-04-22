@@ -1,10 +1,9 @@
-import type { NextConfig } from "next";
+const { NextConfig } = require("next");
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   /* config options here */
   poweredByHeader: false,
   reactStrictMode: true,
-  swcMinify: true,
   images: {
     domains: ['localhost'],
     // Add any external domains for images here
@@ -33,4 +32,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
         // Save audio file
         const audioUrl = await saveAudioFile(data.audioData);
 
-        // Create commentary record
+        // Create commentary record with properly formatted data
         const commentary = await prisma.commentary.create({
             data: {
                 title: data.title,
@@ -50,7 +50,8 @@ export async function POST(req: NextRequest) {
                 audioUrl,
                 userId: user?.id,
                 duration: data.duration || 0,
-                timeMarkers: data.timeMarkers || null,
+                // Handle timeMarkers as Json type
+                ...(data.timeMarkers && { timeMarkers: data.timeMarkers }),
             },
         });
 
@@ -77,15 +78,10 @@ export async function DELETE(request: NextRequest) {
             );
         }
 
-        const initialLength = commentaries.length;
-        commentaries = commentaries.filter(commentary => commentary.id !== id);
-
-        if (commentaries.length === initialLength) {
-            return NextResponse.json(
-                { error: "Commentary not found" },
-                { status: 404 }
-            );
-        }
+        // Delete commentary using Prisma
+        await prisma.commentary.delete({
+            where: { id }
+        });
 
         return NextResponse.json({ message: "Commentary deleted successfully" });
     } catch (error) {
