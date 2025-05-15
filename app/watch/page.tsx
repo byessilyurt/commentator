@@ -22,6 +22,8 @@ const MATCHES = [
     { id: 5, title: "Bundesliga: Dortmund vs Bayern", status: "UPCOMING", date: "2023-11-06" },
 ];
 
+const WS_URL = 'ws://localhost:8081';
+
 export default function WatchPage() {
     const [selectedMatch, setSelectedMatch] = useState<number | null>(null);
     const [selectedCommentary, setSelectedCommentary] = useState<number | null>(null);
@@ -40,6 +42,9 @@ export default function WatchPage() {
     const syncIntervalRef = useRef<NodeJS.Timeout | null>(null);
     const gameTimeIntervalRef = useRef<NodeJS.Timeout | null>(null);
     const liveStreamIntervalRef = useRef<NodeJS.Timeout | null>(null);
+    const wsRef = useRef<WebSocket | null>(null);
+    const audioBufferRef = useRef<Blob[]>([]);
+    const audioElementRef = useRef<HTMLAudioElement | null>(null);
 
     // Handle match selection
     const handleMatchSelect = (id: number) => {
@@ -255,6 +260,37 @@ export default function WatchPage() {
 
         // Set the display
         setGameTime(`${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
+
+        if (wsRef.current) {
+            wsRef.current.close();
+            wsRef.current = null;
+        }
+        wsRef.current = new WebSocket(WS_URL);
+        wsRef.current.onopen = () => {
+            wsRef.current?.send(JSON.stringify({
+                type: 'start-listener',
+                streamId: AVAILABLE_COMMENTARIES.find(c => c.id === selectedCommentary)?.liveStreamId,
+                gameTime: minutes * 60 + seconds,
+            }));
+        };
+        wsRef.current.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            if (data.type === 'audio-chunk' && data.audio) {
+                // Convert base64 to Blob and play
+                const byteString = atob(data.audio);
+                const ab = new ArrayBuffer(byteString.length);
+                const ia = new Uint8Array(ab);
+                for (let i = 0; i < byteString.length; i++) {
+                    ia[i] = byteString.charCodeAt(i);
+                }
+                const blob = new Blob([ab], { type: 'audio/webm' });
+                audioBufferRef.current.push(blob);
+                if (audioElementRef.current && audioElementRef.current.paused) {
+                    audioElementRef.current.src = URL.createObjectURL(blob);
+                    audioElementRef.current.play();
+                }
+            }
+        };
     };
 
     // Fetch the latest chunks of a live stream
@@ -353,16 +389,7 @@ export default function WatchPage() {
                                     </div>
                                 )}
 
-                                <AudioPlayer
-                                    ref={audioPlayerRef}
-                                    src={`/commentaries/${selectedCommentary}.mp3`}
-                                    onPlay={handlePlay}
-                                    onPause={handlePause}
-                                    showJumpControls={false}
-                                    customProgressBarSection={[]}
-                                    autoPlayAfterSrcChange={false}
-                                    className="mb-4"
-                                />
+                                <audio ref={audioElementRef} style={{ display: 'none' }}></audio>
 
                                 <div className="flex flex-wrap gap-2 mt-4 justify-center">
                                     {!isLiveCommentary && (

@@ -37,6 +37,8 @@ type UpcomingGame = {
 
 type Game = LiveGame | UpcomingGame;
 
+const WS_URL = 'ws://localhost:8081';
+
 export default function RecordPage() {
     const [selectedGame, setSelectedGame] = useState<number | null>(null);
     const [isRecording, setIsRecording] = useState(false);
@@ -60,6 +62,7 @@ export default function RecordPage() {
     const chunksRef = useRef<BlobPart[]>([]);
     const timerRef = useRef<NodeJS.Timeout | null>(null);
     const audioStreamRef = useRef<MediaStream | null>(null);
+    const wsRef = useRef<WebSocket | null>(null);
 
     // Computed game time in seconds
     const gameTimeInSeconds = () => {
@@ -113,10 +116,21 @@ export default function RecordPage() {
             mediaRecorderRef.current.ondataavailable = (event) => {
                 if (event.data.size > 0) {
                     chunksRef.current.push(event.data);
-
-                    // For live commentary, send the latest chunk with timing info
-                    // In a real implementation, this would be sent to the server
-                    sendLiveAudioChunk(event.data, gameTimeInSeconds());
+                    // Convert audio chunk to base64 and send with game time
+                    const reader = new FileReader();
+                    reader.onloadend = () => {
+                        const base64Audio = reader.result?.toString().split(',')[1];
+                        if (wsRef.current && wsRef.current.readyState === 1 && base64Audio) {
+                            wsRef.current.send(JSON.stringify({
+                                type: 'audio-chunk',
+                                streamId,
+                                gameTime: gameTimeInSeconds(),
+                                audio: base64Audio,
+                                timestamp: Date.now(),
+                            }));
+                        }
+                    };
+                    reader.readAsDataURL(event.data);
                 }
             };
 
@@ -140,6 +154,12 @@ export default function RecordPage() {
 
             // Start game time progression
             startGameTimeClock();
+
+            // Connect to WebSocket as commentator
+            wsRef.current = new WebSocket(WS_URL);
+            wsRef.current.onopen = () => {
+                wsRef.current?.send(JSON.stringify({ type: 'start-commentator', streamId }));
+            };
 
         } catch (error) {
             console.error("Error starting recording:", error);
@@ -215,6 +235,11 @@ export default function RecordPage() {
             // In a real implementation, finalize the live stream
             if (liveStreamId) {
                 finalizeAudioStream(liveStreamId);
+            }
+
+            if (wsRef.current) {
+                wsRef.current.close();
+                wsRef.current = null;
             }
         }
     };
