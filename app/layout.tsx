@@ -41,6 +41,11 @@ export default function RootLayout({
                       Record
                     </Link>
                   </li>
+                  <li>
+                    <Link href="/commentator/dashboard" className="hover:text-blue-400">
+                      Commentator
+                    </Link>
+                  </li>
                 </ul>
               </nav>
               {/* Auth button will be added client-side */}

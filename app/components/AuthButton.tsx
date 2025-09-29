@@ -115,11 +115,11 @@ export default function AuthButton() {
                         Profile
                     </Link>
                     <Link
-                        href="/my-commentaries"
+                        href="/commentator/dashboard"
                         className="block px-4 py-2 text-sm text-white hover:bg-blue-700 w-full text-left"
                         onClick={() => setDropdownOpen(false)}
                     >
-                        My Commentaries
+                        Commentator Dashboard
                     </Link>
                     <button
                         onClick={handleLogout}
@@ -131,4 +131,4 @@ export default function AuthButton() {
             )}
         </div>
     );
-} 
+}
