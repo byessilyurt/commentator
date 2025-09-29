@@ -1,0 +1,13 @@
+{
+  "name": "commentator-extension",
+  "version": "2.1.0",
+  "description": "Chrome extension for Commentator - Alternative Football Commentary",
+  "scripts": {
+    "build": "echo 'Extension files are ready for Chrome Web Store'",
+    "zip": "zip -r commentator-extension.zip . -x '*.git*' 'node_modules/*' 'package*.json' '*.md'",
+    "test": "echo 'Load extension in Chrome for testing'"
+  },
+  "keywords": ["football", "commentary", "chrome-extension", "sports"],
+  "author": "Commentator Team",
+  "license": "MIT"
+}

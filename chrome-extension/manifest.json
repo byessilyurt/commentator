@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Commentator - Alternative Football Commentary",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Watch football with alternative commentary from your favorite commentators, perfectly synchronized with any stream.",
   "permissions": [
     "storage",
@@ -19,7 +19,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content.js"],
+      "js": ["src/content.js"],
       "run_at": "document_end"
     }
   ],

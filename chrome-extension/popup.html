@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 380px;
+      min-height: 400px;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .header {
+      padding: 20px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .status {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .status-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4CAF50;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
+    .status-indicator.inactive {
+      background: #757575;
+      animation: none;
+    }
+
+    .match-info {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .commentaries {
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-weight: 600;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    .commentary-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 2px solid transparent;
+    }
+
+    .commentary-card:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-1px);
+    }
+
+    .commentary-card.active {
+      border-color: #4CAF50;
+      background: rgba(76, 175, 80, 0.2);
+    }
+
+    .commentary-header {
+      display: flex;
+      justify-content: between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .commentator-name {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .live-badge {
+      background: #f44336;
+      color: white;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-weight: 600;
+      margin-left: auto;
+    }
+
+    .commentary-meta {
+      font-size: 12px;
+      opacity: 0.8;
+      display: flex;
+      gap: 12px;
+    }
+
+    .sync-controls {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .sync-display {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .sync-offset {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .sync-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .sync-btn {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: background 0.2s ease;
+    }
+
+    .sync-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #4CAF50;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #45a049;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-danger {
+      background: #f44336;
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: #da190b;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 40px 20px;
+      opacity: 0.8;
+    }
+
+    .spinner {
+      width: 24px;
+      height: 24px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-top: 2px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 12px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .no-match {
+      text-align: center;
+      padding: 20px;
+      opacity: 0.8;
+    }
+
+    .footer {
+      padding: 16px 20px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 12px;
+      opacity: 0.7;
+    }
+
+    .footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">⚽ Commentator</div>
+    <div class="subtitle">Alternative Football Commentary</div>
+  </div>
+
+  <div class="content">
+    <!-- Loading State -->
+    <div id="loading" class="loading">
+      <div class="spinner"></div>
+      <div>Detecting match...</div>
+    </div>
+
+    <!-- No Match State -->
+    <div id="no-match" class="no-match hidden">
+      <div>🔍</div>
+      <div style="margin: 12px 0;">No football match detected</div>
+      <div style="font-size: 12px; opacity: 0.8;">
+        Navigate to a streaming platform and play a football match
+      </div>
+    </div>
+
+    <!-- Match Detected State -->
+    <div id="match-detected" class="hidden">
+      <!-- Status -->
+      <div class="status">
+        <div class="status-title">
+          <div class="status-indicator" id="status-indicator"></div>
+          <span id="status-text">Match Detected</span>
+        </div>
+        <div class="match-info" id="match-info">Loading...</div>
+      </div>
+
+      <!-- Available Commentaries -->
+      <div class="commentaries">
+        <div class="section-title">Available Commentaries</div>
+        <div id="commentaries-list">
+          <!-- Commentary cards will be inserted here -->
+        </div>
+      </div>
+
+      <!-- Sync Controls (shown when commentary is active) -->
+      <div id="sync-controls" class="sync-controls hidden">
+        <div class="section-title">Sync Control</div>
+        <div class="sync-display">
+          <div class="sync-offset" id="sync-offset">+0.0s</div>
+          <div style="font-size: 12px; opacity: 0.8;">Adjust if commentary is out of sync</div>
+        </div>
+        <div class="sync-buttons">
+          <button class="sync-btn" data-delta="-1000">-1s</button>
+          <button class="sync-btn" data-delta="-100">-0.1s</button>
+          <button class="sync-btn" data-delta="100">+0.1s</button>
+          <button class="sync-btn" data-delta="1000">+1s</button>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button id="stop-btn" class="btn btn-danger hidden">Stop Commentary</button>
+        <button id="web-app-btn" class="btn btn-secondary">Open Web App</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="http://localhost:3000" target="_blank">Visit Commentator Platform</a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
