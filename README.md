@@ -39,12 +39,17 @@ A platform to enhance football matches with alternative commentary. Watch any fo
    npm install
    ```
 
-3. Set up the database:
+3. Create environment file:
+   ```
+   cp .env.example .env
+   ```
+   
+4. Set up the database:
    ```
    npx prisma migrate dev
    ```
 
-4. Start the development server:
+5. Start the development server:
    ```
    npm run dev
    ```
