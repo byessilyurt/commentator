@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, TestTube, CheckCircle, XCircle } from "lucide-react";
+import { ArrowLeft, TestTube, CircleCheck as CheckCircle, Circle as XCircle } from "lucide-react";
 import LiveStatusIndicator from "../../components/LiveStatusIndicator";
 import EventMarker from "../../components/EventMarker";
 import GameTimer from "../../components/GameTimer";
