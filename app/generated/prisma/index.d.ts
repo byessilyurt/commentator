@@ -28,6 +28,21 @@ export type Match = $Result.DefaultSelection<Prisma.$MatchPayload>
  * 
  */
 export type Commentary = $Result.DefaultSelection<Prisma.$CommentaryPayload>
+/**
+ * Model MatchEvent
+ * 
+ */
+export type MatchEvent = $Result.DefaultSelection<Prisma.$MatchEventPayload>
+/**
+ * Model CommentaryEvent
+ * 
+ */
+export type CommentaryEvent = $Result.DefaultSelection<Prisma.$CommentaryEventPayload>
+/**
+ * Model SyncReport
+ * 
+ */
+export type SyncReport = $Result.DefaultSelection<Prisma.$SyncReportPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -183,6 +198,36 @@ export class PrismaClient<
     * ```
     */
   get commentary(): Prisma.CommentaryDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.matchEvent`: Exposes CRUD operations for the **MatchEvent** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more MatchEvents
+    * const matchEvents = await prisma.matchEvent.findMany()
+    * ```
+    */
+  get matchEvent(): Prisma.MatchEventDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.commentaryEvent`: Exposes CRUD operations for the **CommentaryEvent** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CommentaryEvents
+    * const commentaryEvents = await prisma.commentaryEvent.findMany()
+    * ```
+    */
+  get commentaryEvent(): Prisma.CommentaryEventDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.syncReport`: Exposes CRUD operations for the **SyncReport** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SyncReports
+    * const syncReports = await prisma.syncReport.findMany()
+    * ```
+    */
+  get syncReport(): Prisma.SyncReportDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -625,7 +670,10 @@ export namespace Prisma {
   export const ModelName: {
     User: 'User',
     Match: 'Match',
-    Commentary: 'Commentary'
+    Commentary: 'Commentary',
+    MatchEvent: 'MatchEvent',
+    CommentaryEvent: 'CommentaryEvent',
+    SyncReport: 'SyncReport'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -644,7 +692,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "match" | "commentary"
+      modelProps: "user" | "match" | "commentary" | "matchEvent" | "commentaryEvent" | "syncReport"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -870,6 +918,228 @@ export namespace Prisma {
           }
         }
       }
+      MatchEvent: {
+        payload: Prisma.$MatchEventPayload<ExtArgs>
+        fields: Prisma.MatchEventFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MatchEventFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchEventPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MatchEventFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchEventPayload>
+          }
+          findFirst: {
+            args: Prisma.MatchEventFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchEventPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MatchEventFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchEventPayload>
+          }
+          findMany: {
+            args: Prisma.MatchEventFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchEventPayload>[]
+          }
+          create: {
+            args: Prisma.MatchEventCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchEventPayload>
+          }
+          createMany: {
+            args: Prisma.MatchEventCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.MatchEventCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchEventPayload>[]
+          }
+          delete: {
+            args: Prisma.MatchEventDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchEventPayload>
+          }
+          update: {
+            args: Prisma.MatchEventUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchEventPayload>
+          }
+          deleteMany: {
+            args: Prisma.MatchEventDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MatchEventUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.MatchEventUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchEventPayload>[]
+          }
+          upsert: {
+            args: Prisma.MatchEventUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MatchEventPayload>
+          }
+          aggregate: {
+            args: Prisma.MatchEventAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMatchEvent>
+          }
+          groupBy: {
+            args: Prisma.MatchEventGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MatchEventGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MatchEventCountArgs<ExtArgs>
+            result: $Utils.Optional<MatchEventCountAggregateOutputType> | number
+          }
+        }
+      }
+      CommentaryEvent: {
+        payload: Prisma.$CommentaryEventPayload<ExtArgs>
+        fields: Prisma.CommentaryEventFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CommentaryEventFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentaryEventPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CommentaryEventFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentaryEventPayload>
+          }
+          findFirst: {
+            args: Prisma.CommentaryEventFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentaryEventPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CommentaryEventFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentaryEventPayload>
+          }
+          findMany: {
+            args: Prisma.CommentaryEventFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentaryEventPayload>[]
+          }
+          create: {
+            args: Prisma.CommentaryEventCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentaryEventPayload>
+          }
+          createMany: {
+            args: Prisma.CommentaryEventCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CommentaryEventCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentaryEventPayload>[]
+          }
+          delete: {
+            args: Prisma.CommentaryEventDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentaryEventPayload>
+          }
+          update: {
+            args: Prisma.CommentaryEventUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentaryEventPayload>
+          }
+          deleteMany: {
+            args: Prisma.CommentaryEventDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CommentaryEventUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CommentaryEventUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentaryEventPayload>[]
+          }
+          upsert: {
+            args: Prisma.CommentaryEventUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CommentaryEventPayload>
+          }
+          aggregate: {
+            args: Prisma.CommentaryEventAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCommentaryEvent>
+          }
+          groupBy: {
+            args: Prisma.CommentaryEventGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CommentaryEventGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CommentaryEventCountArgs<ExtArgs>
+            result: $Utils.Optional<CommentaryEventCountAggregateOutputType> | number
+          }
+        }
+      }
+      SyncReport: {
+        payload: Prisma.$SyncReportPayload<ExtArgs>
+        fields: Prisma.SyncReportFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SyncReportFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncReportPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SyncReportFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncReportPayload>
+          }
+          findFirst: {
+            args: Prisma.SyncReportFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncReportPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SyncReportFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncReportPayload>
+          }
+          findMany: {
+            args: Prisma.SyncReportFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncReportPayload>[]
+          }
+          create: {
+            args: Prisma.SyncReportCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncReportPayload>
+          }
+          createMany: {
+            args: Prisma.SyncReportCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SyncReportCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncReportPayload>[]
+          }
+          delete: {
+            args: Prisma.SyncReportDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncReportPayload>
+          }
+          update: {
+            args: Prisma.SyncReportUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncReportPayload>
+          }
+          deleteMany: {
+            args: Prisma.SyncReportDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SyncReportUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SyncReportUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncReportPayload>[]
+          }
+          upsert: {
+            args: Prisma.SyncReportUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SyncReportPayload>
+          }
+          aggregate: {
+            args: Prisma.SyncReportAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSyncReport>
+          }
+          groupBy: {
+            args: Prisma.SyncReportGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SyncReportGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SyncReportCountArgs<ExtArgs>
+            result: $Utils.Optional<SyncReportCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -957,6 +1227,9 @@ export namespace Prisma {
     user?: UserOmit
     match?: MatchOmit
     commentary?: CommentaryOmit
+    matchEvent?: MatchEventOmit
+    commentaryEvent?: CommentaryEventOmit
+    syncReport?: SyncReportOmit
   }
 
   /* Types for Logging */
@@ -1052,12 +1325,12 @@ export namespace Prisma {
 
   export type UserCountOutputType = {
     commentaries: number
-    favoriteMatches: number
+    syncReports: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     commentaries?: boolean | UserCountOutputTypeCountCommentariesArgs
-    favoriteMatches?: boolean | UserCountOutputTypeCountFavoriteMatchesArgs
+    syncReports?: boolean | UserCountOutputTypeCountSyncReportsArgs
   }
 
   // Custom InputTypes
@@ -1081,8 +1354,8 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountFavoriteMatchesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MatchWhereInput
+  export type UserCountOutputTypeCountSyncReportsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SyncReportWhereInput
   }
 
 
@@ -1092,12 +1365,12 @@ export namespace Prisma {
 
   export type MatchCountOutputType = {
     commentaries: number
-    favoritedBy: number
+    events: number
   }
 
   export type MatchCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     commentaries?: boolean | MatchCountOutputTypeCountCommentariesArgs
-    favoritedBy?: boolean | MatchCountOutputTypeCountFavoritedByArgs
+    events?: boolean | MatchCountOutputTypeCountEventsArgs
   }
 
   // Custom InputTypes
@@ -1121,8 +1394,48 @@ export namespace Prisma {
   /**
    * MatchCountOutputType without action
    */
-  export type MatchCountOutputTypeCountFavoritedByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UserWhereInput
+  export type MatchCountOutputTypeCountEventsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MatchEventWhereInput
+  }
+
+
+  /**
+   * Count Type CommentaryCountOutputType
+   */
+
+  export type CommentaryCountOutputType = {
+    events: number
+    syncReports: number
+  }
+
+  export type CommentaryCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    events?: boolean | CommentaryCountOutputTypeCountEventsArgs
+    syncReports?: boolean | CommentaryCountOutputTypeCountSyncReportsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CommentaryCountOutputType without action
+   */
+  export type CommentaryCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CommentaryCountOutputType
+     */
+    select?: CommentaryCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CommentaryCountOutputType without action
+   */
+  export type CommentaryCountOutputTypeCountEventsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CommentaryEventWhereInput
+  }
+
+  /**
+   * CommentaryCountOutputType without action
+   */
+  export type CommentaryCountOutputTypeCountSyncReportsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SyncReportWhereInput
   }
 
 
@@ -1145,6 +1458,7 @@ export namespace Prisma {
     email: string | null
     name: string | null
     password: string | null
+    isCommentator: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1154,6 +1468,7 @@ export namespace Prisma {
     email: string | null
     name: string | null
     password: string | null
+    isCommentator: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -1163,6 +1478,7 @@ export namespace Prisma {
     email: number
     name: number
     password: number
+    isCommentator: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -1174,6 +1490,7 @@ export namespace Prisma {
     email?: true
     name?: true
     password?: true
+    isCommentator?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1183,6 +1500,7 @@ export namespace Prisma {
     email?: true
     name?: true
     password?: true
+    isCommentator?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1192,6 +1510,7 @@ export namespace Prisma {
     email?: true
     name?: true
     password?: true
+    isCommentator?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1274,6 +1593,7 @@ export namespace Prisma {
     email: string
     name: string
     password: string
+    isCommentator: boolean
     createdAt: Date
     updatedAt: Date
     _count: UserCountAggregateOutputType | null
@@ -1300,10 +1620,11 @@ export namespace Prisma {
     email?: boolean
     name?: boolean
     password?: boolean
+    isCommentator?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     commentaries?: boolean | User$commentariesArgs<ExtArgs>
-    favoriteMatches?: boolean | User$favoriteMatchesArgs<ExtArgs>
+    syncReports?: boolean | User$syncReportsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1312,6 +1633,7 @@ export namespace Prisma {
     email?: boolean
     name?: boolean
     password?: boolean
+    isCommentator?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1321,6 +1643,7 @@ export namespace Prisma {
     email?: boolean
     name?: boolean
     password?: boolean
+    isCommentator?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
@@ -1330,14 +1653,15 @@ export namespace Prisma {
     email?: boolean
     name?: boolean
     password?: boolean
+    isCommentator?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "name" | "password" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "name" | "password" | "isCommentator" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     commentaries?: boolean | User$commentariesArgs<ExtArgs>
-    favoriteMatches?: boolean | User$favoriteMatchesArgs<ExtArgs>
+    syncReports?: boolean | User$syncReportsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1347,13 +1671,14 @@ export namespace Prisma {
     name: "User"
     objects: {
       commentaries: Prisma.$CommentaryPayload<ExtArgs>[]
-      favoriteMatches: Prisma.$MatchPayload<ExtArgs>[]
+      syncReports: Prisma.$SyncReportPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       email: string
       name: string
       password: string
+      isCommentator: boolean
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["user"]>
@@ -1751,7 +2076,7 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     commentaries<T extends User$commentariesArgs<ExtArgs> = {}>(args?: Subset<T, User$commentariesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentaryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    favoriteMatches<T extends User$favoriteMatchesArgs<ExtArgs> = {}>(args?: Subset<T, User$favoriteMatchesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MatchPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    syncReports<T extends User$syncReportsArgs<ExtArgs> = {}>(args?: Subset<T, User$syncReportsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SyncReportPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1785,6 +2110,7 @@ export namespace Prisma {
     readonly email: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
     readonly password: FieldRef<"User", 'String'>
+    readonly isCommentator: FieldRef<"User", 'Boolean'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
@@ -2199,27 +2525,27 @@ export namespace Prisma {
   }
 
   /**
-   * User.favoriteMatches
+   * User.syncReports
    */
-  export type User$favoriteMatchesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$syncReportsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Match
+     * Select specific fields to fetch from the SyncReport
      */
-    select?: MatchSelect<ExtArgs> | null
+    select?: SyncReportSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Match
+     * Omit specific fields from the SyncReport
      */
-    omit?: MatchOmit<ExtArgs> | null
+    omit?: SyncReportOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MatchInclude<ExtArgs> | null
-    where?: MatchWhereInput
-    orderBy?: MatchOrderByWithRelationInput | MatchOrderByWithRelationInput[]
-    cursor?: MatchWhereUniqueInput
+    include?: SyncReportInclude<ExtArgs> | null
+    where?: SyncReportWhereInput
+    orderBy?: SyncReportOrderByWithRelationInput | SyncReportOrderByWithRelationInput[]
+    cursor?: SyncReportWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: MatchScalarFieldEnum | MatchScalarFieldEnum[]
+    distinct?: SyncReportScalarFieldEnum | SyncReportScalarFieldEnum[]
   }
 
   /**
@@ -2247,104 +2573,76 @@ export namespace Prisma {
 
   export type AggregateMatch = {
     _count: MatchCountAggregateOutputType | null
-    _avg: MatchAvgAggregateOutputType | null
-    _sum: MatchSumAggregateOutputType | null
     _min: MatchMinAggregateOutputType | null
     _max: MatchMaxAggregateOutputType | null
   }
 
-  export type MatchAvgAggregateOutputType = {
-    duration: number | null
-  }
-
-  export type MatchSumAggregateOutputType = {
-    duration: number | null
-  }
-
   export type MatchMinAggregateOutputType = {
     id: string | null
-    title: string | null
-    description: string | null
-    competition: string | null
+    league: string | null
     homeTeam: string | null
     awayTeam: string | null
-    date: Date | null
-    duration: number | null
+    scheduledTime: Date | null
+    status: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
   export type MatchMaxAggregateOutputType = {
     id: string | null
-    title: string | null
-    description: string | null
-    competition: string | null
+    league: string | null
     homeTeam: string | null
     awayTeam: string | null
-    date: Date | null
-    duration: number | null
+    scheduledTime: Date | null
+    status: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
   export type MatchCountAggregateOutputType = {
     id: number
-    title: number
-    description: number
-    competition: number
+    league: number
     homeTeam: number
     awayTeam: number
-    date: number
-    duration: number
+    scheduledTime: number
+    streamUrlPatterns: number
+    status: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
 
-  export type MatchAvgAggregateInputType = {
-    duration?: true
-  }
-
-  export type MatchSumAggregateInputType = {
-    duration?: true
-  }
-
   export type MatchMinAggregateInputType = {
     id?: true
-    title?: true
-    description?: true
-    competition?: true
+    league?: true
     homeTeam?: true
     awayTeam?: true
-    date?: true
-    duration?: true
+    scheduledTime?: true
+    status?: true
     createdAt?: true
     updatedAt?: true
   }
 
   export type MatchMaxAggregateInputType = {
     id?: true
-    title?: true
-    description?: true
-    competition?: true
+    league?: true
     homeTeam?: true
     awayTeam?: true
-    date?: true
-    duration?: true
+    scheduledTime?: true
+    status?: true
     createdAt?: true
     updatedAt?: true
   }
 
   export type MatchCountAggregateInputType = {
     id?: true
-    title?: true
-    description?: true
-    competition?: true
+    league?: true
     homeTeam?: true
     awayTeam?: true
-    date?: true
-    duration?: true
+    scheduledTime?: true
+    streamUrlPatterns?: true
+    status?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -2388,18 +2686,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: MatchAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: MatchSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: MatchMinAggregateInputType
@@ -2430,26 +2716,21 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: MatchCountAggregateInputType | true
-    _avg?: MatchAvgAggregateInputType
-    _sum?: MatchSumAggregateInputType
     _min?: MatchMinAggregateInputType
     _max?: MatchMaxAggregateInputType
   }
 
   export type MatchGroupByOutputType = {
     id: string
-    title: string
-    description: string | null
-    competition: string
+    league: string
     homeTeam: string
     awayTeam: string
-    date: Date
-    duration: number
+    scheduledTime: Date
+    streamUrlPatterns: string[]
+    status: string
     createdAt: Date
     updatedAt: Date
     _count: MatchCountAggregateOutputType | null
-    _avg: MatchAvgAggregateOutputType | null
-    _sum: MatchSumAggregateOutputType | null
     _min: MatchMinAggregateOutputType | null
     _max: MatchMaxAggregateOutputType | null
   }
@@ -2470,63 +2751,59 @@ export namespace Prisma {
 
   export type MatchSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    title?: boolean
-    description?: boolean
-    competition?: boolean
+    league?: boolean
     homeTeam?: boolean
     awayTeam?: boolean
-    date?: boolean
-    duration?: boolean
+    scheduledTime?: boolean
+    streamUrlPatterns?: boolean
+    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     commentaries?: boolean | Match$commentariesArgs<ExtArgs>
-    favoritedBy?: boolean | Match$favoritedByArgs<ExtArgs>
+    events?: boolean | Match$eventsArgs<ExtArgs>
     _count?: boolean | MatchCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["match"]>
 
   export type MatchSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    title?: boolean
-    description?: boolean
-    competition?: boolean
+    league?: boolean
     homeTeam?: boolean
     awayTeam?: boolean
-    date?: boolean
-    duration?: boolean
+    scheduledTime?: boolean
+    streamUrlPatterns?: boolean
+    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["match"]>
 
   export type MatchSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    title?: boolean
-    description?: boolean
-    competition?: boolean
+    league?: boolean
     homeTeam?: boolean
     awayTeam?: boolean
-    date?: boolean
-    duration?: boolean
+    scheduledTime?: boolean
+    streamUrlPatterns?: boolean
+    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["match"]>
 
   export type MatchSelectScalar = {
     id?: boolean
-    title?: boolean
-    description?: boolean
-    competition?: boolean
+    league?: boolean
     homeTeam?: boolean
     awayTeam?: boolean
-    date?: boolean
-    duration?: boolean
+    scheduledTime?: boolean
+    streamUrlPatterns?: boolean
+    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type MatchOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "competition" | "homeTeam" | "awayTeam" | "date" | "duration" | "createdAt" | "updatedAt", ExtArgs["result"]["match"]>
+  export type MatchOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "league" | "homeTeam" | "awayTeam" | "scheduledTime" | "streamUrlPatterns" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["match"]>
   export type MatchInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     commentaries?: boolean | Match$commentariesArgs<ExtArgs>
-    favoritedBy?: boolean | Match$favoritedByArgs<ExtArgs>
+    events?: boolean | Match$eventsArgs<ExtArgs>
     _count?: boolean | MatchCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type MatchIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2536,17 +2813,16 @@ export namespace Prisma {
     name: "Match"
     objects: {
       commentaries: Prisma.$CommentaryPayload<ExtArgs>[]
-      favoritedBy: Prisma.$UserPayload<ExtArgs>[]
+      events: Prisma.$MatchEventPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      title: string
-      description: string | null
-      competition: string
+      league: string
       homeTeam: string
       awayTeam: string
-      date: Date
-      duration: number
+      scheduledTime: Date
+      streamUrlPatterns: string[]
+      status: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["match"]>
@@ -2944,7 +3220,7 @@ export namespace Prisma {
   export interface Prisma__MatchClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     commentaries<T extends Match$commentariesArgs<ExtArgs> = {}>(args?: Subset<T, Match$commentariesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentaryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    favoritedBy<T extends Match$favoritedByArgs<ExtArgs> = {}>(args?: Subset<T, Match$favoritedByArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    events<T extends Match$eventsArgs<ExtArgs> = {}>(args?: Subset<T, Match$eventsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MatchEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2975,13 +3251,12 @@ export namespace Prisma {
    */
   interface MatchFieldRefs {
     readonly id: FieldRef<"Match", 'String'>
-    readonly title: FieldRef<"Match", 'String'>
-    readonly description: FieldRef<"Match", 'String'>
-    readonly competition: FieldRef<"Match", 'String'>
+    readonly league: FieldRef<"Match", 'String'>
     readonly homeTeam: FieldRef<"Match", 'String'>
     readonly awayTeam: FieldRef<"Match", 'String'>
-    readonly date: FieldRef<"Match", 'DateTime'>
-    readonly duration: FieldRef<"Match", 'Int'>
+    readonly scheduledTime: FieldRef<"Match", 'DateTime'>
+    readonly streamUrlPatterns: FieldRef<"Match", 'String[]'>
+    readonly status: FieldRef<"Match", 'String'>
     readonly createdAt: FieldRef<"Match", 'DateTime'>
     readonly updatedAt: FieldRef<"Match", 'DateTime'>
   }
@@ -3396,27 +3671,27 @@ export namespace Prisma {
   }
 
   /**
-   * Match.favoritedBy
+   * Match.events
    */
-  export type Match$favoritedByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Match$eventsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the MatchEvent
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: MatchEventSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the MatchEvent
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: MatchEventOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: UserInclude<ExtArgs> | null
-    where?: UserWhereInput
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
-    cursor?: UserWhereUniqueInput
+    include?: MatchEventInclude<ExtArgs> | null
+    where?: MatchEventWhereInput
+    orderBy?: MatchEventOrderByWithRelationInput | MatchEventOrderByWithRelationInput[]
+    cursor?: MatchEventWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+    distinct?: MatchEventScalarFieldEnum | MatchEventScalarFieldEnum[]
   }
 
   /**
@@ -3452,112 +3727,168 @@ export namespace Prisma {
 
   export type CommentaryAvgAggregateOutputType = {
     duration: number | null
-    startTime: number | null
-    likes: number | null
+    baselineOffset: number | null
+    avgLatency: number | null
+    viewCount: number | null
+    rating: number | null
   }
 
   export type CommentarySumAggregateOutputType = {
     duration: number | null
-    startTime: number | null
-    likes: number | null
+    baselineOffset: number | null
+    avgLatency: number | null
+    viewCount: number | null
+    rating: number | null
   }
 
   export type CommentaryMinAggregateOutputType = {
     id: string | null
+    matchId: string | null
+    commentatorId: string | null
     title: string | null
     description: string | null
     audioUrl: string | null
     duration: number | null
-    startTime: number | null
-    likes: number | null
+    youtubeStreamUrl: string | null
+    youtubeStreamId: string | null
+    status: string | null
+    language: string | null
+    baselineOffset: number | null
+    avgLatency: number | null
+    viewCount: number | null
+    rating: number | null
+    startedAt: Date | null
+    endedAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
-    userId: string | null
-    matchId: string | null
   }
 
   export type CommentaryMaxAggregateOutputType = {
     id: string | null
+    matchId: string | null
+    commentatorId: string | null
     title: string | null
     description: string | null
     audioUrl: string | null
     duration: number | null
-    startTime: number | null
-    likes: number | null
+    youtubeStreamUrl: string | null
+    youtubeStreamId: string | null
+    status: string | null
+    language: string | null
+    baselineOffset: number | null
+    avgLatency: number | null
+    viewCount: number | null
+    rating: number | null
+    startedAt: Date | null
+    endedAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
-    userId: string | null
-    matchId: string | null
   }
 
   export type CommentaryCountAggregateOutputType = {
     id: number
+    matchId: number
+    commentatorId: number
     title: number
     description: number
     audioUrl: number
     duration: number
-    startTime: number
-    likes: number
+    youtubeStreamUrl: number
+    youtubeStreamId: number
+    status: number
+    language: number
+    baselineOffset: number
+    avgLatency: number
+    viewCount: number
+    rating: number
+    startedAt: number
+    endedAt: number
     createdAt: number
     updatedAt: number
-    userId: number
-    matchId: number
     _all: number
   }
 
 
   export type CommentaryAvgAggregateInputType = {
     duration?: true
-    startTime?: true
-    likes?: true
+    baselineOffset?: true
+    avgLatency?: true
+    viewCount?: true
+    rating?: true
   }
 
   export type CommentarySumAggregateInputType = {
     duration?: true
-    startTime?: true
-    likes?: true
+    baselineOffset?: true
+    avgLatency?: true
+    viewCount?: true
+    rating?: true
   }
 
   export type CommentaryMinAggregateInputType = {
     id?: true
+    matchId?: true
+    commentatorId?: true
     title?: true
     description?: true
     audioUrl?: true
     duration?: true
-    startTime?: true
-    likes?: true
+    youtubeStreamUrl?: true
+    youtubeStreamId?: true
+    status?: true
+    language?: true
+    baselineOffset?: true
+    avgLatency?: true
+    viewCount?: true
+    rating?: true
+    startedAt?: true
+    endedAt?: true
     createdAt?: true
     updatedAt?: true
-    userId?: true
-    matchId?: true
   }
 
   export type CommentaryMaxAggregateInputType = {
     id?: true
+    matchId?: true
+    commentatorId?: true
     title?: true
     description?: true
     audioUrl?: true
     duration?: true
-    startTime?: true
-    likes?: true
+    youtubeStreamUrl?: true
+    youtubeStreamId?: true
+    status?: true
+    language?: true
+    baselineOffset?: true
+    avgLatency?: true
+    viewCount?: true
+    rating?: true
+    startedAt?: true
+    endedAt?: true
     createdAt?: true
     updatedAt?: true
-    userId?: true
-    matchId?: true
   }
 
   export type CommentaryCountAggregateInputType = {
     id?: true
+    matchId?: true
+    commentatorId?: true
     title?: true
     description?: true
     audioUrl?: true
     duration?: true
-    startTime?: true
-    likes?: true
+    youtubeStreamUrl?: true
+    youtubeStreamId?: true
+    status?: true
+    language?: true
+    baselineOffset?: true
+    avgLatency?: true
+    viewCount?: true
+    rating?: true
+    startedAt?: true
+    endedAt?: true
     createdAt?: true
     updatedAt?: true
-    userId?: true
-    matchId?: true
     _all?: true
   }
 
@@ -3649,16 +3980,24 @@ export namespace Prisma {
 
   export type CommentaryGroupByOutputType = {
     id: string
+    matchId: string
+    commentatorId: string
     title: string
     description: string | null
-    audioUrl: string
+    audioUrl: string | null
     duration: number
-    startTime: number
-    likes: number
+    youtubeStreamUrl: string | null
+    youtubeStreamId: string | null
+    status: string
+    language: string
+    baselineOffset: number
+    avgLatency: number
+    viewCount: number
+    rating: number
+    startedAt: Date | null
+    endedAt: Date | null
     createdAt: Date
     updatedAt: Date
-    userId: string
-    matchId: string
     _count: CommentaryCountAggregateOutputType | null
     _avg: CommentaryAvgAggregateOutputType | null
     _sum: CommentarySumAggregateOutputType | null
@@ -3682,98 +4021,146 @@ export namespace Prisma {
 
   export type CommentarySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    matchId?: boolean
+    commentatorId?: boolean
     title?: boolean
     description?: boolean
     audioUrl?: boolean
     duration?: boolean
-    startTime?: boolean
-    likes?: boolean
+    youtubeStreamUrl?: boolean
+    youtubeStreamId?: boolean
+    status?: boolean
+    language?: boolean
+    baselineOffset?: boolean
+    avgLatency?: boolean
+    viewCount?: boolean
+    rating?: boolean
+    startedAt?: boolean
+    endedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    userId?: boolean
-    matchId?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
     match?: boolean | MatchDefaultArgs<ExtArgs>
+    commentator?: boolean | UserDefaultArgs<ExtArgs>
+    events?: boolean | Commentary$eventsArgs<ExtArgs>
+    syncReports?: boolean | Commentary$syncReportsArgs<ExtArgs>
+    _count?: boolean | CommentaryCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["commentary"]>
 
   export type CommentarySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    matchId?: boolean
+    commentatorId?: boolean
     title?: boolean
     description?: boolean
     audioUrl?: boolean
     duration?: boolean
-    startTime?: boolean
-    likes?: boolean
+    youtubeStreamUrl?: boolean
+    youtubeStreamId?: boolean
+    status?: boolean
+    language?: boolean
+    baselineOffset?: boolean
+    avgLatency?: boolean
+    viewCount?: boolean
+    rating?: boolean
+    startedAt?: boolean
+    endedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    userId?: boolean
-    matchId?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
     match?: boolean | MatchDefaultArgs<ExtArgs>
+    commentator?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["commentary"]>
 
   export type CommentarySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    matchId?: boolean
+    commentatorId?: boolean
     title?: boolean
     description?: boolean
     audioUrl?: boolean
     duration?: boolean
-    startTime?: boolean
-    likes?: boolean
+    youtubeStreamUrl?: boolean
+    youtubeStreamId?: boolean
+    status?: boolean
+    language?: boolean
+    baselineOffset?: boolean
+    avgLatency?: boolean
+    viewCount?: boolean
+    rating?: boolean
+    startedAt?: boolean
+    endedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    userId?: boolean
-    matchId?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
     match?: boolean | MatchDefaultArgs<ExtArgs>
+    commentator?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["commentary"]>
 
   export type CommentarySelectScalar = {
     id?: boolean
+    matchId?: boolean
+    commentatorId?: boolean
     title?: boolean
     description?: boolean
     audioUrl?: boolean
     duration?: boolean
-    startTime?: boolean
-    likes?: boolean
+    youtubeStreamUrl?: boolean
+    youtubeStreamId?: boolean
+    status?: boolean
+    language?: boolean
+    baselineOffset?: boolean
+    avgLatency?: boolean
+    viewCount?: boolean
+    rating?: boolean
+    startedAt?: boolean
+    endedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    userId?: boolean
-    matchId?: boolean
   }
 
-  export type CommentaryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "audioUrl" | "duration" | "startTime" | "likes" | "createdAt" | "updatedAt" | "userId" | "matchId", ExtArgs["result"]["commentary"]>
+  export type CommentaryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "matchId" | "commentatorId" | "title" | "description" | "audioUrl" | "duration" | "youtubeStreamUrl" | "youtubeStreamId" | "status" | "language" | "baselineOffset" | "avgLatency" | "viewCount" | "rating" | "startedAt" | "endedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["commentary"]>
   export type CommentaryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     match?: boolean | MatchDefaultArgs<ExtArgs>
+    commentator?: boolean | UserDefaultArgs<ExtArgs>
+    events?: boolean | Commentary$eventsArgs<ExtArgs>
+    syncReports?: boolean | Commentary$syncReportsArgs<ExtArgs>
+    _count?: boolean | CommentaryCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type CommentaryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     match?: boolean | MatchDefaultArgs<ExtArgs>
+    commentator?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type CommentaryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     match?: boolean | MatchDefaultArgs<ExtArgs>
+    commentator?: boolean | UserDefaultArgs<ExtArgs>
   }
 
   export type $CommentaryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Commentary"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
       match: Prisma.$MatchPayload<ExtArgs>
+      commentator: Prisma.$UserPayload<ExtArgs>
+      events: Prisma.$CommentaryEventPayload<ExtArgs>[]
+      syncReports: Prisma.$SyncReportPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      matchId: string
+      commentatorId: string
       title: string
       description: string | null
-      audioUrl: string
+      audioUrl: string | null
       duration: number
-      startTime: number
-      likes: number
+      youtubeStreamUrl: string | null
+      youtubeStreamId: string | null
+      status: string
+      language: string
+      baselineOffset: number
+      avgLatency: number
+      viewCount: number
+      rating: number
+      startedAt: Date | null
+      endedAt: Date | null
       createdAt: Date
       updatedAt: Date
-      userId: string
-      matchId: string
     }, ExtArgs["result"]["commentary"]>
     composites: {}
   }
@@ -4168,8 +4555,10 @@ export namespace Prisma {
    */
   export interface Prisma__CommentaryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     match<T extends MatchDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MatchDefaultArgs<ExtArgs>>): Prisma__MatchClient<$Result.GetResult<Prisma.$MatchPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    commentator<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    events<T extends Commentary$eventsArgs<ExtArgs> = {}>(args?: Subset<T, Commentary$eventsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentaryEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    syncReports<T extends Commentary$syncReportsArgs<ExtArgs> = {}>(args?: Subset<T, Commentary$syncReportsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SyncReportPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4200,16 +4589,24 @@ export namespace Prisma {
    */
   interface CommentaryFieldRefs {
     readonly id: FieldRef<"Commentary", 'String'>
+    readonly matchId: FieldRef<"Commentary", 'String'>
+    readonly commentatorId: FieldRef<"Commentary", 'String'>
     readonly title: FieldRef<"Commentary", 'String'>
     readonly description: FieldRef<"Commentary", 'String'>
     readonly audioUrl: FieldRef<"Commentary", 'String'>
     readonly duration: FieldRef<"Commentary", 'Int'>
-    readonly startTime: FieldRef<"Commentary", 'Int'>
-    readonly likes: FieldRef<"Commentary", 'Int'>
+    readonly youtubeStreamUrl: FieldRef<"Commentary", 'String'>
+    readonly youtubeStreamId: FieldRef<"Commentary", 'String'>
+    readonly status: FieldRef<"Commentary", 'String'>
+    readonly language: FieldRef<"Commentary", 'String'>
+    readonly baselineOffset: FieldRef<"Commentary", 'Int'>
+    readonly avgLatency: FieldRef<"Commentary", 'Int'>
+    readonly viewCount: FieldRef<"Commentary", 'Int'>
+    readonly rating: FieldRef<"Commentary", 'Float'>
+    readonly startedAt: FieldRef<"Commentary", 'DateTime'>
+    readonly endedAt: FieldRef<"Commentary", 'DateTime'>
     readonly createdAt: FieldRef<"Commentary", 'DateTime'>
     readonly updatedAt: FieldRef<"Commentary", 'DateTime'>
-    readonly userId: FieldRef<"Commentary", 'String'>
-    readonly matchId: FieldRef<"Commentary", 'String'>
   }
     
 
@@ -4606,6 +5003,54 @@ export namespace Prisma {
   }
 
   /**
+   * Commentary.events
+   */
+  export type Commentary$eventsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CommentaryEvent
+     */
+    select?: CommentaryEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CommentaryEvent
+     */
+    omit?: CommentaryEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentaryEventInclude<ExtArgs> | null
+    where?: CommentaryEventWhereInput
+    orderBy?: CommentaryEventOrderByWithRelationInput | CommentaryEventOrderByWithRelationInput[]
+    cursor?: CommentaryEventWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CommentaryEventScalarFieldEnum | CommentaryEventScalarFieldEnum[]
+  }
+
+  /**
+   * Commentary.syncReports
+   */
+  export type Commentary$syncReportsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncReport
+     */
+    select?: SyncReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncReport
+     */
+    omit?: SyncReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SyncReportInclude<ExtArgs> | null
+    where?: SyncReportWhereInput
+    orderBy?: SyncReportOrderByWithRelationInput | SyncReportOrderByWithRelationInput[]
+    cursor?: SyncReportWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SyncReportScalarFieldEnum | SyncReportScalarFieldEnum[]
+  }
+
+  /**
    * Commentary without action
    */
   export type CommentaryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4621,6 +5066,3417 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: CommentaryInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model MatchEvent
+   */
+
+  export type AggregateMatchEvent = {
+    _count: MatchEventCountAggregateOutputType | null
+    _avg: MatchEventAvgAggregateOutputType | null
+    _sum: MatchEventSumAggregateOutputType | null
+    _min: MatchEventMinAggregateOutputType | null
+    _max: MatchEventMaxAggregateOutputType | null
+  }
+
+  export type MatchEventAvgAggregateOutputType = {
+    minute: number | null
+  }
+
+  export type MatchEventSumAggregateOutputType = {
+    minute: number | null
+  }
+
+  export type MatchEventMinAggregateOutputType = {
+    id: string | null
+    matchId: string | null
+    type: string | null
+    team: string | null
+    player: string | null
+    minute: number | null
+    timestamp: Date | null
+    description: string | null
+    createdAt: Date | null
+  }
+
+  export type MatchEventMaxAggregateOutputType = {
+    id: string | null
+    matchId: string | null
+    type: string | null
+    team: string | null
+    player: string | null
+    minute: number | null
+    timestamp: Date | null
+    description: string | null
+    createdAt: Date | null
+  }
+
+  export type MatchEventCountAggregateOutputType = {
+    id: number
+    matchId: number
+    type: number
+    team: number
+    player: number
+    minute: number
+    timestamp: number
+    description: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type MatchEventAvgAggregateInputType = {
+    minute?: true
+  }
+
+  export type MatchEventSumAggregateInputType = {
+    minute?: true
+  }
+
+  export type MatchEventMinAggregateInputType = {
+    id?: true
+    matchId?: true
+    type?: true
+    team?: true
+    player?: true
+    minute?: true
+    timestamp?: true
+    description?: true
+    createdAt?: true
+  }
+
+  export type MatchEventMaxAggregateInputType = {
+    id?: true
+    matchId?: true
+    type?: true
+    team?: true
+    player?: true
+    minute?: true
+    timestamp?: true
+    description?: true
+    createdAt?: true
+  }
+
+  export type MatchEventCountAggregateInputType = {
+    id?: true
+    matchId?: true
+    type?: true
+    team?: true
+    player?: true
+    minute?: true
+    timestamp?: true
+    description?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type MatchEventAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MatchEvent to aggregate.
+     */
+    where?: MatchEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MatchEvents to fetch.
+     */
+    orderBy?: MatchEventOrderByWithRelationInput | MatchEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MatchEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MatchEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MatchEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned MatchEvents
+    **/
+    _count?: true | MatchEventCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: MatchEventAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: MatchEventSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MatchEventMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MatchEventMaxAggregateInputType
+  }
+
+  export type GetMatchEventAggregateType<T extends MatchEventAggregateArgs> = {
+        [P in keyof T & keyof AggregateMatchEvent]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMatchEvent[P]>
+      : GetScalarType<T[P], AggregateMatchEvent[P]>
+  }
+
+
+
+
+  export type MatchEventGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MatchEventWhereInput
+    orderBy?: MatchEventOrderByWithAggregationInput | MatchEventOrderByWithAggregationInput[]
+    by: MatchEventScalarFieldEnum[] | MatchEventScalarFieldEnum
+    having?: MatchEventScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MatchEventCountAggregateInputType | true
+    _avg?: MatchEventAvgAggregateInputType
+    _sum?: MatchEventSumAggregateInputType
+    _min?: MatchEventMinAggregateInputType
+    _max?: MatchEventMaxAggregateInputType
+  }
+
+  export type MatchEventGroupByOutputType = {
+    id: string
+    matchId: string
+    type: string
+    team: string | null
+    player: string | null
+    minute: number
+    timestamp: Date
+    description: string | null
+    createdAt: Date
+    _count: MatchEventCountAggregateOutputType | null
+    _avg: MatchEventAvgAggregateOutputType | null
+    _sum: MatchEventSumAggregateOutputType | null
+    _min: MatchEventMinAggregateOutputType | null
+    _max: MatchEventMaxAggregateOutputType | null
+  }
+
+  type GetMatchEventGroupByPayload<T extends MatchEventGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MatchEventGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MatchEventGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MatchEventGroupByOutputType[P]>
+            : GetScalarType<T[P], MatchEventGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MatchEventSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    matchId?: boolean
+    type?: boolean
+    team?: boolean
+    player?: boolean
+    minute?: boolean
+    timestamp?: boolean
+    description?: boolean
+    createdAt?: boolean
+    match?: boolean | MatchDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["matchEvent"]>
+
+  export type MatchEventSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    matchId?: boolean
+    type?: boolean
+    team?: boolean
+    player?: boolean
+    minute?: boolean
+    timestamp?: boolean
+    description?: boolean
+    createdAt?: boolean
+    match?: boolean | MatchDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["matchEvent"]>
+
+  export type MatchEventSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    matchId?: boolean
+    type?: boolean
+    team?: boolean
+    player?: boolean
+    minute?: boolean
+    timestamp?: boolean
+    description?: boolean
+    createdAt?: boolean
+    match?: boolean | MatchDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["matchEvent"]>
+
+  export type MatchEventSelectScalar = {
+    id?: boolean
+    matchId?: boolean
+    type?: boolean
+    team?: boolean
+    player?: boolean
+    minute?: boolean
+    timestamp?: boolean
+    description?: boolean
+    createdAt?: boolean
+  }
+
+  export type MatchEventOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "matchId" | "type" | "team" | "player" | "minute" | "timestamp" | "description" | "createdAt", ExtArgs["result"]["matchEvent"]>
+  export type MatchEventInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    match?: boolean | MatchDefaultArgs<ExtArgs>
+  }
+  export type MatchEventIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    match?: boolean | MatchDefaultArgs<ExtArgs>
+  }
+  export type MatchEventIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    match?: boolean | MatchDefaultArgs<ExtArgs>
+  }
+
+  export type $MatchEventPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "MatchEvent"
+    objects: {
+      match: Prisma.$MatchPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      matchId: string
+      type: string
+      team: string | null
+      player: string | null
+      minute: number
+      timestamp: Date
+      description: string | null
+      createdAt: Date
+    }, ExtArgs["result"]["matchEvent"]>
+    composites: {}
+  }
+
+  type MatchEventGetPayload<S extends boolean | null | undefined | MatchEventDefaultArgs> = $Result.GetResult<Prisma.$MatchEventPayload, S>
+
+  type MatchEventCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MatchEventFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MatchEventCountAggregateInputType | true
+    }
+
+  export interface MatchEventDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['MatchEvent'], meta: { name: 'MatchEvent' } }
+    /**
+     * Find zero or one MatchEvent that matches the filter.
+     * @param {MatchEventFindUniqueArgs} args - Arguments to find a MatchEvent
+     * @example
+     * // Get one MatchEvent
+     * const matchEvent = await prisma.matchEvent.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MatchEventFindUniqueArgs>(args: SelectSubset<T, MatchEventFindUniqueArgs<ExtArgs>>): Prisma__MatchEventClient<$Result.GetResult<Prisma.$MatchEventPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one MatchEvent that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MatchEventFindUniqueOrThrowArgs} args - Arguments to find a MatchEvent
+     * @example
+     * // Get one MatchEvent
+     * const matchEvent = await prisma.matchEvent.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MatchEventFindUniqueOrThrowArgs>(args: SelectSubset<T, MatchEventFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MatchEventClient<$Result.GetResult<Prisma.$MatchEventPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MatchEvent that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MatchEventFindFirstArgs} args - Arguments to find a MatchEvent
+     * @example
+     * // Get one MatchEvent
+     * const matchEvent = await prisma.matchEvent.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MatchEventFindFirstArgs>(args?: SelectSubset<T, MatchEventFindFirstArgs<ExtArgs>>): Prisma__MatchEventClient<$Result.GetResult<Prisma.$MatchEventPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MatchEvent that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MatchEventFindFirstOrThrowArgs} args - Arguments to find a MatchEvent
+     * @example
+     * // Get one MatchEvent
+     * const matchEvent = await prisma.matchEvent.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MatchEventFindFirstOrThrowArgs>(args?: SelectSubset<T, MatchEventFindFirstOrThrowArgs<ExtArgs>>): Prisma__MatchEventClient<$Result.GetResult<Prisma.$MatchEventPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more MatchEvents that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MatchEventFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all MatchEvents
+     * const matchEvents = await prisma.matchEvent.findMany()
+     * 
+     * // Get first 10 MatchEvents
+     * const matchEvents = await prisma.matchEvent.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const matchEventWithIdOnly = await prisma.matchEvent.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MatchEventFindManyArgs>(args?: SelectSubset<T, MatchEventFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MatchEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a MatchEvent.
+     * @param {MatchEventCreateArgs} args - Arguments to create a MatchEvent.
+     * @example
+     * // Create one MatchEvent
+     * const MatchEvent = await prisma.matchEvent.create({
+     *   data: {
+     *     // ... data to create a MatchEvent
+     *   }
+     * })
+     * 
+     */
+    create<T extends MatchEventCreateArgs>(args: SelectSubset<T, MatchEventCreateArgs<ExtArgs>>): Prisma__MatchEventClient<$Result.GetResult<Prisma.$MatchEventPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many MatchEvents.
+     * @param {MatchEventCreateManyArgs} args - Arguments to create many MatchEvents.
+     * @example
+     * // Create many MatchEvents
+     * const matchEvent = await prisma.matchEvent.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MatchEventCreateManyArgs>(args?: SelectSubset<T, MatchEventCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many MatchEvents and returns the data saved in the database.
+     * @param {MatchEventCreateManyAndReturnArgs} args - Arguments to create many MatchEvents.
+     * @example
+     * // Create many MatchEvents
+     * const matchEvent = await prisma.matchEvent.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many MatchEvents and only return the `id`
+     * const matchEventWithIdOnly = await prisma.matchEvent.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends MatchEventCreateManyAndReturnArgs>(args?: SelectSubset<T, MatchEventCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MatchEventPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a MatchEvent.
+     * @param {MatchEventDeleteArgs} args - Arguments to delete one MatchEvent.
+     * @example
+     * // Delete one MatchEvent
+     * const MatchEvent = await prisma.matchEvent.delete({
+     *   where: {
+     *     // ... filter to delete one MatchEvent
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MatchEventDeleteArgs>(args: SelectSubset<T, MatchEventDeleteArgs<ExtArgs>>): Prisma__MatchEventClient<$Result.GetResult<Prisma.$MatchEventPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one MatchEvent.
+     * @param {MatchEventUpdateArgs} args - Arguments to update one MatchEvent.
+     * @example
+     * // Update one MatchEvent
+     * const matchEvent = await prisma.matchEvent.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MatchEventUpdateArgs>(args: SelectSubset<T, MatchEventUpdateArgs<ExtArgs>>): Prisma__MatchEventClient<$Result.GetResult<Prisma.$MatchEventPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more MatchEvents.
+     * @param {MatchEventDeleteManyArgs} args - Arguments to filter MatchEvents to delete.
+     * @example
+     * // Delete a few MatchEvents
+     * const { count } = await prisma.matchEvent.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MatchEventDeleteManyArgs>(args?: SelectSubset<T, MatchEventDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MatchEvents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MatchEventUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many MatchEvents
+     * const matchEvent = await prisma.matchEvent.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MatchEventUpdateManyArgs>(args: SelectSubset<T, MatchEventUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MatchEvents and returns the data updated in the database.
+     * @param {MatchEventUpdateManyAndReturnArgs} args - Arguments to update many MatchEvents.
+     * @example
+     * // Update many MatchEvents
+     * const matchEvent = await prisma.matchEvent.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more MatchEvents and only return the `id`
+     * const matchEventWithIdOnly = await prisma.matchEvent.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends MatchEventUpdateManyAndReturnArgs>(args: SelectSubset<T, MatchEventUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MatchEventPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one MatchEvent.
+     * @param {MatchEventUpsertArgs} args - Arguments to update or create a MatchEvent.
+     * @example
+     * // Update or create a MatchEvent
+     * const matchEvent = await prisma.matchEvent.upsert({
+     *   create: {
+     *     // ... data to create a MatchEvent
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the MatchEvent we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MatchEventUpsertArgs>(args: SelectSubset<T, MatchEventUpsertArgs<ExtArgs>>): Prisma__MatchEventClient<$Result.GetResult<Prisma.$MatchEventPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of MatchEvents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MatchEventCountArgs} args - Arguments to filter MatchEvents to count.
+     * @example
+     * // Count the number of MatchEvents
+     * const count = await prisma.matchEvent.count({
+     *   where: {
+     *     // ... the filter for the MatchEvents we want to count
+     *   }
+     * })
+    **/
+    count<T extends MatchEventCountArgs>(
+      args?: Subset<T, MatchEventCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MatchEventCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a MatchEvent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MatchEventAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MatchEventAggregateArgs>(args: Subset<T, MatchEventAggregateArgs>): Prisma.PrismaPromise<GetMatchEventAggregateType<T>>
+
+    /**
+     * Group by MatchEvent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MatchEventGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MatchEventGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MatchEventGroupByArgs['orderBy'] }
+        : { orderBy?: MatchEventGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MatchEventGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMatchEventGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the MatchEvent model
+   */
+  readonly fields: MatchEventFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for MatchEvent.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MatchEventClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    match<T extends MatchDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MatchDefaultArgs<ExtArgs>>): Prisma__MatchClient<$Result.GetResult<Prisma.$MatchPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the MatchEvent model
+   */
+  interface MatchEventFieldRefs {
+    readonly id: FieldRef<"MatchEvent", 'String'>
+    readonly matchId: FieldRef<"MatchEvent", 'String'>
+    readonly type: FieldRef<"MatchEvent", 'String'>
+    readonly team: FieldRef<"MatchEvent", 'String'>
+    readonly player: FieldRef<"MatchEvent", 'String'>
+    readonly minute: FieldRef<"MatchEvent", 'Int'>
+    readonly timestamp: FieldRef<"MatchEvent", 'DateTime'>
+    readonly description: FieldRef<"MatchEvent", 'String'>
+    readonly createdAt: FieldRef<"MatchEvent", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * MatchEvent findUnique
+   */
+  export type MatchEventFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MatchEvent
+     */
+    select?: MatchEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MatchEvent
+     */
+    omit?: MatchEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MatchEventInclude<ExtArgs> | null
+    /**
+     * Filter, which MatchEvent to fetch.
+     */
+    where: MatchEventWhereUniqueInput
+  }
+
+  /**
+   * MatchEvent findUniqueOrThrow
+   */
+  export type MatchEventFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MatchEvent
+     */
+    select?: MatchEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MatchEvent
+     */
+    omit?: MatchEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MatchEventInclude<ExtArgs> | null
+    /**
+     * Filter, which MatchEvent to fetch.
+     */
+    where: MatchEventWhereUniqueInput
+  }
+
+  /**
+   * MatchEvent findFirst
+   */
+  export type MatchEventFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MatchEvent
+     */
+    select?: MatchEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MatchEvent
+     */
+    omit?: MatchEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MatchEventInclude<ExtArgs> | null
+    /**
+     * Filter, which MatchEvent to fetch.
+     */
+    where?: MatchEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MatchEvents to fetch.
+     */
+    orderBy?: MatchEventOrderByWithRelationInput | MatchEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MatchEvents.
+     */
+    cursor?: MatchEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MatchEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MatchEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MatchEvents.
+     */
+    distinct?: MatchEventScalarFieldEnum | MatchEventScalarFieldEnum[]
+  }
+
+  /**
+   * MatchEvent findFirstOrThrow
+   */
+  export type MatchEventFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MatchEvent
+     */
+    select?: MatchEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MatchEvent
+     */
+    omit?: MatchEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MatchEventInclude<ExtArgs> | null
+    /**
+     * Filter, which MatchEvent to fetch.
+     */
+    where?: MatchEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MatchEvents to fetch.
+     */
+    orderBy?: MatchEventOrderByWithRelationInput | MatchEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MatchEvents.
+     */
+    cursor?: MatchEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MatchEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MatchEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MatchEvents.
+     */
+    distinct?: MatchEventScalarFieldEnum | MatchEventScalarFieldEnum[]
+  }
+
+  /**
+   * MatchEvent findMany
+   */
+  export type MatchEventFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MatchEvent
+     */
+    select?: MatchEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MatchEvent
+     */
+    omit?: MatchEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MatchEventInclude<ExtArgs> | null
+    /**
+     * Filter, which MatchEvents to fetch.
+     */
+    where?: MatchEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MatchEvents to fetch.
+     */
+    orderBy?: MatchEventOrderByWithRelationInput | MatchEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing MatchEvents.
+     */
+    cursor?: MatchEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MatchEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MatchEvents.
+     */
+    skip?: number
+    distinct?: MatchEventScalarFieldEnum | MatchEventScalarFieldEnum[]
+  }
+
+  /**
+   * MatchEvent create
+   */
+  export type MatchEventCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MatchEvent
+     */
+    select?: MatchEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MatchEvent
+     */
+    omit?: MatchEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MatchEventInclude<ExtArgs> | null
+    /**
+     * The data needed to create a MatchEvent.
+     */
+    data: XOR<MatchEventCreateInput, MatchEventUncheckedCreateInput>
+  }
+
+  /**
+   * MatchEvent createMany
+   */
+  export type MatchEventCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many MatchEvents.
+     */
+    data: MatchEventCreateManyInput | MatchEventCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * MatchEvent createManyAndReturn
+   */
+  export type MatchEventCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MatchEvent
+     */
+    select?: MatchEventSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the MatchEvent
+     */
+    omit?: MatchEventOmit<ExtArgs> | null
+    /**
+     * The data used to create many MatchEvents.
+     */
+    data: MatchEventCreateManyInput | MatchEventCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MatchEventIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * MatchEvent update
+   */
+  export type MatchEventUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MatchEvent
+     */
+    select?: MatchEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MatchEvent
+     */
+    omit?: MatchEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MatchEventInclude<ExtArgs> | null
+    /**
+     * The data needed to update a MatchEvent.
+     */
+    data: XOR<MatchEventUpdateInput, MatchEventUncheckedUpdateInput>
+    /**
+     * Choose, which MatchEvent to update.
+     */
+    where: MatchEventWhereUniqueInput
+  }
+
+  /**
+   * MatchEvent updateMany
+   */
+  export type MatchEventUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update MatchEvents.
+     */
+    data: XOR<MatchEventUpdateManyMutationInput, MatchEventUncheckedUpdateManyInput>
+    /**
+     * Filter which MatchEvents to update
+     */
+    where?: MatchEventWhereInput
+    /**
+     * Limit how many MatchEvents to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * MatchEvent updateManyAndReturn
+   */
+  export type MatchEventUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MatchEvent
+     */
+    select?: MatchEventSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the MatchEvent
+     */
+    omit?: MatchEventOmit<ExtArgs> | null
+    /**
+     * The data used to update MatchEvents.
+     */
+    data: XOR<MatchEventUpdateManyMutationInput, MatchEventUncheckedUpdateManyInput>
+    /**
+     * Filter which MatchEvents to update
+     */
+    where?: MatchEventWhereInput
+    /**
+     * Limit how many MatchEvents to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MatchEventIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * MatchEvent upsert
+   */
+  export type MatchEventUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MatchEvent
+     */
+    select?: MatchEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MatchEvent
+     */
+    omit?: MatchEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MatchEventInclude<ExtArgs> | null
+    /**
+     * The filter to search for the MatchEvent to update in case it exists.
+     */
+    where: MatchEventWhereUniqueInput
+    /**
+     * In case the MatchEvent found by the `where` argument doesn't exist, create a new MatchEvent with this data.
+     */
+    create: XOR<MatchEventCreateInput, MatchEventUncheckedCreateInput>
+    /**
+     * In case the MatchEvent was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MatchEventUpdateInput, MatchEventUncheckedUpdateInput>
+  }
+
+  /**
+   * MatchEvent delete
+   */
+  export type MatchEventDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MatchEvent
+     */
+    select?: MatchEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MatchEvent
+     */
+    omit?: MatchEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MatchEventInclude<ExtArgs> | null
+    /**
+     * Filter which MatchEvent to delete.
+     */
+    where: MatchEventWhereUniqueInput
+  }
+
+  /**
+   * MatchEvent deleteMany
+   */
+  export type MatchEventDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MatchEvents to delete
+     */
+    where?: MatchEventWhereInput
+    /**
+     * Limit how many MatchEvents to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * MatchEvent without action
+   */
+  export type MatchEventDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MatchEvent
+     */
+    select?: MatchEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MatchEvent
+     */
+    omit?: MatchEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MatchEventInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CommentaryEvent
+   */
+
+  export type AggregateCommentaryEvent = {
+    _count: CommentaryEventCountAggregateOutputType | null
+    _avg: CommentaryEventAvgAggregateOutputType | null
+    _sum: CommentaryEventSumAggregateOutputType | null
+    _min: CommentaryEventMinAggregateOutputType | null
+    _max: CommentaryEventMaxAggregateOutputType | null
+  }
+
+  export type CommentaryEventAvgAggregateOutputType = {
+    gameMinute: number | null
+    audioTimestamp: number | null
+  }
+
+  export type CommentaryEventSumAggregateOutputType = {
+    gameMinute: number | null
+    audioTimestamp: number | null
+  }
+
+  export type CommentaryEventMinAggregateOutputType = {
+    id: string | null
+    commentaryId: string | null
+    type: string | null
+    gameMinute: number | null
+    audioTimestamp: number | null
+    timestamp: Date | null
+    createdAt: Date | null
+  }
+
+  export type CommentaryEventMaxAggregateOutputType = {
+    id: string | null
+    commentaryId: string | null
+    type: string | null
+    gameMinute: number | null
+    audioTimestamp: number | null
+    timestamp: Date | null
+    createdAt: Date | null
+  }
+
+  export type CommentaryEventCountAggregateOutputType = {
+    id: number
+    commentaryId: number
+    type: number
+    gameMinute: number
+    audioTimestamp: number
+    timestamp: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type CommentaryEventAvgAggregateInputType = {
+    gameMinute?: true
+    audioTimestamp?: true
+  }
+
+  export type CommentaryEventSumAggregateInputType = {
+    gameMinute?: true
+    audioTimestamp?: true
+  }
+
+  export type CommentaryEventMinAggregateInputType = {
+    id?: true
+    commentaryId?: true
+    type?: true
+    gameMinute?: true
+    audioTimestamp?: true
+    timestamp?: true
+    createdAt?: true
+  }
+
+  export type CommentaryEventMaxAggregateInputType = {
+    id?: true
+    commentaryId?: true
+    type?: true
+    gameMinute?: true
+    audioTimestamp?: true
+    timestamp?: true
+    createdAt?: true
+  }
+
+  export type CommentaryEventCountAggregateInputType = {
+    id?: true
+    commentaryId?: true
+    type?: true
+    gameMinute?: true
+    audioTimestamp?: true
+    timestamp?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type CommentaryEventAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CommentaryEvent to aggregate.
+     */
+    where?: CommentaryEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CommentaryEvents to fetch.
+     */
+    orderBy?: CommentaryEventOrderByWithRelationInput | CommentaryEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CommentaryEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CommentaryEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CommentaryEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CommentaryEvents
+    **/
+    _count?: true | CommentaryEventCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CommentaryEventAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CommentaryEventSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CommentaryEventMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CommentaryEventMaxAggregateInputType
+  }
+
+  export type GetCommentaryEventAggregateType<T extends CommentaryEventAggregateArgs> = {
+        [P in keyof T & keyof AggregateCommentaryEvent]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCommentaryEvent[P]>
+      : GetScalarType<T[P], AggregateCommentaryEvent[P]>
+  }
+
+
+
+
+  export type CommentaryEventGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CommentaryEventWhereInput
+    orderBy?: CommentaryEventOrderByWithAggregationInput | CommentaryEventOrderByWithAggregationInput[]
+    by: CommentaryEventScalarFieldEnum[] | CommentaryEventScalarFieldEnum
+    having?: CommentaryEventScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CommentaryEventCountAggregateInputType | true
+    _avg?: CommentaryEventAvgAggregateInputType
+    _sum?: CommentaryEventSumAggregateInputType
+    _min?: CommentaryEventMinAggregateInputType
+    _max?: CommentaryEventMaxAggregateInputType
+  }
+
+  export type CommentaryEventGroupByOutputType = {
+    id: string
+    commentaryId: string
+    type: string
+    gameMinute: number
+    audioTimestamp: number
+    timestamp: Date
+    createdAt: Date
+    _count: CommentaryEventCountAggregateOutputType | null
+    _avg: CommentaryEventAvgAggregateOutputType | null
+    _sum: CommentaryEventSumAggregateOutputType | null
+    _min: CommentaryEventMinAggregateOutputType | null
+    _max: CommentaryEventMaxAggregateOutputType | null
+  }
+
+  type GetCommentaryEventGroupByPayload<T extends CommentaryEventGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CommentaryEventGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CommentaryEventGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CommentaryEventGroupByOutputType[P]>
+            : GetScalarType<T[P], CommentaryEventGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CommentaryEventSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    commentaryId?: boolean
+    type?: boolean
+    gameMinute?: boolean
+    audioTimestamp?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    commentary?: boolean | CommentaryDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["commentaryEvent"]>
+
+  export type CommentaryEventSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    commentaryId?: boolean
+    type?: boolean
+    gameMinute?: boolean
+    audioTimestamp?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    commentary?: boolean | CommentaryDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["commentaryEvent"]>
+
+  export type CommentaryEventSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    commentaryId?: boolean
+    type?: boolean
+    gameMinute?: boolean
+    audioTimestamp?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+    commentary?: boolean | CommentaryDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["commentaryEvent"]>
+
+  export type CommentaryEventSelectScalar = {
+    id?: boolean
+    commentaryId?: boolean
+    type?: boolean
+    gameMinute?: boolean
+    audioTimestamp?: boolean
+    timestamp?: boolean
+    createdAt?: boolean
+  }
+
+  export type CommentaryEventOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "commentaryId" | "type" | "gameMinute" | "audioTimestamp" | "timestamp" | "createdAt", ExtArgs["result"]["commentaryEvent"]>
+  export type CommentaryEventInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    commentary?: boolean | CommentaryDefaultArgs<ExtArgs>
+  }
+  export type CommentaryEventIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    commentary?: boolean | CommentaryDefaultArgs<ExtArgs>
+  }
+  export type CommentaryEventIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    commentary?: boolean | CommentaryDefaultArgs<ExtArgs>
+  }
+
+  export type $CommentaryEventPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CommentaryEvent"
+    objects: {
+      commentary: Prisma.$CommentaryPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      commentaryId: string
+      type: string
+      gameMinute: number
+      audioTimestamp: number
+      timestamp: Date
+      createdAt: Date
+    }, ExtArgs["result"]["commentaryEvent"]>
+    composites: {}
+  }
+
+  type CommentaryEventGetPayload<S extends boolean | null | undefined | CommentaryEventDefaultArgs> = $Result.GetResult<Prisma.$CommentaryEventPayload, S>
+
+  type CommentaryEventCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CommentaryEventFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CommentaryEventCountAggregateInputType | true
+    }
+
+  export interface CommentaryEventDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CommentaryEvent'], meta: { name: 'CommentaryEvent' } }
+    /**
+     * Find zero or one CommentaryEvent that matches the filter.
+     * @param {CommentaryEventFindUniqueArgs} args - Arguments to find a CommentaryEvent
+     * @example
+     * // Get one CommentaryEvent
+     * const commentaryEvent = await prisma.commentaryEvent.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CommentaryEventFindUniqueArgs>(args: SelectSubset<T, CommentaryEventFindUniqueArgs<ExtArgs>>): Prisma__CommentaryEventClient<$Result.GetResult<Prisma.$CommentaryEventPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CommentaryEvent that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CommentaryEventFindUniqueOrThrowArgs} args - Arguments to find a CommentaryEvent
+     * @example
+     * // Get one CommentaryEvent
+     * const commentaryEvent = await prisma.commentaryEvent.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CommentaryEventFindUniqueOrThrowArgs>(args: SelectSubset<T, CommentaryEventFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CommentaryEventClient<$Result.GetResult<Prisma.$CommentaryEventPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CommentaryEvent that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentaryEventFindFirstArgs} args - Arguments to find a CommentaryEvent
+     * @example
+     * // Get one CommentaryEvent
+     * const commentaryEvent = await prisma.commentaryEvent.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CommentaryEventFindFirstArgs>(args?: SelectSubset<T, CommentaryEventFindFirstArgs<ExtArgs>>): Prisma__CommentaryEventClient<$Result.GetResult<Prisma.$CommentaryEventPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CommentaryEvent that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentaryEventFindFirstOrThrowArgs} args - Arguments to find a CommentaryEvent
+     * @example
+     * // Get one CommentaryEvent
+     * const commentaryEvent = await prisma.commentaryEvent.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CommentaryEventFindFirstOrThrowArgs>(args?: SelectSubset<T, CommentaryEventFindFirstOrThrowArgs<ExtArgs>>): Prisma__CommentaryEventClient<$Result.GetResult<Prisma.$CommentaryEventPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CommentaryEvents that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentaryEventFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CommentaryEvents
+     * const commentaryEvents = await prisma.commentaryEvent.findMany()
+     * 
+     * // Get first 10 CommentaryEvents
+     * const commentaryEvents = await prisma.commentaryEvent.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const commentaryEventWithIdOnly = await prisma.commentaryEvent.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CommentaryEventFindManyArgs>(args?: SelectSubset<T, CommentaryEventFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentaryEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CommentaryEvent.
+     * @param {CommentaryEventCreateArgs} args - Arguments to create a CommentaryEvent.
+     * @example
+     * // Create one CommentaryEvent
+     * const CommentaryEvent = await prisma.commentaryEvent.create({
+     *   data: {
+     *     // ... data to create a CommentaryEvent
+     *   }
+     * })
+     * 
+     */
+    create<T extends CommentaryEventCreateArgs>(args: SelectSubset<T, CommentaryEventCreateArgs<ExtArgs>>): Prisma__CommentaryEventClient<$Result.GetResult<Prisma.$CommentaryEventPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CommentaryEvents.
+     * @param {CommentaryEventCreateManyArgs} args - Arguments to create many CommentaryEvents.
+     * @example
+     * // Create many CommentaryEvents
+     * const commentaryEvent = await prisma.commentaryEvent.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CommentaryEventCreateManyArgs>(args?: SelectSubset<T, CommentaryEventCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CommentaryEvents and returns the data saved in the database.
+     * @param {CommentaryEventCreateManyAndReturnArgs} args - Arguments to create many CommentaryEvents.
+     * @example
+     * // Create many CommentaryEvents
+     * const commentaryEvent = await prisma.commentaryEvent.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CommentaryEvents and only return the `id`
+     * const commentaryEventWithIdOnly = await prisma.commentaryEvent.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CommentaryEventCreateManyAndReturnArgs>(args?: SelectSubset<T, CommentaryEventCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentaryEventPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CommentaryEvent.
+     * @param {CommentaryEventDeleteArgs} args - Arguments to delete one CommentaryEvent.
+     * @example
+     * // Delete one CommentaryEvent
+     * const CommentaryEvent = await prisma.commentaryEvent.delete({
+     *   where: {
+     *     // ... filter to delete one CommentaryEvent
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CommentaryEventDeleteArgs>(args: SelectSubset<T, CommentaryEventDeleteArgs<ExtArgs>>): Prisma__CommentaryEventClient<$Result.GetResult<Prisma.$CommentaryEventPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CommentaryEvent.
+     * @param {CommentaryEventUpdateArgs} args - Arguments to update one CommentaryEvent.
+     * @example
+     * // Update one CommentaryEvent
+     * const commentaryEvent = await prisma.commentaryEvent.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CommentaryEventUpdateArgs>(args: SelectSubset<T, CommentaryEventUpdateArgs<ExtArgs>>): Prisma__CommentaryEventClient<$Result.GetResult<Prisma.$CommentaryEventPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CommentaryEvents.
+     * @param {CommentaryEventDeleteManyArgs} args - Arguments to filter CommentaryEvents to delete.
+     * @example
+     * // Delete a few CommentaryEvents
+     * const { count } = await prisma.commentaryEvent.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CommentaryEventDeleteManyArgs>(args?: SelectSubset<T, CommentaryEventDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CommentaryEvents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentaryEventUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CommentaryEvents
+     * const commentaryEvent = await prisma.commentaryEvent.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CommentaryEventUpdateManyArgs>(args: SelectSubset<T, CommentaryEventUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CommentaryEvents and returns the data updated in the database.
+     * @param {CommentaryEventUpdateManyAndReturnArgs} args - Arguments to update many CommentaryEvents.
+     * @example
+     * // Update many CommentaryEvents
+     * const commentaryEvent = await prisma.commentaryEvent.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CommentaryEvents and only return the `id`
+     * const commentaryEventWithIdOnly = await prisma.commentaryEvent.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CommentaryEventUpdateManyAndReturnArgs>(args: SelectSubset<T, CommentaryEventUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentaryEventPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CommentaryEvent.
+     * @param {CommentaryEventUpsertArgs} args - Arguments to update or create a CommentaryEvent.
+     * @example
+     * // Update or create a CommentaryEvent
+     * const commentaryEvent = await prisma.commentaryEvent.upsert({
+     *   create: {
+     *     // ... data to create a CommentaryEvent
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CommentaryEvent we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CommentaryEventUpsertArgs>(args: SelectSubset<T, CommentaryEventUpsertArgs<ExtArgs>>): Prisma__CommentaryEventClient<$Result.GetResult<Prisma.$CommentaryEventPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CommentaryEvents.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentaryEventCountArgs} args - Arguments to filter CommentaryEvents to count.
+     * @example
+     * // Count the number of CommentaryEvents
+     * const count = await prisma.commentaryEvent.count({
+     *   where: {
+     *     // ... the filter for the CommentaryEvents we want to count
+     *   }
+     * })
+    **/
+    count<T extends CommentaryEventCountArgs>(
+      args?: Subset<T, CommentaryEventCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CommentaryEventCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CommentaryEvent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentaryEventAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CommentaryEventAggregateArgs>(args: Subset<T, CommentaryEventAggregateArgs>): Prisma.PrismaPromise<GetCommentaryEventAggregateType<T>>
+
+    /**
+     * Group by CommentaryEvent.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CommentaryEventGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CommentaryEventGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CommentaryEventGroupByArgs['orderBy'] }
+        : { orderBy?: CommentaryEventGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CommentaryEventGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCommentaryEventGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CommentaryEvent model
+   */
+  readonly fields: CommentaryEventFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CommentaryEvent.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CommentaryEventClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    commentary<T extends CommentaryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CommentaryDefaultArgs<ExtArgs>>): Prisma__CommentaryClient<$Result.GetResult<Prisma.$CommentaryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CommentaryEvent model
+   */
+  interface CommentaryEventFieldRefs {
+    readonly id: FieldRef<"CommentaryEvent", 'String'>
+    readonly commentaryId: FieldRef<"CommentaryEvent", 'String'>
+    readonly type: FieldRef<"CommentaryEvent", 'String'>
+    readonly gameMinute: FieldRef<"CommentaryEvent", 'Int'>
+    readonly audioTimestamp: FieldRef<"CommentaryEvent", 'Int'>
+    readonly timestamp: FieldRef<"CommentaryEvent", 'DateTime'>
+    readonly createdAt: FieldRef<"CommentaryEvent", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CommentaryEvent findUnique
+   */
+  export type CommentaryEventFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CommentaryEvent
+     */
+    select?: CommentaryEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CommentaryEvent
+     */
+    omit?: CommentaryEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentaryEventInclude<ExtArgs> | null
+    /**
+     * Filter, which CommentaryEvent to fetch.
+     */
+    where: CommentaryEventWhereUniqueInput
+  }
+
+  /**
+   * CommentaryEvent findUniqueOrThrow
+   */
+  export type CommentaryEventFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CommentaryEvent
+     */
+    select?: CommentaryEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CommentaryEvent
+     */
+    omit?: CommentaryEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentaryEventInclude<ExtArgs> | null
+    /**
+     * Filter, which CommentaryEvent to fetch.
+     */
+    where: CommentaryEventWhereUniqueInput
+  }
+
+  /**
+   * CommentaryEvent findFirst
+   */
+  export type CommentaryEventFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CommentaryEvent
+     */
+    select?: CommentaryEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CommentaryEvent
+     */
+    omit?: CommentaryEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentaryEventInclude<ExtArgs> | null
+    /**
+     * Filter, which CommentaryEvent to fetch.
+     */
+    where?: CommentaryEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CommentaryEvents to fetch.
+     */
+    orderBy?: CommentaryEventOrderByWithRelationInput | CommentaryEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CommentaryEvents.
+     */
+    cursor?: CommentaryEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CommentaryEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CommentaryEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CommentaryEvents.
+     */
+    distinct?: CommentaryEventScalarFieldEnum | CommentaryEventScalarFieldEnum[]
+  }
+
+  /**
+   * CommentaryEvent findFirstOrThrow
+   */
+  export type CommentaryEventFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CommentaryEvent
+     */
+    select?: CommentaryEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CommentaryEvent
+     */
+    omit?: CommentaryEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentaryEventInclude<ExtArgs> | null
+    /**
+     * Filter, which CommentaryEvent to fetch.
+     */
+    where?: CommentaryEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CommentaryEvents to fetch.
+     */
+    orderBy?: CommentaryEventOrderByWithRelationInput | CommentaryEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CommentaryEvents.
+     */
+    cursor?: CommentaryEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CommentaryEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CommentaryEvents.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CommentaryEvents.
+     */
+    distinct?: CommentaryEventScalarFieldEnum | CommentaryEventScalarFieldEnum[]
+  }
+
+  /**
+   * CommentaryEvent findMany
+   */
+  export type CommentaryEventFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CommentaryEvent
+     */
+    select?: CommentaryEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CommentaryEvent
+     */
+    omit?: CommentaryEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentaryEventInclude<ExtArgs> | null
+    /**
+     * Filter, which CommentaryEvents to fetch.
+     */
+    where?: CommentaryEventWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CommentaryEvents to fetch.
+     */
+    orderBy?: CommentaryEventOrderByWithRelationInput | CommentaryEventOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CommentaryEvents.
+     */
+    cursor?: CommentaryEventWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CommentaryEvents from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CommentaryEvents.
+     */
+    skip?: number
+    distinct?: CommentaryEventScalarFieldEnum | CommentaryEventScalarFieldEnum[]
+  }
+
+  /**
+   * CommentaryEvent create
+   */
+  export type CommentaryEventCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CommentaryEvent
+     */
+    select?: CommentaryEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CommentaryEvent
+     */
+    omit?: CommentaryEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentaryEventInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CommentaryEvent.
+     */
+    data: XOR<CommentaryEventCreateInput, CommentaryEventUncheckedCreateInput>
+  }
+
+  /**
+   * CommentaryEvent createMany
+   */
+  export type CommentaryEventCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CommentaryEvents.
+     */
+    data: CommentaryEventCreateManyInput | CommentaryEventCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CommentaryEvent createManyAndReturn
+   */
+  export type CommentaryEventCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CommentaryEvent
+     */
+    select?: CommentaryEventSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CommentaryEvent
+     */
+    omit?: CommentaryEventOmit<ExtArgs> | null
+    /**
+     * The data used to create many CommentaryEvents.
+     */
+    data: CommentaryEventCreateManyInput | CommentaryEventCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentaryEventIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CommentaryEvent update
+   */
+  export type CommentaryEventUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CommentaryEvent
+     */
+    select?: CommentaryEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CommentaryEvent
+     */
+    omit?: CommentaryEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentaryEventInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CommentaryEvent.
+     */
+    data: XOR<CommentaryEventUpdateInput, CommentaryEventUncheckedUpdateInput>
+    /**
+     * Choose, which CommentaryEvent to update.
+     */
+    where: CommentaryEventWhereUniqueInput
+  }
+
+  /**
+   * CommentaryEvent updateMany
+   */
+  export type CommentaryEventUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CommentaryEvents.
+     */
+    data: XOR<CommentaryEventUpdateManyMutationInput, CommentaryEventUncheckedUpdateManyInput>
+    /**
+     * Filter which CommentaryEvents to update
+     */
+    where?: CommentaryEventWhereInput
+    /**
+     * Limit how many CommentaryEvents to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CommentaryEvent updateManyAndReturn
+   */
+  export type CommentaryEventUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CommentaryEvent
+     */
+    select?: CommentaryEventSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CommentaryEvent
+     */
+    omit?: CommentaryEventOmit<ExtArgs> | null
+    /**
+     * The data used to update CommentaryEvents.
+     */
+    data: XOR<CommentaryEventUpdateManyMutationInput, CommentaryEventUncheckedUpdateManyInput>
+    /**
+     * Filter which CommentaryEvents to update
+     */
+    where?: CommentaryEventWhereInput
+    /**
+     * Limit how many CommentaryEvents to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentaryEventIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CommentaryEvent upsert
+   */
+  export type CommentaryEventUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CommentaryEvent
+     */
+    select?: CommentaryEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CommentaryEvent
+     */
+    omit?: CommentaryEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentaryEventInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CommentaryEvent to update in case it exists.
+     */
+    where: CommentaryEventWhereUniqueInput
+    /**
+     * In case the CommentaryEvent found by the `where` argument doesn't exist, create a new CommentaryEvent with this data.
+     */
+    create: XOR<CommentaryEventCreateInput, CommentaryEventUncheckedCreateInput>
+    /**
+     * In case the CommentaryEvent was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CommentaryEventUpdateInput, CommentaryEventUncheckedUpdateInput>
+  }
+
+  /**
+   * CommentaryEvent delete
+   */
+  export type CommentaryEventDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CommentaryEvent
+     */
+    select?: CommentaryEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CommentaryEvent
+     */
+    omit?: CommentaryEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentaryEventInclude<ExtArgs> | null
+    /**
+     * Filter which CommentaryEvent to delete.
+     */
+    where: CommentaryEventWhereUniqueInput
+  }
+
+  /**
+   * CommentaryEvent deleteMany
+   */
+  export type CommentaryEventDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CommentaryEvents to delete
+     */
+    where?: CommentaryEventWhereInput
+    /**
+     * Limit how many CommentaryEvents to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CommentaryEvent without action
+   */
+  export type CommentaryEventDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CommentaryEvent
+     */
+    select?: CommentaryEventSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CommentaryEvent
+     */
+    omit?: CommentaryEventOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentaryEventInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model SyncReport
+   */
+
+  export type AggregateSyncReport = {
+    _count: SyncReportCountAggregateOutputType | null
+    _avg: SyncReportAvgAggregateOutputType | null
+    _sum: SyncReportSumAggregateOutputType | null
+    _min: SyncReportMinAggregateOutputType | null
+    _max: SyncReportMaxAggregateOutputType | null
+  }
+
+  export type SyncReportAvgAggregateOutputType = {
+    reportedOffset: number | null
+  }
+
+  export type SyncReportSumAggregateOutputType = {
+    reportedOffset: number | null
+  }
+
+  export type SyncReportMinAggregateOutputType = {
+    id: string | null
+    commentaryId: string | null
+    userId: string | null
+    reportedOffset: number | null
+    userAgent: string | null
+    streamPlatform: string | null
+    createdAt: Date | null
+  }
+
+  export type SyncReportMaxAggregateOutputType = {
+    id: string | null
+    commentaryId: string | null
+    userId: string | null
+    reportedOffset: number | null
+    userAgent: string | null
+    streamPlatform: string | null
+    createdAt: Date | null
+  }
+
+  export type SyncReportCountAggregateOutputType = {
+    id: number
+    commentaryId: number
+    userId: number
+    reportedOffset: number
+    userAgent: number
+    streamPlatform: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type SyncReportAvgAggregateInputType = {
+    reportedOffset?: true
+  }
+
+  export type SyncReportSumAggregateInputType = {
+    reportedOffset?: true
+  }
+
+  export type SyncReportMinAggregateInputType = {
+    id?: true
+    commentaryId?: true
+    userId?: true
+    reportedOffset?: true
+    userAgent?: true
+    streamPlatform?: true
+    createdAt?: true
+  }
+
+  export type SyncReportMaxAggregateInputType = {
+    id?: true
+    commentaryId?: true
+    userId?: true
+    reportedOffset?: true
+    userAgent?: true
+    streamPlatform?: true
+    createdAt?: true
+  }
+
+  export type SyncReportCountAggregateInputType = {
+    id?: true
+    commentaryId?: true
+    userId?: true
+    reportedOffset?: true
+    userAgent?: true
+    streamPlatform?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type SyncReportAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SyncReport to aggregate.
+     */
+    where?: SyncReportWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SyncReports to fetch.
+     */
+    orderBy?: SyncReportOrderByWithRelationInput | SyncReportOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SyncReportWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SyncReports from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SyncReports.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SyncReports
+    **/
+    _count?: true | SyncReportCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SyncReportAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SyncReportSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SyncReportMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SyncReportMaxAggregateInputType
+  }
+
+  export type GetSyncReportAggregateType<T extends SyncReportAggregateArgs> = {
+        [P in keyof T & keyof AggregateSyncReport]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSyncReport[P]>
+      : GetScalarType<T[P], AggregateSyncReport[P]>
+  }
+
+
+
+
+  export type SyncReportGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SyncReportWhereInput
+    orderBy?: SyncReportOrderByWithAggregationInput | SyncReportOrderByWithAggregationInput[]
+    by: SyncReportScalarFieldEnum[] | SyncReportScalarFieldEnum
+    having?: SyncReportScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SyncReportCountAggregateInputType | true
+    _avg?: SyncReportAvgAggregateInputType
+    _sum?: SyncReportSumAggregateInputType
+    _min?: SyncReportMinAggregateInputType
+    _max?: SyncReportMaxAggregateInputType
+  }
+
+  export type SyncReportGroupByOutputType = {
+    id: string
+    commentaryId: string
+    userId: string | null
+    reportedOffset: number
+    userAgent: string | null
+    streamPlatform: string | null
+    createdAt: Date
+    _count: SyncReportCountAggregateOutputType | null
+    _avg: SyncReportAvgAggregateOutputType | null
+    _sum: SyncReportSumAggregateOutputType | null
+    _min: SyncReportMinAggregateOutputType | null
+    _max: SyncReportMaxAggregateOutputType | null
+  }
+
+  type GetSyncReportGroupByPayload<T extends SyncReportGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SyncReportGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SyncReportGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SyncReportGroupByOutputType[P]>
+            : GetScalarType<T[P], SyncReportGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SyncReportSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    commentaryId?: boolean
+    userId?: boolean
+    reportedOffset?: boolean
+    userAgent?: boolean
+    streamPlatform?: boolean
+    createdAt?: boolean
+    commentary?: boolean | CommentaryDefaultArgs<ExtArgs>
+    user?: boolean | SyncReport$userArgs<ExtArgs>
+  }, ExtArgs["result"]["syncReport"]>
+
+  export type SyncReportSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    commentaryId?: boolean
+    userId?: boolean
+    reportedOffset?: boolean
+    userAgent?: boolean
+    streamPlatform?: boolean
+    createdAt?: boolean
+    commentary?: boolean | CommentaryDefaultArgs<ExtArgs>
+    user?: boolean | SyncReport$userArgs<ExtArgs>
+  }, ExtArgs["result"]["syncReport"]>
+
+  export type SyncReportSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    commentaryId?: boolean
+    userId?: boolean
+    reportedOffset?: boolean
+    userAgent?: boolean
+    streamPlatform?: boolean
+    createdAt?: boolean
+    commentary?: boolean | CommentaryDefaultArgs<ExtArgs>
+    user?: boolean | SyncReport$userArgs<ExtArgs>
+  }, ExtArgs["result"]["syncReport"]>
+
+  export type SyncReportSelectScalar = {
+    id?: boolean
+    commentaryId?: boolean
+    userId?: boolean
+    reportedOffset?: boolean
+    userAgent?: boolean
+    streamPlatform?: boolean
+    createdAt?: boolean
+  }
+
+  export type SyncReportOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "commentaryId" | "userId" | "reportedOffset" | "userAgent" | "streamPlatform" | "createdAt", ExtArgs["result"]["syncReport"]>
+  export type SyncReportInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    commentary?: boolean | CommentaryDefaultArgs<ExtArgs>
+    user?: boolean | SyncReport$userArgs<ExtArgs>
+  }
+  export type SyncReportIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    commentary?: boolean | CommentaryDefaultArgs<ExtArgs>
+    user?: boolean | SyncReport$userArgs<ExtArgs>
+  }
+  export type SyncReportIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    commentary?: boolean | CommentaryDefaultArgs<ExtArgs>
+    user?: boolean | SyncReport$userArgs<ExtArgs>
+  }
+
+  export type $SyncReportPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SyncReport"
+    objects: {
+      commentary: Prisma.$CommentaryPayload<ExtArgs>
+      user: Prisma.$UserPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      commentaryId: string
+      userId: string | null
+      reportedOffset: number
+      userAgent: string | null
+      streamPlatform: string | null
+      createdAt: Date
+    }, ExtArgs["result"]["syncReport"]>
+    composites: {}
+  }
+
+  type SyncReportGetPayload<S extends boolean | null | undefined | SyncReportDefaultArgs> = $Result.GetResult<Prisma.$SyncReportPayload, S>
+
+  type SyncReportCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SyncReportFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SyncReportCountAggregateInputType | true
+    }
+
+  export interface SyncReportDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SyncReport'], meta: { name: 'SyncReport' } }
+    /**
+     * Find zero or one SyncReport that matches the filter.
+     * @param {SyncReportFindUniqueArgs} args - Arguments to find a SyncReport
+     * @example
+     * // Get one SyncReport
+     * const syncReport = await prisma.syncReport.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SyncReportFindUniqueArgs>(args: SelectSubset<T, SyncReportFindUniqueArgs<ExtArgs>>): Prisma__SyncReportClient<$Result.GetResult<Prisma.$SyncReportPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SyncReport that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SyncReportFindUniqueOrThrowArgs} args - Arguments to find a SyncReport
+     * @example
+     * // Get one SyncReport
+     * const syncReport = await prisma.syncReport.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SyncReportFindUniqueOrThrowArgs>(args: SelectSubset<T, SyncReportFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SyncReportClient<$Result.GetResult<Prisma.$SyncReportPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SyncReport that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncReportFindFirstArgs} args - Arguments to find a SyncReport
+     * @example
+     * // Get one SyncReport
+     * const syncReport = await prisma.syncReport.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SyncReportFindFirstArgs>(args?: SelectSubset<T, SyncReportFindFirstArgs<ExtArgs>>): Prisma__SyncReportClient<$Result.GetResult<Prisma.$SyncReportPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SyncReport that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncReportFindFirstOrThrowArgs} args - Arguments to find a SyncReport
+     * @example
+     * // Get one SyncReport
+     * const syncReport = await prisma.syncReport.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SyncReportFindFirstOrThrowArgs>(args?: SelectSubset<T, SyncReportFindFirstOrThrowArgs<ExtArgs>>): Prisma__SyncReportClient<$Result.GetResult<Prisma.$SyncReportPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SyncReports that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncReportFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SyncReports
+     * const syncReports = await prisma.syncReport.findMany()
+     * 
+     * // Get first 10 SyncReports
+     * const syncReports = await prisma.syncReport.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const syncReportWithIdOnly = await prisma.syncReport.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SyncReportFindManyArgs>(args?: SelectSubset<T, SyncReportFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SyncReportPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SyncReport.
+     * @param {SyncReportCreateArgs} args - Arguments to create a SyncReport.
+     * @example
+     * // Create one SyncReport
+     * const SyncReport = await prisma.syncReport.create({
+     *   data: {
+     *     // ... data to create a SyncReport
+     *   }
+     * })
+     * 
+     */
+    create<T extends SyncReportCreateArgs>(args: SelectSubset<T, SyncReportCreateArgs<ExtArgs>>): Prisma__SyncReportClient<$Result.GetResult<Prisma.$SyncReportPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SyncReports.
+     * @param {SyncReportCreateManyArgs} args - Arguments to create many SyncReports.
+     * @example
+     * // Create many SyncReports
+     * const syncReport = await prisma.syncReport.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SyncReportCreateManyArgs>(args?: SelectSubset<T, SyncReportCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many SyncReports and returns the data saved in the database.
+     * @param {SyncReportCreateManyAndReturnArgs} args - Arguments to create many SyncReports.
+     * @example
+     * // Create many SyncReports
+     * const syncReport = await prisma.syncReport.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many SyncReports and only return the `id`
+     * const syncReportWithIdOnly = await prisma.syncReport.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SyncReportCreateManyAndReturnArgs>(args?: SelectSubset<T, SyncReportCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SyncReportPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a SyncReport.
+     * @param {SyncReportDeleteArgs} args - Arguments to delete one SyncReport.
+     * @example
+     * // Delete one SyncReport
+     * const SyncReport = await prisma.syncReport.delete({
+     *   where: {
+     *     // ... filter to delete one SyncReport
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SyncReportDeleteArgs>(args: SelectSubset<T, SyncReportDeleteArgs<ExtArgs>>): Prisma__SyncReportClient<$Result.GetResult<Prisma.$SyncReportPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SyncReport.
+     * @param {SyncReportUpdateArgs} args - Arguments to update one SyncReport.
+     * @example
+     * // Update one SyncReport
+     * const syncReport = await prisma.syncReport.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SyncReportUpdateArgs>(args: SelectSubset<T, SyncReportUpdateArgs<ExtArgs>>): Prisma__SyncReportClient<$Result.GetResult<Prisma.$SyncReportPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SyncReports.
+     * @param {SyncReportDeleteManyArgs} args - Arguments to filter SyncReports to delete.
+     * @example
+     * // Delete a few SyncReports
+     * const { count } = await prisma.syncReport.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SyncReportDeleteManyArgs>(args?: SelectSubset<T, SyncReportDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SyncReports.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncReportUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SyncReports
+     * const syncReport = await prisma.syncReport.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SyncReportUpdateManyArgs>(args: SelectSubset<T, SyncReportUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SyncReports and returns the data updated in the database.
+     * @param {SyncReportUpdateManyAndReturnArgs} args - Arguments to update many SyncReports.
+     * @example
+     * // Update many SyncReports
+     * const syncReport = await prisma.syncReport.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more SyncReports and only return the `id`
+     * const syncReportWithIdOnly = await prisma.syncReport.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SyncReportUpdateManyAndReturnArgs>(args: SelectSubset<T, SyncReportUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SyncReportPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one SyncReport.
+     * @param {SyncReportUpsertArgs} args - Arguments to update or create a SyncReport.
+     * @example
+     * // Update or create a SyncReport
+     * const syncReport = await prisma.syncReport.upsert({
+     *   create: {
+     *     // ... data to create a SyncReport
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SyncReport we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SyncReportUpsertArgs>(args: SelectSubset<T, SyncReportUpsertArgs<ExtArgs>>): Prisma__SyncReportClient<$Result.GetResult<Prisma.$SyncReportPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SyncReports.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncReportCountArgs} args - Arguments to filter SyncReports to count.
+     * @example
+     * // Count the number of SyncReports
+     * const count = await prisma.syncReport.count({
+     *   where: {
+     *     // ... the filter for the SyncReports we want to count
+     *   }
+     * })
+    **/
+    count<T extends SyncReportCountArgs>(
+      args?: Subset<T, SyncReportCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SyncReportCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SyncReport.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncReportAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SyncReportAggregateArgs>(args: Subset<T, SyncReportAggregateArgs>): Prisma.PrismaPromise<GetSyncReportAggregateType<T>>
+
+    /**
+     * Group by SyncReport.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SyncReportGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SyncReportGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SyncReportGroupByArgs['orderBy'] }
+        : { orderBy?: SyncReportGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SyncReportGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSyncReportGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SyncReport model
+   */
+  readonly fields: SyncReportFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SyncReport.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SyncReportClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    commentary<T extends CommentaryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CommentaryDefaultArgs<ExtArgs>>): Prisma__CommentaryClient<$Result.GetResult<Prisma.$CommentaryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user<T extends SyncReport$userArgs<ExtArgs> = {}>(args?: Subset<T, SyncReport$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SyncReport model
+   */
+  interface SyncReportFieldRefs {
+    readonly id: FieldRef<"SyncReport", 'String'>
+    readonly commentaryId: FieldRef<"SyncReport", 'String'>
+    readonly userId: FieldRef<"SyncReport", 'String'>
+    readonly reportedOffset: FieldRef<"SyncReport", 'Int'>
+    readonly userAgent: FieldRef<"SyncReport", 'String'>
+    readonly streamPlatform: FieldRef<"SyncReport", 'String'>
+    readonly createdAt: FieldRef<"SyncReport", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SyncReport findUnique
+   */
+  export type SyncReportFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncReport
+     */
+    select?: SyncReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncReport
+     */
+    omit?: SyncReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SyncReportInclude<ExtArgs> | null
+    /**
+     * Filter, which SyncReport to fetch.
+     */
+    where: SyncReportWhereUniqueInput
+  }
+
+  /**
+   * SyncReport findUniqueOrThrow
+   */
+  export type SyncReportFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncReport
+     */
+    select?: SyncReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncReport
+     */
+    omit?: SyncReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SyncReportInclude<ExtArgs> | null
+    /**
+     * Filter, which SyncReport to fetch.
+     */
+    where: SyncReportWhereUniqueInput
+  }
+
+  /**
+   * SyncReport findFirst
+   */
+  export type SyncReportFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncReport
+     */
+    select?: SyncReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncReport
+     */
+    omit?: SyncReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SyncReportInclude<ExtArgs> | null
+    /**
+     * Filter, which SyncReport to fetch.
+     */
+    where?: SyncReportWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SyncReports to fetch.
+     */
+    orderBy?: SyncReportOrderByWithRelationInput | SyncReportOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SyncReports.
+     */
+    cursor?: SyncReportWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SyncReports from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SyncReports.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SyncReports.
+     */
+    distinct?: SyncReportScalarFieldEnum | SyncReportScalarFieldEnum[]
+  }
+
+  /**
+   * SyncReport findFirstOrThrow
+   */
+  export type SyncReportFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncReport
+     */
+    select?: SyncReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncReport
+     */
+    omit?: SyncReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SyncReportInclude<ExtArgs> | null
+    /**
+     * Filter, which SyncReport to fetch.
+     */
+    where?: SyncReportWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SyncReports to fetch.
+     */
+    orderBy?: SyncReportOrderByWithRelationInput | SyncReportOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SyncReports.
+     */
+    cursor?: SyncReportWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SyncReports from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SyncReports.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SyncReports.
+     */
+    distinct?: SyncReportScalarFieldEnum | SyncReportScalarFieldEnum[]
+  }
+
+  /**
+   * SyncReport findMany
+   */
+  export type SyncReportFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncReport
+     */
+    select?: SyncReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncReport
+     */
+    omit?: SyncReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SyncReportInclude<ExtArgs> | null
+    /**
+     * Filter, which SyncReports to fetch.
+     */
+    where?: SyncReportWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SyncReports to fetch.
+     */
+    orderBy?: SyncReportOrderByWithRelationInput | SyncReportOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SyncReports.
+     */
+    cursor?: SyncReportWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SyncReports from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SyncReports.
+     */
+    skip?: number
+    distinct?: SyncReportScalarFieldEnum | SyncReportScalarFieldEnum[]
+  }
+
+  /**
+   * SyncReport create
+   */
+  export type SyncReportCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncReport
+     */
+    select?: SyncReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncReport
+     */
+    omit?: SyncReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SyncReportInclude<ExtArgs> | null
+    /**
+     * The data needed to create a SyncReport.
+     */
+    data: XOR<SyncReportCreateInput, SyncReportUncheckedCreateInput>
+  }
+
+  /**
+   * SyncReport createMany
+   */
+  export type SyncReportCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SyncReports.
+     */
+    data: SyncReportCreateManyInput | SyncReportCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SyncReport createManyAndReturn
+   */
+  export type SyncReportCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncReport
+     */
+    select?: SyncReportSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncReport
+     */
+    omit?: SyncReportOmit<ExtArgs> | null
+    /**
+     * The data used to create many SyncReports.
+     */
+    data: SyncReportCreateManyInput | SyncReportCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SyncReportIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * SyncReport update
+   */
+  export type SyncReportUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncReport
+     */
+    select?: SyncReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncReport
+     */
+    omit?: SyncReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SyncReportInclude<ExtArgs> | null
+    /**
+     * The data needed to update a SyncReport.
+     */
+    data: XOR<SyncReportUpdateInput, SyncReportUncheckedUpdateInput>
+    /**
+     * Choose, which SyncReport to update.
+     */
+    where: SyncReportWhereUniqueInput
+  }
+
+  /**
+   * SyncReport updateMany
+   */
+  export type SyncReportUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SyncReports.
+     */
+    data: XOR<SyncReportUpdateManyMutationInput, SyncReportUncheckedUpdateManyInput>
+    /**
+     * Filter which SyncReports to update
+     */
+    where?: SyncReportWhereInput
+    /**
+     * Limit how many SyncReports to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SyncReport updateManyAndReturn
+   */
+  export type SyncReportUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncReport
+     */
+    select?: SyncReportSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncReport
+     */
+    omit?: SyncReportOmit<ExtArgs> | null
+    /**
+     * The data used to update SyncReports.
+     */
+    data: XOR<SyncReportUpdateManyMutationInput, SyncReportUncheckedUpdateManyInput>
+    /**
+     * Filter which SyncReports to update
+     */
+    where?: SyncReportWhereInput
+    /**
+     * Limit how many SyncReports to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SyncReportIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * SyncReport upsert
+   */
+  export type SyncReportUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncReport
+     */
+    select?: SyncReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncReport
+     */
+    omit?: SyncReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SyncReportInclude<ExtArgs> | null
+    /**
+     * The filter to search for the SyncReport to update in case it exists.
+     */
+    where: SyncReportWhereUniqueInput
+    /**
+     * In case the SyncReport found by the `where` argument doesn't exist, create a new SyncReport with this data.
+     */
+    create: XOR<SyncReportCreateInput, SyncReportUncheckedCreateInput>
+    /**
+     * In case the SyncReport was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SyncReportUpdateInput, SyncReportUncheckedUpdateInput>
+  }
+
+  /**
+   * SyncReport delete
+   */
+  export type SyncReportDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncReport
+     */
+    select?: SyncReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncReport
+     */
+    omit?: SyncReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SyncReportInclude<ExtArgs> | null
+    /**
+     * Filter which SyncReport to delete.
+     */
+    where: SyncReportWhereUniqueInput
+  }
+
+  /**
+   * SyncReport deleteMany
+   */
+  export type SyncReportDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SyncReports to delete
+     */
+    where?: SyncReportWhereInput
+    /**
+     * Limit how many SyncReports to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SyncReport.user
+   */
+  export type SyncReport$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
+   * SyncReport without action
+   */
+  export type SyncReportDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SyncReport
+     */
+    select?: SyncReportSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SyncReport
+     */
+    omit?: SyncReportOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SyncReportInclude<ExtArgs> | null
   }
 
 
@@ -4643,6 +8499,7 @@ export namespace Prisma {
     email: 'email',
     name: 'name',
     password: 'password',
+    isCommentator: 'isCommentator',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -4652,13 +8509,12 @@ export namespace Prisma {
 
   export const MatchScalarFieldEnum: {
     id: 'id',
-    title: 'title',
-    description: 'description',
-    competition: 'competition',
+    league: 'league',
     homeTeam: 'homeTeam',
     awayTeam: 'awayTeam',
-    date: 'date',
-    duration: 'duration',
+    scheduledTime: 'scheduledTime',
+    streamUrlPatterns: 'streamUrlPatterns',
+    status: 'status',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -4668,19 +8524,68 @@ export namespace Prisma {
 
   export const CommentaryScalarFieldEnum: {
     id: 'id',
+    matchId: 'matchId',
+    commentatorId: 'commentatorId',
     title: 'title',
     description: 'description',
     audioUrl: 'audioUrl',
     duration: 'duration',
-    startTime: 'startTime',
-    likes: 'likes',
+    youtubeStreamUrl: 'youtubeStreamUrl',
+    youtubeStreamId: 'youtubeStreamId',
+    status: 'status',
+    language: 'language',
+    baselineOffset: 'baselineOffset',
+    avgLatency: 'avgLatency',
+    viewCount: 'viewCount',
+    rating: 'rating',
+    startedAt: 'startedAt',
+    endedAt: 'endedAt',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt',
-    userId: 'userId',
-    matchId: 'matchId'
+    updatedAt: 'updatedAt'
   };
 
   export type CommentaryScalarFieldEnum = (typeof CommentaryScalarFieldEnum)[keyof typeof CommentaryScalarFieldEnum]
+
+
+  export const MatchEventScalarFieldEnum: {
+    id: 'id',
+    matchId: 'matchId',
+    type: 'type',
+    team: 'team',
+    player: 'player',
+    minute: 'minute',
+    timestamp: 'timestamp',
+    description: 'description',
+    createdAt: 'createdAt'
+  };
+
+  export type MatchEventScalarFieldEnum = (typeof MatchEventScalarFieldEnum)[keyof typeof MatchEventScalarFieldEnum]
+
+
+  export const CommentaryEventScalarFieldEnum: {
+    id: 'id',
+    commentaryId: 'commentaryId',
+    type: 'type',
+    gameMinute: 'gameMinute',
+    audioTimestamp: 'audioTimestamp',
+    timestamp: 'timestamp',
+    createdAt: 'createdAt'
+  };
+
+  export type CommentaryEventScalarFieldEnum = (typeof CommentaryEventScalarFieldEnum)[keyof typeof CommentaryEventScalarFieldEnum]
+
+
+  export const SyncReportScalarFieldEnum: {
+    id: 'id',
+    commentaryId: 'commentaryId',
+    userId: 'userId',
+    reportedOffset: 'reportedOffset',
+    userAgent: 'userAgent',
+    streamPlatform: 'streamPlatform',
+    createdAt: 'createdAt'
+  };
+
+  export type SyncReportScalarFieldEnum = (typeof SyncReportScalarFieldEnum)[keyof typeof SyncReportScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -4723,6 +8628,13 @@ export namespace Prisma {
    * Reference to a field of type 'String[]'
    */
   export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -4779,10 +8691,11 @@ export namespace Prisma {
     email?: StringFilter<"User"> | string
     name?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
+    isCommentator?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     commentaries?: CommentaryListRelationFilter
-    favoriteMatches?: MatchListRelationFilter
+    syncReports?: SyncReportListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -4790,10 +8703,11 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     password?: SortOrder
+    isCommentator?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     commentaries?: CommentaryOrderByRelationAggregateInput
-    favoriteMatches?: MatchOrderByRelationAggregateInput
+    syncReports?: SyncReportOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -4804,10 +8718,11 @@ export namespace Prisma {
     NOT?: UserWhereInput | UserWhereInput[]
     name?: StringFilter<"User"> | string
     password?: StringFilter<"User"> | string
+    isCommentator?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     commentaries?: CommentaryListRelationFilter
-    favoriteMatches?: MatchListRelationFilter
+    syncReports?: SyncReportListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -4815,6 +8730,7 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     password?: SortOrder
+    isCommentator?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -4830,6 +8746,7 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"User"> | string
     name?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
+    isCommentator?: BoolWithAggregatesFilter<"User"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
@@ -4839,32 +8756,30 @@ export namespace Prisma {
     OR?: MatchWhereInput[]
     NOT?: MatchWhereInput | MatchWhereInput[]
     id?: StringFilter<"Match"> | string
-    title?: StringFilter<"Match"> | string
-    description?: StringNullableFilter<"Match"> | string | null
-    competition?: StringFilter<"Match"> | string
+    league?: StringFilter<"Match"> | string
     homeTeam?: StringFilter<"Match"> | string
     awayTeam?: StringFilter<"Match"> | string
-    date?: DateTimeFilter<"Match"> | Date | string
-    duration?: IntFilter<"Match"> | number
+    scheduledTime?: DateTimeFilter<"Match"> | Date | string
+    streamUrlPatterns?: StringNullableListFilter<"Match">
+    status?: StringFilter<"Match"> | string
     createdAt?: DateTimeFilter<"Match"> | Date | string
     updatedAt?: DateTimeFilter<"Match"> | Date | string
     commentaries?: CommentaryListRelationFilter
-    favoritedBy?: UserListRelationFilter
+    events?: MatchEventListRelationFilter
   }
 
   export type MatchOrderByWithRelationInput = {
     id?: SortOrder
-    title?: SortOrder
-    description?: SortOrderInput | SortOrder
-    competition?: SortOrder
+    league?: SortOrder
     homeTeam?: SortOrder
     awayTeam?: SortOrder
-    date?: SortOrder
-    duration?: SortOrder
+    scheduledTime?: SortOrder
+    streamUrlPatterns?: SortOrder
+    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     commentaries?: CommentaryOrderByRelationAggregateInput
-    favoritedBy?: UserOrderByRelationAggregateInput
+    events?: MatchEventOrderByRelationAggregateInput
   }
 
   export type MatchWhereUniqueInput = Prisma.AtLeast<{
@@ -4872,35 +8787,31 @@ export namespace Prisma {
     AND?: MatchWhereInput | MatchWhereInput[]
     OR?: MatchWhereInput[]
     NOT?: MatchWhereInput | MatchWhereInput[]
-    title?: StringFilter<"Match"> | string
-    description?: StringNullableFilter<"Match"> | string | null
-    competition?: StringFilter<"Match"> | string
+    league?: StringFilter<"Match"> | string
     homeTeam?: StringFilter<"Match"> | string
     awayTeam?: StringFilter<"Match"> | string
-    date?: DateTimeFilter<"Match"> | Date | string
-    duration?: IntFilter<"Match"> | number
+    scheduledTime?: DateTimeFilter<"Match"> | Date | string
+    streamUrlPatterns?: StringNullableListFilter<"Match">
+    status?: StringFilter<"Match"> | string
     createdAt?: DateTimeFilter<"Match"> | Date | string
     updatedAt?: DateTimeFilter<"Match"> | Date | string
     commentaries?: CommentaryListRelationFilter
-    favoritedBy?: UserListRelationFilter
+    events?: MatchEventListRelationFilter
   }, "id">
 
   export type MatchOrderByWithAggregationInput = {
     id?: SortOrder
-    title?: SortOrder
-    description?: SortOrderInput | SortOrder
-    competition?: SortOrder
+    league?: SortOrder
     homeTeam?: SortOrder
     awayTeam?: SortOrder
-    date?: SortOrder
-    duration?: SortOrder
+    scheduledTime?: SortOrder
+    streamUrlPatterns?: SortOrder
+    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: MatchCountOrderByAggregateInput
-    _avg?: MatchAvgOrderByAggregateInput
     _max?: MatchMaxOrderByAggregateInput
     _min?: MatchMinOrderByAggregateInput
-    _sum?: MatchSumOrderByAggregateInput
   }
 
   export type MatchScalarWhereWithAggregatesInput = {
@@ -4908,13 +8819,12 @@ export namespace Prisma {
     OR?: MatchScalarWhereWithAggregatesInput[]
     NOT?: MatchScalarWhereWithAggregatesInput | MatchScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Match"> | string
-    title?: StringWithAggregatesFilter<"Match"> | string
-    description?: StringNullableWithAggregatesFilter<"Match"> | string | null
-    competition?: StringWithAggregatesFilter<"Match"> | string
+    league?: StringWithAggregatesFilter<"Match"> | string
     homeTeam?: StringWithAggregatesFilter<"Match"> | string
     awayTeam?: StringWithAggregatesFilter<"Match"> | string
-    date?: DateTimeWithAggregatesFilter<"Match"> | Date | string
-    duration?: IntWithAggregatesFilter<"Match"> | number
+    scheduledTime?: DateTimeWithAggregatesFilter<"Match"> | Date | string
+    streamUrlPatterns?: StringNullableListFilter<"Match">
+    status?: StringWithAggregatesFilter<"Match"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Match"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Match"> | Date | string
   }
@@ -4924,34 +8834,54 @@ export namespace Prisma {
     OR?: CommentaryWhereInput[]
     NOT?: CommentaryWhereInput | CommentaryWhereInput[]
     id?: StringFilter<"Commentary"> | string
+    matchId?: StringFilter<"Commentary"> | string
+    commentatorId?: StringFilter<"Commentary"> | string
     title?: StringFilter<"Commentary"> | string
     description?: StringNullableFilter<"Commentary"> | string | null
-    audioUrl?: StringFilter<"Commentary"> | string
+    audioUrl?: StringNullableFilter<"Commentary"> | string | null
     duration?: IntFilter<"Commentary"> | number
-    startTime?: IntFilter<"Commentary"> | number
-    likes?: IntFilter<"Commentary"> | number
+    youtubeStreamUrl?: StringNullableFilter<"Commentary"> | string | null
+    youtubeStreamId?: StringNullableFilter<"Commentary"> | string | null
+    status?: StringFilter<"Commentary"> | string
+    language?: StringFilter<"Commentary"> | string
+    baselineOffset?: IntFilter<"Commentary"> | number
+    avgLatency?: IntFilter<"Commentary"> | number
+    viewCount?: IntFilter<"Commentary"> | number
+    rating?: FloatFilter<"Commentary"> | number
+    startedAt?: DateTimeNullableFilter<"Commentary"> | Date | string | null
+    endedAt?: DateTimeNullableFilter<"Commentary"> | Date | string | null
     createdAt?: DateTimeFilter<"Commentary"> | Date | string
     updatedAt?: DateTimeFilter<"Commentary"> | Date | string
-    userId?: StringFilter<"Commentary"> | string
-    matchId?: StringFilter<"Commentary"> | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     match?: XOR<MatchScalarRelationFilter, MatchWhereInput>
+    commentator?: XOR<UserScalarRelationFilter, UserWhereInput>
+    events?: CommentaryEventListRelationFilter
+    syncReports?: SyncReportListRelationFilter
   }
 
   export type CommentaryOrderByWithRelationInput = {
     id?: SortOrder
+    matchId?: SortOrder
+    commentatorId?: SortOrder
     title?: SortOrder
     description?: SortOrderInput | SortOrder
-    audioUrl?: SortOrder
+    audioUrl?: SortOrderInput | SortOrder
     duration?: SortOrder
-    startTime?: SortOrder
-    likes?: SortOrder
+    youtubeStreamUrl?: SortOrderInput | SortOrder
+    youtubeStreamId?: SortOrderInput | SortOrder
+    status?: SortOrder
+    language?: SortOrder
+    baselineOffset?: SortOrder
+    avgLatency?: SortOrder
+    viewCount?: SortOrder
+    rating?: SortOrder
+    startedAt?: SortOrderInput | SortOrder
+    endedAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    userId?: SortOrder
-    matchId?: SortOrder
-    user?: UserOrderByWithRelationInput
     match?: MatchOrderByWithRelationInput
+    commentator?: UserOrderByWithRelationInput
+    events?: CommentaryEventOrderByRelationAggregateInput
+    syncReports?: SyncReportOrderByRelationAggregateInput
   }
 
   export type CommentaryWhereUniqueInput = Prisma.AtLeast<{
@@ -4959,32 +8889,50 @@ export namespace Prisma {
     AND?: CommentaryWhereInput | CommentaryWhereInput[]
     OR?: CommentaryWhereInput[]
     NOT?: CommentaryWhereInput | CommentaryWhereInput[]
+    matchId?: StringFilter<"Commentary"> | string
+    commentatorId?: StringFilter<"Commentary"> | string
     title?: StringFilter<"Commentary"> | string
     description?: StringNullableFilter<"Commentary"> | string | null
-    audioUrl?: StringFilter<"Commentary"> | string
+    audioUrl?: StringNullableFilter<"Commentary"> | string | null
     duration?: IntFilter<"Commentary"> | number
-    startTime?: IntFilter<"Commentary"> | number
-    likes?: IntFilter<"Commentary"> | number
+    youtubeStreamUrl?: StringNullableFilter<"Commentary"> | string | null
+    youtubeStreamId?: StringNullableFilter<"Commentary"> | string | null
+    status?: StringFilter<"Commentary"> | string
+    language?: StringFilter<"Commentary"> | string
+    baselineOffset?: IntFilter<"Commentary"> | number
+    avgLatency?: IntFilter<"Commentary"> | number
+    viewCount?: IntFilter<"Commentary"> | number
+    rating?: FloatFilter<"Commentary"> | number
+    startedAt?: DateTimeNullableFilter<"Commentary"> | Date | string | null
+    endedAt?: DateTimeNullableFilter<"Commentary"> | Date | string | null
     createdAt?: DateTimeFilter<"Commentary"> | Date | string
     updatedAt?: DateTimeFilter<"Commentary"> | Date | string
-    userId?: StringFilter<"Commentary"> | string
-    matchId?: StringFilter<"Commentary"> | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     match?: XOR<MatchScalarRelationFilter, MatchWhereInput>
+    commentator?: XOR<UserScalarRelationFilter, UserWhereInput>
+    events?: CommentaryEventListRelationFilter
+    syncReports?: SyncReportListRelationFilter
   }, "id">
 
   export type CommentaryOrderByWithAggregationInput = {
     id?: SortOrder
+    matchId?: SortOrder
+    commentatorId?: SortOrder
     title?: SortOrder
     description?: SortOrderInput | SortOrder
-    audioUrl?: SortOrder
+    audioUrl?: SortOrderInput | SortOrder
     duration?: SortOrder
-    startTime?: SortOrder
-    likes?: SortOrder
+    youtubeStreamUrl?: SortOrderInput | SortOrder
+    youtubeStreamId?: SortOrderInput | SortOrder
+    status?: SortOrder
+    language?: SortOrder
+    baselineOffset?: SortOrder
+    avgLatency?: SortOrder
+    viewCount?: SortOrder
+    rating?: SortOrder
+    startedAt?: SortOrderInput | SortOrder
+    endedAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    userId?: SortOrder
-    matchId?: SortOrder
     _count?: CommentaryCountOrderByAggregateInput
     _avg?: CommentaryAvgOrderByAggregateInput
     _max?: CommentaryMaxOrderByAggregateInput
@@ -4997,16 +8945,238 @@ export namespace Prisma {
     OR?: CommentaryScalarWhereWithAggregatesInput[]
     NOT?: CommentaryScalarWhereWithAggregatesInput | CommentaryScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Commentary"> | string
+    matchId?: StringWithAggregatesFilter<"Commentary"> | string
+    commentatorId?: StringWithAggregatesFilter<"Commentary"> | string
     title?: StringWithAggregatesFilter<"Commentary"> | string
     description?: StringNullableWithAggregatesFilter<"Commentary"> | string | null
-    audioUrl?: StringWithAggregatesFilter<"Commentary"> | string
+    audioUrl?: StringNullableWithAggregatesFilter<"Commentary"> | string | null
     duration?: IntWithAggregatesFilter<"Commentary"> | number
-    startTime?: IntWithAggregatesFilter<"Commentary"> | number
-    likes?: IntWithAggregatesFilter<"Commentary"> | number
+    youtubeStreamUrl?: StringNullableWithAggregatesFilter<"Commentary"> | string | null
+    youtubeStreamId?: StringNullableWithAggregatesFilter<"Commentary"> | string | null
+    status?: StringWithAggregatesFilter<"Commentary"> | string
+    language?: StringWithAggregatesFilter<"Commentary"> | string
+    baselineOffset?: IntWithAggregatesFilter<"Commentary"> | number
+    avgLatency?: IntWithAggregatesFilter<"Commentary"> | number
+    viewCount?: IntWithAggregatesFilter<"Commentary"> | number
+    rating?: FloatWithAggregatesFilter<"Commentary"> | number
+    startedAt?: DateTimeNullableWithAggregatesFilter<"Commentary"> | Date | string | null
+    endedAt?: DateTimeNullableWithAggregatesFilter<"Commentary"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Commentary"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Commentary"> | Date | string
-    userId?: StringWithAggregatesFilter<"Commentary"> | string
-    matchId?: StringWithAggregatesFilter<"Commentary"> | string
+  }
+
+  export type MatchEventWhereInput = {
+    AND?: MatchEventWhereInput | MatchEventWhereInput[]
+    OR?: MatchEventWhereInput[]
+    NOT?: MatchEventWhereInput | MatchEventWhereInput[]
+    id?: StringFilter<"MatchEvent"> | string
+    matchId?: StringFilter<"MatchEvent"> | string
+    type?: StringFilter<"MatchEvent"> | string
+    team?: StringNullableFilter<"MatchEvent"> | string | null
+    player?: StringNullableFilter<"MatchEvent"> | string | null
+    minute?: IntFilter<"MatchEvent"> | number
+    timestamp?: DateTimeFilter<"MatchEvent"> | Date | string
+    description?: StringNullableFilter<"MatchEvent"> | string | null
+    createdAt?: DateTimeFilter<"MatchEvent"> | Date | string
+    match?: XOR<MatchScalarRelationFilter, MatchWhereInput>
+  }
+
+  export type MatchEventOrderByWithRelationInput = {
+    id?: SortOrder
+    matchId?: SortOrder
+    type?: SortOrder
+    team?: SortOrderInput | SortOrder
+    player?: SortOrderInput | SortOrder
+    minute?: SortOrder
+    timestamp?: SortOrder
+    description?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    match?: MatchOrderByWithRelationInput
+  }
+
+  export type MatchEventWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: MatchEventWhereInput | MatchEventWhereInput[]
+    OR?: MatchEventWhereInput[]
+    NOT?: MatchEventWhereInput | MatchEventWhereInput[]
+    matchId?: StringFilter<"MatchEvent"> | string
+    type?: StringFilter<"MatchEvent"> | string
+    team?: StringNullableFilter<"MatchEvent"> | string | null
+    player?: StringNullableFilter<"MatchEvent"> | string | null
+    minute?: IntFilter<"MatchEvent"> | number
+    timestamp?: DateTimeFilter<"MatchEvent"> | Date | string
+    description?: StringNullableFilter<"MatchEvent"> | string | null
+    createdAt?: DateTimeFilter<"MatchEvent"> | Date | string
+    match?: XOR<MatchScalarRelationFilter, MatchWhereInput>
+  }, "id">
+
+  export type MatchEventOrderByWithAggregationInput = {
+    id?: SortOrder
+    matchId?: SortOrder
+    type?: SortOrder
+    team?: SortOrderInput | SortOrder
+    player?: SortOrderInput | SortOrder
+    minute?: SortOrder
+    timestamp?: SortOrder
+    description?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: MatchEventCountOrderByAggregateInput
+    _avg?: MatchEventAvgOrderByAggregateInput
+    _max?: MatchEventMaxOrderByAggregateInput
+    _min?: MatchEventMinOrderByAggregateInput
+    _sum?: MatchEventSumOrderByAggregateInput
+  }
+
+  export type MatchEventScalarWhereWithAggregatesInput = {
+    AND?: MatchEventScalarWhereWithAggregatesInput | MatchEventScalarWhereWithAggregatesInput[]
+    OR?: MatchEventScalarWhereWithAggregatesInput[]
+    NOT?: MatchEventScalarWhereWithAggregatesInput | MatchEventScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"MatchEvent"> | string
+    matchId?: StringWithAggregatesFilter<"MatchEvent"> | string
+    type?: StringWithAggregatesFilter<"MatchEvent"> | string
+    team?: StringNullableWithAggregatesFilter<"MatchEvent"> | string | null
+    player?: StringNullableWithAggregatesFilter<"MatchEvent"> | string | null
+    minute?: IntWithAggregatesFilter<"MatchEvent"> | number
+    timestamp?: DateTimeWithAggregatesFilter<"MatchEvent"> | Date | string
+    description?: StringNullableWithAggregatesFilter<"MatchEvent"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"MatchEvent"> | Date | string
+  }
+
+  export type CommentaryEventWhereInput = {
+    AND?: CommentaryEventWhereInput | CommentaryEventWhereInput[]
+    OR?: CommentaryEventWhereInput[]
+    NOT?: CommentaryEventWhereInput | CommentaryEventWhereInput[]
+    id?: StringFilter<"CommentaryEvent"> | string
+    commentaryId?: StringFilter<"CommentaryEvent"> | string
+    type?: StringFilter<"CommentaryEvent"> | string
+    gameMinute?: IntFilter<"CommentaryEvent"> | number
+    audioTimestamp?: IntFilter<"CommentaryEvent"> | number
+    timestamp?: DateTimeFilter<"CommentaryEvent"> | Date | string
+    createdAt?: DateTimeFilter<"CommentaryEvent"> | Date | string
+    commentary?: XOR<CommentaryScalarRelationFilter, CommentaryWhereInput>
+  }
+
+  export type CommentaryEventOrderByWithRelationInput = {
+    id?: SortOrder
+    commentaryId?: SortOrder
+    type?: SortOrder
+    gameMinute?: SortOrder
+    audioTimestamp?: SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    commentary?: CommentaryOrderByWithRelationInput
+  }
+
+  export type CommentaryEventWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: CommentaryEventWhereInput | CommentaryEventWhereInput[]
+    OR?: CommentaryEventWhereInput[]
+    NOT?: CommentaryEventWhereInput | CommentaryEventWhereInput[]
+    commentaryId?: StringFilter<"CommentaryEvent"> | string
+    type?: StringFilter<"CommentaryEvent"> | string
+    gameMinute?: IntFilter<"CommentaryEvent"> | number
+    audioTimestamp?: IntFilter<"CommentaryEvent"> | number
+    timestamp?: DateTimeFilter<"CommentaryEvent"> | Date | string
+    createdAt?: DateTimeFilter<"CommentaryEvent"> | Date | string
+    commentary?: XOR<CommentaryScalarRelationFilter, CommentaryWhereInput>
+  }, "id">
+
+  export type CommentaryEventOrderByWithAggregationInput = {
+    id?: SortOrder
+    commentaryId?: SortOrder
+    type?: SortOrder
+    gameMinute?: SortOrder
+    audioTimestamp?: SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+    _count?: CommentaryEventCountOrderByAggregateInput
+    _avg?: CommentaryEventAvgOrderByAggregateInput
+    _max?: CommentaryEventMaxOrderByAggregateInput
+    _min?: CommentaryEventMinOrderByAggregateInput
+    _sum?: CommentaryEventSumOrderByAggregateInput
+  }
+
+  export type CommentaryEventScalarWhereWithAggregatesInput = {
+    AND?: CommentaryEventScalarWhereWithAggregatesInput | CommentaryEventScalarWhereWithAggregatesInput[]
+    OR?: CommentaryEventScalarWhereWithAggregatesInput[]
+    NOT?: CommentaryEventScalarWhereWithAggregatesInput | CommentaryEventScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"CommentaryEvent"> | string
+    commentaryId?: StringWithAggregatesFilter<"CommentaryEvent"> | string
+    type?: StringWithAggregatesFilter<"CommentaryEvent"> | string
+    gameMinute?: IntWithAggregatesFilter<"CommentaryEvent"> | number
+    audioTimestamp?: IntWithAggregatesFilter<"CommentaryEvent"> | number
+    timestamp?: DateTimeWithAggregatesFilter<"CommentaryEvent"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"CommentaryEvent"> | Date | string
+  }
+
+  export type SyncReportWhereInput = {
+    AND?: SyncReportWhereInput | SyncReportWhereInput[]
+    OR?: SyncReportWhereInput[]
+    NOT?: SyncReportWhereInput | SyncReportWhereInput[]
+    id?: StringFilter<"SyncReport"> | string
+    commentaryId?: StringFilter<"SyncReport"> | string
+    userId?: StringNullableFilter<"SyncReport"> | string | null
+    reportedOffset?: IntFilter<"SyncReport"> | number
+    userAgent?: StringNullableFilter<"SyncReport"> | string | null
+    streamPlatform?: StringNullableFilter<"SyncReport"> | string | null
+    createdAt?: DateTimeFilter<"SyncReport"> | Date | string
+    commentary?: XOR<CommentaryScalarRelationFilter, CommentaryWhereInput>
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+  }
+
+  export type SyncReportOrderByWithRelationInput = {
+    id?: SortOrder
+    commentaryId?: SortOrder
+    userId?: SortOrderInput | SortOrder
+    reportedOffset?: SortOrder
+    userAgent?: SortOrderInput | SortOrder
+    streamPlatform?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    commentary?: CommentaryOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type SyncReportWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: SyncReportWhereInput | SyncReportWhereInput[]
+    OR?: SyncReportWhereInput[]
+    NOT?: SyncReportWhereInput | SyncReportWhereInput[]
+    commentaryId?: StringFilter<"SyncReport"> | string
+    userId?: StringNullableFilter<"SyncReport"> | string | null
+    reportedOffset?: IntFilter<"SyncReport"> | number
+    userAgent?: StringNullableFilter<"SyncReport"> | string | null
+    streamPlatform?: StringNullableFilter<"SyncReport"> | string | null
+    createdAt?: DateTimeFilter<"SyncReport"> | Date | string
+    commentary?: XOR<CommentaryScalarRelationFilter, CommentaryWhereInput>
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+  }, "id">
+
+  export type SyncReportOrderByWithAggregationInput = {
+    id?: SortOrder
+    commentaryId?: SortOrder
+    userId?: SortOrderInput | SortOrder
+    reportedOffset?: SortOrder
+    userAgent?: SortOrderInput | SortOrder
+    streamPlatform?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: SyncReportCountOrderByAggregateInput
+    _avg?: SyncReportAvgOrderByAggregateInput
+    _max?: SyncReportMaxOrderByAggregateInput
+    _min?: SyncReportMinOrderByAggregateInput
+    _sum?: SyncReportSumOrderByAggregateInput
+  }
+
+  export type SyncReportScalarWhereWithAggregatesInput = {
+    AND?: SyncReportScalarWhereWithAggregatesInput | SyncReportScalarWhereWithAggregatesInput[]
+    OR?: SyncReportScalarWhereWithAggregatesInput[]
+    NOT?: SyncReportScalarWhereWithAggregatesInput | SyncReportScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"SyncReport"> | string
+    commentaryId?: StringWithAggregatesFilter<"SyncReport"> | string
+    userId?: StringNullableWithAggregatesFilter<"SyncReport"> | string | null
+    reportedOffset?: IntWithAggregatesFilter<"SyncReport"> | number
+    userAgent?: StringNullableWithAggregatesFilter<"SyncReport"> | string | null
+    streamPlatform?: StringNullableWithAggregatesFilter<"SyncReport"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"SyncReport"> | Date | string
   }
 
   export type UserCreateInput = {
@@ -5014,10 +9184,11 @@ export namespace Prisma {
     email: string
     name: string
     password: string
+    isCommentator?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-    commentaries?: CommentaryCreateNestedManyWithoutUserInput
-    favoriteMatches?: MatchCreateNestedManyWithoutFavoritedByInput
+    commentaries?: CommentaryCreateNestedManyWithoutCommentatorInput
+    syncReports?: SyncReportCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -5025,10 +9196,11 @@ export namespace Prisma {
     email: string
     name: string
     password: string
+    isCommentator?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-    commentaries?: CommentaryUncheckedCreateNestedManyWithoutUserInput
-    favoriteMatches?: MatchUncheckedCreateNestedManyWithoutFavoritedByInput
+    commentaries?: CommentaryUncheckedCreateNestedManyWithoutCommentatorInput
+    syncReports?: SyncReportUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -5036,10 +9208,11 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    isCommentator?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    commentaries?: CommentaryUpdateManyWithoutUserNestedInput
-    favoriteMatches?: MatchUpdateManyWithoutFavoritedByNestedInput
+    commentaries?: CommentaryUpdateManyWithoutCommentatorNestedInput
+    syncReports?: SyncReportUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -5047,10 +9220,11 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    isCommentator?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    commentaries?: CommentaryUncheckedUpdateManyWithoutUserNestedInput
-    favoriteMatches?: MatchUncheckedUpdateManyWithoutFavoritedByNestedInput
+    commentaries?: CommentaryUncheckedUpdateManyWithoutCommentatorNestedInput
+    syncReports?: SyncReportUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -5058,6 +9232,7 @@ export namespace Prisma {
     email: string
     name: string
     password: string
+    isCommentator?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5067,6 +9242,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    isCommentator?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5076,105 +9252,99 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    isCommentator?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type MatchCreateInput = {
     id?: string
-    title: string
-    description?: string | null
-    competition: string
+    league: string
     homeTeam: string
     awayTeam: string
-    date: Date | string
-    duration?: number
+    scheduledTime: Date | string
+    streamUrlPatterns?: MatchCreatestreamUrlPatternsInput | string[]
+    status: string
     createdAt?: Date | string
     updatedAt?: Date | string
     commentaries?: CommentaryCreateNestedManyWithoutMatchInput
-    favoritedBy?: UserCreateNestedManyWithoutFavoriteMatchesInput
+    events?: MatchEventCreateNestedManyWithoutMatchInput
   }
 
   export type MatchUncheckedCreateInput = {
     id?: string
-    title: string
-    description?: string | null
-    competition: string
+    league: string
     homeTeam: string
     awayTeam: string
-    date: Date | string
-    duration?: number
+    scheduledTime: Date | string
+    streamUrlPatterns?: MatchCreatestreamUrlPatternsInput | string[]
+    status: string
     createdAt?: Date | string
     updatedAt?: Date | string
     commentaries?: CommentaryUncheckedCreateNestedManyWithoutMatchInput
-    favoritedBy?: UserUncheckedCreateNestedManyWithoutFavoriteMatchesInput
+    events?: MatchEventUncheckedCreateNestedManyWithoutMatchInput
   }
 
   export type MatchUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    competition?: StringFieldUpdateOperationsInput | string
+    league?: StringFieldUpdateOperationsInput | string
     homeTeam?: StringFieldUpdateOperationsInput | string
     awayTeam?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    duration?: IntFieldUpdateOperationsInput | number
+    scheduledTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    streamUrlPatterns?: MatchUpdatestreamUrlPatternsInput | string[]
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     commentaries?: CommentaryUpdateManyWithoutMatchNestedInput
-    favoritedBy?: UserUpdateManyWithoutFavoriteMatchesNestedInput
+    events?: MatchEventUpdateManyWithoutMatchNestedInput
   }
 
   export type MatchUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    competition?: StringFieldUpdateOperationsInput | string
+    league?: StringFieldUpdateOperationsInput | string
     homeTeam?: StringFieldUpdateOperationsInput | string
     awayTeam?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    duration?: IntFieldUpdateOperationsInput | number
+    scheduledTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    streamUrlPatterns?: MatchUpdatestreamUrlPatternsInput | string[]
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     commentaries?: CommentaryUncheckedUpdateManyWithoutMatchNestedInput
-    favoritedBy?: UserUncheckedUpdateManyWithoutFavoriteMatchesNestedInput
+    events?: MatchEventUncheckedUpdateManyWithoutMatchNestedInput
   }
 
   export type MatchCreateManyInput = {
     id?: string
-    title: string
-    description?: string | null
-    competition: string
+    league: string
     homeTeam: string
     awayTeam: string
-    date: Date | string
-    duration?: number
+    scheduledTime: Date | string
+    streamUrlPatterns?: MatchCreatestreamUrlPatternsInput | string[]
+    status: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type MatchUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    competition?: StringFieldUpdateOperationsInput | string
+    league?: StringFieldUpdateOperationsInput | string
     homeTeam?: StringFieldUpdateOperationsInput | string
     awayTeam?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    duration?: IntFieldUpdateOperationsInput | number
+    scheduledTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    streamUrlPatterns?: MatchUpdatestreamUrlPatternsInput | string[]
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type MatchUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    competition?: StringFieldUpdateOperationsInput | string
+    league?: StringFieldUpdateOperationsInput | string
     homeTeam?: StringFieldUpdateOperationsInput | string
     awayTeam?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    duration?: IntFieldUpdateOperationsInput | number
+    scheduledTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    streamUrlPatterns?: MatchUpdatestreamUrlPatternsInput | string[]
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5183,96 +9353,380 @@ export namespace Prisma {
     id?: string
     title: string
     description?: string | null
-    audioUrl: string
-    duration: number
-    startTime?: number
-    likes?: number
+    audioUrl?: string | null
+    duration?: number
+    youtubeStreamUrl?: string | null
+    youtubeStreamId?: string | null
+    status?: string
+    language?: string
+    baselineOffset?: number
+    avgLatency?: number
+    viewCount?: number
+    rating?: number
+    startedAt?: Date | string | null
+    endedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutCommentariesInput
     match: MatchCreateNestedOneWithoutCommentariesInput
+    commentator: UserCreateNestedOneWithoutCommentariesInput
+    events?: CommentaryEventCreateNestedManyWithoutCommentaryInput
+    syncReports?: SyncReportCreateNestedManyWithoutCommentaryInput
   }
 
   export type CommentaryUncheckedCreateInput = {
     id?: string
+    matchId: string
+    commentatorId: string
     title: string
     description?: string | null
-    audioUrl: string
-    duration: number
-    startTime?: number
-    likes?: number
+    audioUrl?: string | null
+    duration?: number
+    youtubeStreamUrl?: string | null
+    youtubeStreamId?: string | null
+    status?: string
+    language?: string
+    baselineOffset?: number
+    avgLatency?: number
+    viewCount?: number
+    rating?: number
+    startedAt?: Date | string | null
+    endedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    userId: string
-    matchId: string
+    events?: CommentaryEventUncheckedCreateNestedManyWithoutCommentaryInput
+    syncReports?: SyncReportUncheckedCreateNestedManyWithoutCommentaryInput
   }
 
   export type CommentaryUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    audioUrl?: StringFieldUpdateOperationsInput | string
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
     duration?: IntFieldUpdateOperationsInput | number
-    startTime?: IntFieldUpdateOperationsInput | number
-    likes?: IntFieldUpdateOperationsInput | number
+    youtubeStreamUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeStreamId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    language?: StringFieldUpdateOperationsInput | string
+    baselineOffset?: IntFieldUpdateOperationsInput | number
+    avgLatency?: IntFieldUpdateOperationsInput | number
+    viewCount?: IntFieldUpdateOperationsInput | number
+    rating?: FloatFieldUpdateOperationsInput | number
+    startedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutCommentariesNestedInput
     match?: MatchUpdateOneRequiredWithoutCommentariesNestedInput
+    commentator?: UserUpdateOneRequiredWithoutCommentariesNestedInput
+    events?: CommentaryEventUpdateManyWithoutCommentaryNestedInput
+    syncReports?: SyncReportUpdateManyWithoutCommentaryNestedInput
   }
 
   export type CommentaryUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    matchId?: StringFieldUpdateOperationsInput | string
+    commentatorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    audioUrl?: StringFieldUpdateOperationsInput | string
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
     duration?: IntFieldUpdateOperationsInput | number
-    startTime?: IntFieldUpdateOperationsInput | number
-    likes?: IntFieldUpdateOperationsInput | number
+    youtubeStreamUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeStreamId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    language?: StringFieldUpdateOperationsInput | string
+    baselineOffset?: IntFieldUpdateOperationsInput | number
+    avgLatency?: IntFieldUpdateOperationsInput | number
+    viewCount?: IntFieldUpdateOperationsInput | number
+    rating?: FloatFieldUpdateOperationsInput | number
+    startedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    userId?: StringFieldUpdateOperationsInput | string
-    matchId?: StringFieldUpdateOperationsInput | string
+    events?: CommentaryEventUncheckedUpdateManyWithoutCommentaryNestedInput
+    syncReports?: SyncReportUncheckedUpdateManyWithoutCommentaryNestedInput
   }
 
   export type CommentaryCreateManyInput = {
     id?: string
+    matchId: string
+    commentatorId: string
     title: string
     description?: string | null
-    audioUrl: string
-    duration: number
-    startTime?: number
-    likes?: number
+    audioUrl?: string | null
+    duration?: number
+    youtubeStreamUrl?: string | null
+    youtubeStreamId?: string | null
+    status?: string
+    language?: string
+    baselineOffset?: number
+    avgLatency?: number
+    viewCount?: number
+    rating?: number
+    startedAt?: Date | string | null
+    endedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    userId: string
-    matchId: string
   }
 
   export type CommentaryUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    audioUrl?: StringFieldUpdateOperationsInput | string
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
     duration?: IntFieldUpdateOperationsInput | number
-    startTime?: IntFieldUpdateOperationsInput | number
-    likes?: IntFieldUpdateOperationsInput | number
+    youtubeStreamUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeStreamId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    language?: StringFieldUpdateOperationsInput | string
+    baselineOffset?: IntFieldUpdateOperationsInput | number
+    avgLatency?: IntFieldUpdateOperationsInput | number
+    viewCount?: IntFieldUpdateOperationsInput | number
+    rating?: FloatFieldUpdateOperationsInput | number
+    startedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CommentaryUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    matchId?: StringFieldUpdateOperationsInput | string
+    commentatorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    audioUrl?: StringFieldUpdateOperationsInput | string
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
     duration?: IntFieldUpdateOperationsInput | number
-    startTime?: IntFieldUpdateOperationsInput | number
-    likes?: IntFieldUpdateOperationsInput | number
+    youtubeStreamUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeStreamId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    language?: StringFieldUpdateOperationsInput | string
+    baselineOffset?: IntFieldUpdateOperationsInput | number
+    avgLatency?: IntFieldUpdateOperationsInput | number
+    viewCount?: IntFieldUpdateOperationsInput | number
+    rating?: FloatFieldUpdateOperationsInput | number
+    startedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type MatchEventCreateInput = {
+    id?: string
+    type: string
+    team?: string | null
+    player?: string | null
+    minute: number
+    timestamp: Date | string
+    description?: string | null
+    createdAt?: Date | string
+    match: MatchCreateNestedOneWithoutEventsInput
+  }
+
+  export type MatchEventUncheckedCreateInput = {
+    id?: string
+    matchId: string
+    type: string
+    team?: string | null
+    player?: string | null
+    minute: number
+    timestamp: Date | string
+    description?: string | null
+    createdAt?: Date | string
+  }
+
+  export type MatchEventUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    team?: NullableStringFieldUpdateOperationsInput | string | null
+    player?: NullableStringFieldUpdateOperationsInput | string | null
+    minute?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    match?: MatchUpdateOneRequiredWithoutEventsNestedInput
+  }
+
+  export type MatchEventUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     matchId?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    team?: NullableStringFieldUpdateOperationsInput | string | null
+    player?: NullableStringFieldUpdateOperationsInput | string | null
+    minute?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MatchEventCreateManyInput = {
+    id?: string
+    matchId: string
+    type: string
+    team?: string | null
+    player?: string | null
+    minute: number
+    timestamp: Date | string
+    description?: string | null
+    createdAt?: Date | string
+  }
+
+  export type MatchEventUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    team?: NullableStringFieldUpdateOperationsInput | string | null
+    player?: NullableStringFieldUpdateOperationsInput | string | null
+    minute?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MatchEventUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    matchId?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    team?: NullableStringFieldUpdateOperationsInput | string | null
+    player?: NullableStringFieldUpdateOperationsInput | string | null
+    minute?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CommentaryEventCreateInput = {
+    id?: string
+    type: string
+    gameMinute: number
+    audioTimestamp: number
+    timestamp: Date | string
+    createdAt?: Date | string
+    commentary: CommentaryCreateNestedOneWithoutEventsInput
+  }
+
+  export type CommentaryEventUncheckedCreateInput = {
+    id?: string
+    commentaryId: string
+    type: string
+    gameMinute: number
+    audioTimestamp: number
+    timestamp: Date | string
+    createdAt?: Date | string
+  }
+
+  export type CommentaryEventUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    gameMinute?: IntFieldUpdateOperationsInput | number
+    audioTimestamp?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    commentary?: CommentaryUpdateOneRequiredWithoutEventsNestedInput
+  }
+
+  export type CommentaryEventUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    commentaryId?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    gameMinute?: IntFieldUpdateOperationsInput | number
+    audioTimestamp?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CommentaryEventCreateManyInput = {
+    id?: string
+    commentaryId: string
+    type: string
+    gameMinute: number
+    audioTimestamp: number
+    timestamp: Date | string
+    createdAt?: Date | string
+  }
+
+  export type CommentaryEventUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    gameMinute?: IntFieldUpdateOperationsInput | number
+    audioTimestamp?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CommentaryEventUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    commentaryId?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    gameMinute?: IntFieldUpdateOperationsInput | number
+    audioTimestamp?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SyncReportCreateInput = {
+    id?: string
+    reportedOffset: number
+    userAgent?: string | null
+    streamPlatform?: string | null
+    createdAt?: Date | string
+    commentary: CommentaryCreateNestedOneWithoutSyncReportsInput
+    user?: UserCreateNestedOneWithoutSyncReportsInput
+  }
+
+  export type SyncReportUncheckedCreateInput = {
+    id?: string
+    commentaryId: string
+    userId?: string | null
+    reportedOffset: number
+    userAgent?: string | null
+    streamPlatform?: string | null
+    createdAt?: Date | string
+  }
+
+  export type SyncReportUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    reportedOffset?: IntFieldUpdateOperationsInput | number
+    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
+    streamPlatform?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    commentary?: CommentaryUpdateOneRequiredWithoutSyncReportsNestedInput
+    user?: UserUpdateOneWithoutSyncReportsNestedInput
+  }
+
+  export type SyncReportUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    commentaryId?: StringFieldUpdateOperationsInput | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    reportedOffset?: IntFieldUpdateOperationsInput | number
+    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
+    streamPlatform?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SyncReportCreateManyInput = {
+    id?: string
+    commentaryId: string
+    userId?: string | null
+    reportedOffset: number
+    userAgent?: string | null
+    streamPlatform?: string | null
+    createdAt?: Date | string
+  }
+
+  export type SyncReportUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    reportedOffset?: IntFieldUpdateOperationsInput | number
+    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
+    streamPlatform?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SyncReportUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    commentaryId?: StringFieldUpdateOperationsInput | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    reportedOffset?: IntFieldUpdateOperationsInput | number
+    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
+    streamPlatform?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -5288,6 +9742,11 @@ export namespace Prisma {
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
@@ -5307,17 +9766,17 @@ export namespace Prisma {
     none?: CommentaryWhereInput
   }
 
-  export type MatchListRelationFilter = {
-    every?: MatchWhereInput
-    some?: MatchWhereInput
-    none?: MatchWhereInput
+  export type SyncReportListRelationFilter = {
+    every?: SyncReportWhereInput
+    some?: SyncReportWhereInput
+    none?: SyncReportWhereInput
   }
 
   export type CommentaryOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type MatchOrderByRelationAggregateInput = {
+  export type SyncReportOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -5326,6 +9785,7 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     password?: SortOrder
+    isCommentator?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5335,6 +9795,7 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     password?: SortOrder
+    isCommentator?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5344,6 +9805,7 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     password?: SortOrder
+    isCommentator?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5366,6 +9828,14 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -5378,6 +9848,58 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
+  export type MatchEventListRelationFilter = {
+    every?: MatchEventWhereInput
+    some?: MatchEventWhereInput
+    none?: MatchEventWhereInput
+  }
+
+  export type MatchEventOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type MatchCountOrderByAggregateInput = {
+    id?: SortOrder
+    league?: SortOrder
+    homeTeam?: SortOrder
+    awayTeam?: SortOrder
+    scheduledTime?: SortOrder
+    streamUrlPatterns?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MatchMaxOrderByAggregateInput = {
+    id?: SortOrder
+    league?: SortOrder
+    homeTeam?: SortOrder
+    awayTeam?: SortOrder
+    scheduledTime?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MatchMinOrderByAggregateInput = {
+    id?: SortOrder
+    league?: SortOrder
+    homeTeam?: SortOrder
+    awayTeam?: SortOrder
+    scheduledTime?: SortOrder
+    status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type StringNullableFilter<$PrismaModel = never> = {
@@ -5406,10 +9928,42 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type UserListRelationFilter = {
-    every?: UserWhereInput
-    some?: UserWhereInput
-    none?: UserWhereInput
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type MatchScalarRelationFilter = {
+    is?: MatchWhereInput
+    isNot?: MatchWhereInput
+  }
+
+  export type UserScalarRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
+  }
+
+  export type CommentaryEventListRelationFilter = {
+    every?: CommentaryEventWhereInput
+    some?: CommentaryEventWhereInput
+    none?: CommentaryEventWhereInput
   }
 
   export type SortOrderInput = {
@@ -5417,55 +9971,90 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
-  export type UserOrderByRelationAggregateInput = {
+  export type CommentaryEventOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type MatchCountOrderByAggregateInput = {
+  export type CommentaryCountOrderByAggregateInput = {
     id?: SortOrder
+    matchId?: SortOrder
+    commentatorId?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    competition?: SortOrder
-    homeTeam?: SortOrder
-    awayTeam?: SortOrder
-    date?: SortOrder
+    audioUrl?: SortOrder
     duration?: SortOrder
+    youtubeStreamUrl?: SortOrder
+    youtubeStreamId?: SortOrder
+    status?: SortOrder
+    language?: SortOrder
+    baselineOffset?: SortOrder
+    avgLatency?: SortOrder
+    viewCount?: SortOrder
+    rating?: SortOrder
+    startedAt?: SortOrder
+    endedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type MatchAvgOrderByAggregateInput = {
+  export type CommentaryAvgOrderByAggregateInput = {
     duration?: SortOrder
+    baselineOffset?: SortOrder
+    avgLatency?: SortOrder
+    viewCount?: SortOrder
+    rating?: SortOrder
   }
 
-  export type MatchMaxOrderByAggregateInput = {
+  export type CommentaryMaxOrderByAggregateInput = {
     id?: SortOrder
+    matchId?: SortOrder
+    commentatorId?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    competition?: SortOrder
-    homeTeam?: SortOrder
-    awayTeam?: SortOrder
-    date?: SortOrder
+    audioUrl?: SortOrder
     duration?: SortOrder
+    youtubeStreamUrl?: SortOrder
+    youtubeStreamId?: SortOrder
+    status?: SortOrder
+    language?: SortOrder
+    baselineOffset?: SortOrder
+    avgLatency?: SortOrder
+    viewCount?: SortOrder
+    rating?: SortOrder
+    startedAt?: SortOrder
+    endedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type MatchMinOrderByAggregateInput = {
+  export type CommentaryMinOrderByAggregateInput = {
     id?: SortOrder
+    matchId?: SortOrder
+    commentatorId?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    competition?: SortOrder
-    homeTeam?: SortOrder
-    awayTeam?: SortOrder
-    date?: SortOrder
+    audioUrl?: SortOrder
     duration?: SortOrder
+    youtubeStreamUrl?: SortOrder
+    youtubeStreamId?: SortOrder
+    status?: SortOrder
+    language?: SortOrder
+    baselineOffset?: SortOrder
+    avgLatency?: SortOrder
+    viewCount?: SortOrder
+    rating?: SortOrder
+    startedAt?: SortOrder
+    endedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type MatchSumOrderByAggregateInput = {
+  export type CommentarySumOrderByAggregateInput = {
     duration?: SortOrder
+    baselineOffset?: SortOrder
+    avgLatency?: SortOrder
+    viewCount?: SortOrder
+    rating?: SortOrder
   }
 
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -5502,156 +10091,266 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
-  export type UserScalarRelationFilter = {
-    is?: UserWhereInput
-    isNot?: UserWhereInput
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
   }
 
-  export type MatchScalarRelationFilter = {
-    is?: MatchWhereInput
-    isNot?: MatchWhereInput
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
-  export type CommentaryCountOrderByAggregateInput = {
+  export type MatchEventCountOrderByAggregateInput = {
     id?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    audioUrl?: SortOrder
-    duration?: SortOrder
-    startTime?: SortOrder
-    likes?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    userId?: SortOrder
     matchId?: SortOrder
+    type?: SortOrder
+    team?: SortOrder
+    player?: SortOrder
+    minute?: SortOrder
+    timestamp?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
   }
 
-  export type CommentaryAvgOrderByAggregateInput = {
-    duration?: SortOrder
-    startTime?: SortOrder
-    likes?: SortOrder
+  export type MatchEventAvgOrderByAggregateInput = {
+    minute?: SortOrder
   }
 
-  export type CommentaryMaxOrderByAggregateInput = {
+  export type MatchEventMaxOrderByAggregateInput = {
     id?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    audioUrl?: SortOrder
-    duration?: SortOrder
-    startTime?: SortOrder
-    likes?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    userId?: SortOrder
     matchId?: SortOrder
+    type?: SortOrder
+    team?: SortOrder
+    player?: SortOrder
+    minute?: SortOrder
+    timestamp?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
   }
 
-  export type CommentaryMinOrderByAggregateInput = {
+  export type MatchEventMinOrderByAggregateInput = {
     id?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    audioUrl?: SortOrder
-    duration?: SortOrder
-    startTime?: SortOrder
-    likes?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    userId?: SortOrder
     matchId?: SortOrder
+    type?: SortOrder
+    team?: SortOrder
+    player?: SortOrder
+    minute?: SortOrder
+    timestamp?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
   }
 
-  export type CommentarySumOrderByAggregateInput = {
-    duration?: SortOrder
-    startTime?: SortOrder
-    likes?: SortOrder
+  export type MatchEventSumOrderByAggregateInput = {
+    minute?: SortOrder
   }
 
-  export type CommentaryCreateNestedManyWithoutUserInput = {
-    create?: XOR<CommentaryCreateWithoutUserInput, CommentaryUncheckedCreateWithoutUserInput> | CommentaryCreateWithoutUserInput[] | CommentaryUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: CommentaryCreateOrConnectWithoutUserInput | CommentaryCreateOrConnectWithoutUserInput[]
-    createMany?: CommentaryCreateManyUserInputEnvelope
+  export type CommentaryScalarRelationFilter = {
+    is?: CommentaryWhereInput
+    isNot?: CommentaryWhereInput
+  }
+
+  export type CommentaryEventCountOrderByAggregateInput = {
+    id?: SortOrder
+    commentaryId?: SortOrder
+    type?: SortOrder
+    gameMinute?: SortOrder
+    audioTimestamp?: SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type CommentaryEventAvgOrderByAggregateInput = {
+    gameMinute?: SortOrder
+    audioTimestamp?: SortOrder
+  }
+
+  export type CommentaryEventMaxOrderByAggregateInput = {
+    id?: SortOrder
+    commentaryId?: SortOrder
+    type?: SortOrder
+    gameMinute?: SortOrder
+    audioTimestamp?: SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type CommentaryEventMinOrderByAggregateInput = {
+    id?: SortOrder
+    commentaryId?: SortOrder
+    type?: SortOrder
+    gameMinute?: SortOrder
+    audioTimestamp?: SortOrder
+    timestamp?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type CommentaryEventSumOrderByAggregateInput = {
+    gameMinute?: SortOrder
+    audioTimestamp?: SortOrder
+  }
+
+  export type UserNullableScalarRelationFilter = {
+    is?: UserWhereInput | null
+    isNot?: UserWhereInput | null
+  }
+
+  export type SyncReportCountOrderByAggregateInput = {
+    id?: SortOrder
+    commentaryId?: SortOrder
+    userId?: SortOrder
+    reportedOffset?: SortOrder
+    userAgent?: SortOrder
+    streamPlatform?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type SyncReportAvgOrderByAggregateInput = {
+    reportedOffset?: SortOrder
+  }
+
+  export type SyncReportMaxOrderByAggregateInput = {
+    id?: SortOrder
+    commentaryId?: SortOrder
+    userId?: SortOrder
+    reportedOffset?: SortOrder
+    userAgent?: SortOrder
+    streamPlatform?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type SyncReportMinOrderByAggregateInput = {
+    id?: SortOrder
+    commentaryId?: SortOrder
+    userId?: SortOrder
+    reportedOffset?: SortOrder
+    userAgent?: SortOrder
+    streamPlatform?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type SyncReportSumOrderByAggregateInput = {
+    reportedOffset?: SortOrder
+  }
+
+  export type CommentaryCreateNestedManyWithoutCommentatorInput = {
+    create?: XOR<CommentaryCreateWithoutCommentatorInput, CommentaryUncheckedCreateWithoutCommentatorInput> | CommentaryCreateWithoutCommentatorInput[] | CommentaryUncheckedCreateWithoutCommentatorInput[]
+    connectOrCreate?: CommentaryCreateOrConnectWithoutCommentatorInput | CommentaryCreateOrConnectWithoutCommentatorInput[]
+    createMany?: CommentaryCreateManyCommentatorInputEnvelope
     connect?: CommentaryWhereUniqueInput | CommentaryWhereUniqueInput[]
   }
 
-  export type MatchCreateNestedManyWithoutFavoritedByInput = {
-    create?: XOR<MatchCreateWithoutFavoritedByInput, MatchUncheckedCreateWithoutFavoritedByInput> | MatchCreateWithoutFavoritedByInput[] | MatchUncheckedCreateWithoutFavoritedByInput[]
-    connectOrCreate?: MatchCreateOrConnectWithoutFavoritedByInput | MatchCreateOrConnectWithoutFavoritedByInput[]
-    connect?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
+  export type SyncReportCreateNestedManyWithoutUserInput = {
+    create?: XOR<SyncReportCreateWithoutUserInput, SyncReportUncheckedCreateWithoutUserInput> | SyncReportCreateWithoutUserInput[] | SyncReportUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SyncReportCreateOrConnectWithoutUserInput | SyncReportCreateOrConnectWithoutUserInput[]
+    createMany?: SyncReportCreateManyUserInputEnvelope
+    connect?: SyncReportWhereUniqueInput | SyncReportWhereUniqueInput[]
   }
 
-  export type CommentaryUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<CommentaryCreateWithoutUserInput, CommentaryUncheckedCreateWithoutUserInput> | CommentaryCreateWithoutUserInput[] | CommentaryUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: CommentaryCreateOrConnectWithoutUserInput | CommentaryCreateOrConnectWithoutUserInput[]
-    createMany?: CommentaryCreateManyUserInputEnvelope
+  export type CommentaryUncheckedCreateNestedManyWithoutCommentatorInput = {
+    create?: XOR<CommentaryCreateWithoutCommentatorInput, CommentaryUncheckedCreateWithoutCommentatorInput> | CommentaryCreateWithoutCommentatorInput[] | CommentaryUncheckedCreateWithoutCommentatorInput[]
+    connectOrCreate?: CommentaryCreateOrConnectWithoutCommentatorInput | CommentaryCreateOrConnectWithoutCommentatorInput[]
+    createMany?: CommentaryCreateManyCommentatorInputEnvelope
     connect?: CommentaryWhereUniqueInput | CommentaryWhereUniqueInput[]
   }
 
-  export type MatchUncheckedCreateNestedManyWithoutFavoritedByInput = {
-    create?: XOR<MatchCreateWithoutFavoritedByInput, MatchUncheckedCreateWithoutFavoritedByInput> | MatchCreateWithoutFavoritedByInput[] | MatchUncheckedCreateWithoutFavoritedByInput[]
-    connectOrCreate?: MatchCreateOrConnectWithoutFavoritedByInput | MatchCreateOrConnectWithoutFavoritedByInput[]
-    connect?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
+  export type SyncReportUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<SyncReportCreateWithoutUserInput, SyncReportUncheckedCreateWithoutUserInput> | SyncReportCreateWithoutUserInput[] | SyncReportUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SyncReportCreateOrConnectWithoutUserInput | SyncReportCreateOrConnectWithoutUserInput[]
+    createMany?: SyncReportCreateManyUserInputEnvelope
+    connect?: SyncReportWhereUniqueInput | SyncReportWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
 
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
   }
 
-  export type CommentaryUpdateManyWithoutUserNestedInput = {
-    create?: XOR<CommentaryCreateWithoutUserInput, CommentaryUncheckedCreateWithoutUserInput> | CommentaryCreateWithoutUserInput[] | CommentaryUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: CommentaryCreateOrConnectWithoutUserInput | CommentaryCreateOrConnectWithoutUserInput[]
-    upsert?: CommentaryUpsertWithWhereUniqueWithoutUserInput | CommentaryUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: CommentaryCreateManyUserInputEnvelope
+  export type CommentaryUpdateManyWithoutCommentatorNestedInput = {
+    create?: XOR<CommentaryCreateWithoutCommentatorInput, CommentaryUncheckedCreateWithoutCommentatorInput> | CommentaryCreateWithoutCommentatorInput[] | CommentaryUncheckedCreateWithoutCommentatorInput[]
+    connectOrCreate?: CommentaryCreateOrConnectWithoutCommentatorInput | CommentaryCreateOrConnectWithoutCommentatorInput[]
+    upsert?: CommentaryUpsertWithWhereUniqueWithoutCommentatorInput | CommentaryUpsertWithWhereUniqueWithoutCommentatorInput[]
+    createMany?: CommentaryCreateManyCommentatorInputEnvelope
     set?: CommentaryWhereUniqueInput | CommentaryWhereUniqueInput[]
     disconnect?: CommentaryWhereUniqueInput | CommentaryWhereUniqueInput[]
     delete?: CommentaryWhereUniqueInput | CommentaryWhereUniqueInput[]
     connect?: CommentaryWhereUniqueInput | CommentaryWhereUniqueInput[]
-    update?: CommentaryUpdateWithWhereUniqueWithoutUserInput | CommentaryUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: CommentaryUpdateManyWithWhereWithoutUserInput | CommentaryUpdateManyWithWhereWithoutUserInput[]
+    update?: CommentaryUpdateWithWhereUniqueWithoutCommentatorInput | CommentaryUpdateWithWhereUniqueWithoutCommentatorInput[]
+    updateMany?: CommentaryUpdateManyWithWhereWithoutCommentatorInput | CommentaryUpdateManyWithWhereWithoutCommentatorInput[]
     deleteMany?: CommentaryScalarWhereInput | CommentaryScalarWhereInput[]
   }
 
-  export type MatchUpdateManyWithoutFavoritedByNestedInput = {
-    create?: XOR<MatchCreateWithoutFavoritedByInput, MatchUncheckedCreateWithoutFavoritedByInput> | MatchCreateWithoutFavoritedByInput[] | MatchUncheckedCreateWithoutFavoritedByInput[]
-    connectOrCreate?: MatchCreateOrConnectWithoutFavoritedByInput | MatchCreateOrConnectWithoutFavoritedByInput[]
-    upsert?: MatchUpsertWithWhereUniqueWithoutFavoritedByInput | MatchUpsertWithWhereUniqueWithoutFavoritedByInput[]
-    set?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
-    disconnect?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
-    delete?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
-    connect?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
-    update?: MatchUpdateWithWhereUniqueWithoutFavoritedByInput | MatchUpdateWithWhereUniqueWithoutFavoritedByInput[]
-    updateMany?: MatchUpdateManyWithWhereWithoutFavoritedByInput | MatchUpdateManyWithWhereWithoutFavoritedByInput[]
-    deleteMany?: MatchScalarWhereInput | MatchScalarWhereInput[]
+  export type SyncReportUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SyncReportCreateWithoutUserInput, SyncReportUncheckedCreateWithoutUserInput> | SyncReportCreateWithoutUserInput[] | SyncReportUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SyncReportCreateOrConnectWithoutUserInput | SyncReportCreateOrConnectWithoutUserInput[]
+    upsert?: SyncReportUpsertWithWhereUniqueWithoutUserInput | SyncReportUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SyncReportCreateManyUserInputEnvelope
+    set?: SyncReportWhereUniqueInput | SyncReportWhereUniqueInput[]
+    disconnect?: SyncReportWhereUniqueInput | SyncReportWhereUniqueInput[]
+    delete?: SyncReportWhereUniqueInput | SyncReportWhereUniqueInput[]
+    connect?: SyncReportWhereUniqueInput | SyncReportWhereUniqueInput[]
+    update?: SyncReportUpdateWithWhereUniqueWithoutUserInput | SyncReportUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SyncReportUpdateManyWithWhereWithoutUserInput | SyncReportUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SyncReportScalarWhereInput | SyncReportScalarWhereInput[]
   }
 
-  export type CommentaryUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<CommentaryCreateWithoutUserInput, CommentaryUncheckedCreateWithoutUserInput> | CommentaryCreateWithoutUserInput[] | CommentaryUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: CommentaryCreateOrConnectWithoutUserInput | CommentaryCreateOrConnectWithoutUserInput[]
-    upsert?: CommentaryUpsertWithWhereUniqueWithoutUserInput | CommentaryUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: CommentaryCreateManyUserInputEnvelope
+  export type CommentaryUncheckedUpdateManyWithoutCommentatorNestedInput = {
+    create?: XOR<CommentaryCreateWithoutCommentatorInput, CommentaryUncheckedCreateWithoutCommentatorInput> | CommentaryCreateWithoutCommentatorInput[] | CommentaryUncheckedCreateWithoutCommentatorInput[]
+    connectOrCreate?: CommentaryCreateOrConnectWithoutCommentatorInput | CommentaryCreateOrConnectWithoutCommentatorInput[]
+    upsert?: CommentaryUpsertWithWhereUniqueWithoutCommentatorInput | CommentaryUpsertWithWhereUniqueWithoutCommentatorInput[]
+    createMany?: CommentaryCreateManyCommentatorInputEnvelope
     set?: CommentaryWhereUniqueInput | CommentaryWhereUniqueInput[]
     disconnect?: CommentaryWhereUniqueInput | CommentaryWhereUniqueInput[]
     delete?: CommentaryWhereUniqueInput | CommentaryWhereUniqueInput[]
     connect?: CommentaryWhereUniqueInput | CommentaryWhereUniqueInput[]
-    update?: CommentaryUpdateWithWhereUniqueWithoutUserInput | CommentaryUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: CommentaryUpdateManyWithWhereWithoutUserInput | CommentaryUpdateManyWithWhereWithoutUserInput[]
+    update?: CommentaryUpdateWithWhereUniqueWithoutCommentatorInput | CommentaryUpdateWithWhereUniqueWithoutCommentatorInput[]
+    updateMany?: CommentaryUpdateManyWithWhereWithoutCommentatorInput | CommentaryUpdateManyWithWhereWithoutCommentatorInput[]
     deleteMany?: CommentaryScalarWhereInput | CommentaryScalarWhereInput[]
   }
 
-  export type MatchUncheckedUpdateManyWithoutFavoritedByNestedInput = {
-    create?: XOR<MatchCreateWithoutFavoritedByInput, MatchUncheckedCreateWithoutFavoritedByInput> | MatchCreateWithoutFavoritedByInput[] | MatchUncheckedCreateWithoutFavoritedByInput[]
-    connectOrCreate?: MatchCreateOrConnectWithoutFavoritedByInput | MatchCreateOrConnectWithoutFavoritedByInput[]
-    upsert?: MatchUpsertWithWhereUniqueWithoutFavoritedByInput | MatchUpsertWithWhereUniqueWithoutFavoritedByInput[]
-    set?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
-    disconnect?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
-    delete?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
-    connect?: MatchWhereUniqueInput | MatchWhereUniqueInput[]
-    update?: MatchUpdateWithWhereUniqueWithoutFavoritedByInput | MatchUpdateWithWhereUniqueWithoutFavoritedByInput[]
-    updateMany?: MatchUpdateManyWithWhereWithoutFavoritedByInput | MatchUpdateManyWithWhereWithoutFavoritedByInput[]
-    deleteMany?: MatchScalarWhereInput | MatchScalarWhereInput[]
+  export type SyncReportUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<SyncReportCreateWithoutUserInput, SyncReportUncheckedCreateWithoutUserInput> | SyncReportCreateWithoutUserInput[] | SyncReportUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: SyncReportCreateOrConnectWithoutUserInput | SyncReportCreateOrConnectWithoutUserInput[]
+    upsert?: SyncReportUpsertWithWhereUniqueWithoutUserInput | SyncReportUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: SyncReportCreateManyUserInputEnvelope
+    set?: SyncReportWhereUniqueInput | SyncReportWhereUniqueInput[]
+    disconnect?: SyncReportWhereUniqueInput | SyncReportWhereUniqueInput[]
+    delete?: SyncReportWhereUniqueInput | SyncReportWhereUniqueInput[]
+    connect?: SyncReportWhereUniqueInput | SyncReportWhereUniqueInput[]
+    update?: SyncReportUpdateWithWhereUniqueWithoutUserInput | SyncReportUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: SyncReportUpdateManyWithWhereWithoutUserInput | SyncReportUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: SyncReportScalarWhereInput | SyncReportScalarWhereInput[]
+  }
+
+  export type MatchCreatestreamUrlPatternsInput = {
+    set: string[]
   }
 
   export type CommentaryCreateNestedManyWithoutMatchInput = {
@@ -5661,10 +10360,11 @@ export namespace Prisma {
     connect?: CommentaryWhereUniqueInput | CommentaryWhereUniqueInput[]
   }
 
-  export type UserCreateNestedManyWithoutFavoriteMatchesInput = {
-    create?: XOR<UserCreateWithoutFavoriteMatchesInput, UserUncheckedCreateWithoutFavoriteMatchesInput> | UserCreateWithoutFavoriteMatchesInput[] | UserUncheckedCreateWithoutFavoriteMatchesInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutFavoriteMatchesInput | UserCreateOrConnectWithoutFavoriteMatchesInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  export type MatchEventCreateNestedManyWithoutMatchInput = {
+    create?: XOR<MatchEventCreateWithoutMatchInput, MatchEventUncheckedCreateWithoutMatchInput> | MatchEventCreateWithoutMatchInput[] | MatchEventUncheckedCreateWithoutMatchInput[]
+    connectOrCreate?: MatchEventCreateOrConnectWithoutMatchInput | MatchEventCreateOrConnectWithoutMatchInput[]
+    createMany?: MatchEventCreateManyMatchInputEnvelope
+    connect?: MatchEventWhereUniqueInput | MatchEventWhereUniqueInput[]
   }
 
   export type CommentaryUncheckedCreateNestedManyWithoutMatchInput = {
@@ -5674,22 +10374,16 @@ export namespace Prisma {
     connect?: CommentaryWhereUniqueInput | CommentaryWhereUniqueInput[]
   }
 
-  export type UserUncheckedCreateNestedManyWithoutFavoriteMatchesInput = {
-    create?: XOR<UserCreateWithoutFavoriteMatchesInput, UserUncheckedCreateWithoutFavoriteMatchesInput> | UserCreateWithoutFavoriteMatchesInput[] | UserUncheckedCreateWithoutFavoriteMatchesInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutFavoriteMatchesInput | UserCreateOrConnectWithoutFavoriteMatchesInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  export type MatchEventUncheckedCreateNestedManyWithoutMatchInput = {
+    create?: XOR<MatchEventCreateWithoutMatchInput, MatchEventUncheckedCreateWithoutMatchInput> | MatchEventCreateWithoutMatchInput[] | MatchEventUncheckedCreateWithoutMatchInput[]
+    connectOrCreate?: MatchEventCreateOrConnectWithoutMatchInput | MatchEventCreateOrConnectWithoutMatchInput[]
+    createMany?: MatchEventCreateManyMatchInputEnvelope
+    connect?: MatchEventWhereUniqueInput | MatchEventWhereUniqueInput[]
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
+  export type MatchUpdatestreamUrlPatternsInput = {
+    set?: string[]
+    push?: string | string[]
   }
 
   export type CommentaryUpdateManyWithoutMatchNestedInput = {
@@ -5706,17 +10400,18 @@ export namespace Prisma {
     deleteMany?: CommentaryScalarWhereInput | CommentaryScalarWhereInput[]
   }
 
-  export type UserUpdateManyWithoutFavoriteMatchesNestedInput = {
-    create?: XOR<UserCreateWithoutFavoriteMatchesInput, UserUncheckedCreateWithoutFavoriteMatchesInput> | UserCreateWithoutFavoriteMatchesInput[] | UserUncheckedCreateWithoutFavoriteMatchesInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutFavoriteMatchesInput | UserCreateOrConnectWithoutFavoriteMatchesInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutFavoriteMatchesInput | UserUpsertWithWhereUniqueWithoutFavoriteMatchesInput[]
-    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutFavoriteMatchesInput | UserUpdateWithWhereUniqueWithoutFavoriteMatchesInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutFavoriteMatchesInput | UserUpdateManyWithWhereWithoutFavoriteMatchesInput[]
-    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  export type MatchEventUpdateManyWithoutMatchNestedInput = {
+    create?: XOR<MatchEventCreateWithoutMatchInput, MatchEventUncheckedCreateWithoutMatchInput> | MatchEventCreateWithoutMatchInput[] | MatchEventUncheckedCreateWithoutMatchInput[]
+    connectOrCreate?: MatchEventCreateOrConnectWithoutMatchInput | MatchEventCreateOrConnectWithoutMatchInput[]
+    upsert?: MatchEventUpsertWithWhereUniqueWithoutMatchInput | MatchEventUpsertWithWhereUniqueWithoutMatchInput[]
+    createMany?: MatchEventCreateManyMatchInputEnvelope
+    set?: MatchEventWhereUniqueInput | MatchEventWhereUniqueInput[]
+    disconnect?: MatchEventWhereUniqueInput | MatchEventWhereUniqueInput[]
+    delete?: MatchEventWhereUniqueInput | MatchEventWhereUniqueInput[]
+    connect?: MatchEventWhereUniqueInput | MatchEventWhereUniqueInput[]
+    update?: MatchEventUpdateWithWhereUniqueWithoutMatchInput | MatchEventUpdateWithWhereUniqueWithoutMatchInput[]
+    updateMany?: MatchEventUpdateManyWithWhereWithoutMatchInput | MatchEventUpdateManyWithWhereWithoutMatchInput[]
+    deleteMany?: MatchEventScalarWhereInput | MatchEventScalarWhereInput[]
   }
 
   export type CommentaryUncheckedUpdateManyWithoutMatchNestedInput = {
@@ -5733,17 +10428,24 @@ export namespace Prisma {
     deleteMany?: CommentaryScalarWhereInput | CommentaryScalarWhereInput[]
   }
 
-  export type UserUncheckedUpdateManyWithoutFavoriteMatchesNestedInput = {
-    create?: XOR<UserCreateWithoutFavoriteMatchesInput, UserUncheckedCreateWithoutFavoriteMatchesInput> | UserCreateWithoutFavoriteMatchesInput[] | UserUncheckedCreateWithoutFavoriteMatchesInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutFavoriteMatchesInput | UserCreateOrConnectWithoutFavoriteMatchesInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutFavoriteMatchesInput | UserUpsertWithWhereUniqueWithoutFavoriteMatchesInput[]
-    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutFavoriteMatchesInput | UserUpdateWithWhereUniqueWithoutFavoriteMatchesInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutFavoriteMatchesInput | UserUpdateManyWithWhereWithoutFavoriteMatchesInput[]
-    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  export type MatchEventUncheckedUpdateManyWithoutMatchNestedInput = {
+    create?: XOR<MatchEventCreateWithoutMatchInput, MatchEventUncheckedCreateWithoutMatchInput> | MatchEventCreateWithoutMatchInput[] | MatchEventUncheckedCreateWithoutMatchInput[]
+    connectOrCreate?: MatchEventCreateOrConnectWithoutMatchInput | MatchEventCreateOrConnectWithoutMatchInput[]
+    upsert?: MatchEventUpsertWithWhereUniqueWithoutMatchInput | MatchEventUpsertWithWhereUniqueWithoutMatchInput[]
+    createMany?: MatchEventCreateManyMatchInputEnvelope
+    set?: MatchEventWhereUniqueInput | MatchEventWhereUniqueInput[]
+    disconnect?: MatchEventWhereUniqueInput | MatchEventWhereUniqueInput[]
+    delete?: MatchEventWhereUniqueInput | MatchEventWhereUniqueInput[]
+    connect?: MatchEventWhereUniqueInput | MatchEventWhereUniqueInput[]
+    update?: MatchEventUpdateWithWhereUniqueWithoutMatchInput | MatchEventUpdateWithWhereUniqueWithoutMatchInput[]
+    updateMany?: MatchEventUpdateManyWithWhereWithoutMatchInput | MatchEventUpdateManyWithWhereWithoutMatchInput[]
+    deleteMany?: MatchEventScalarWhereInput | MatchEventScalarWhereInput[]
+  }
+
+  export type MatchCreateNestedOneWithoutCommentariesInput = {
+    create?: XOR<MatchCreateWithoutCommentariesInput, MatchUncheckedCreateWithoutCommentariesInput>
+    connectOrCreate?: MatchCreateOrConnectWithoutCommentariesInput
+    connect?: MatchWhereUniqueInput
   }
 
   export type UserCreateNestedOneWithoutCommentariesInput = {
@@ -5752,10 +10454,64 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type MatchCreateNestedOneWithoutCommentariesInput = {
+  export type CommentaryEventCreateNestedManyWithoutCommentaryInput = {
+    create?: XOR<CommentaryEventCreateWithoutCommentaryInput, CommentaryEventUncheckedCreateWithoutCommentaryInput> | CommentaryEventCreateWithoutCommentaryInput[] | CommentaryEventUncheckedCreateWithoutCommentaryInput[]
+    connectOrCreate?: CommentaryEventCreateOrConnectWithoutCommentaryInput | CommentaryEventCreateOrConnectWithoutCommentaryInput[]
+    createMany?: CommentaryEventCreateManyCommentaryInputEnvelope
+    connect?: CommentaryEventWhereUniqueInput | CommentaryEventWhereUniqueInput[]
+  }
+
+  export type SyncReportCreateNestedManyWithoutCommentaryInput = {
+    create?: XOR<SyncReportCreateWithoutCommentaryInput, SyncReportUncheckedCreateWithoutCommentaryInput> | SyncReportCreateWithoutCommentaryInput[] | SyncReportUncheckedCreateWithoutCommentaryInput[]
+    connectOrCreate?: SyncReportCreateOrConnectWithoutCommentaryInput | SyncReportCreateOrConnectWithoutCommentaryInput[]
+    createMany?: SyncReportCreateManyCommentaryInputEnvelope
+    connect?: SyncReportWhereUniqueInput | SyncReportWhereUniqueInput[]
+  }
+
+  export type CommentaryEventUncheckedCreateNestedManyWithoutCommentaryInput = {
+    create?: XOR<CommentaryEventCreateWithoutCommentaryInput, CommentaryEventUncheckedCreateWithoutCommentaryInput> | CommentaryEventCreateWithoutCommentaryInput[] | CommentaryEventUncheckedCreateWithoutCommentaryInput[]
+    connectOrCreate?: CommentaryEventCreateOrConnectWithoutCommentaryInput | CommentaryEventCreateOrConnectWithoutCommentaryInput[]
+    createMany?: CommentaryEventCreateManyCommentaryInputEnvelope
+    connect?: CommentaryEventWhereUniqueInput | CommentaryEventWhereUniqueInput[]
+  }
+
+  export type SyncReportUncheckedCreateNestedManyWithoutCommentaryInput = {
+    create?: XOR<SyncReportCreateWithoutCommentaryInput, SyncReportUncheckedCreateWithoutCommentaryInput> | SyncReportCreateWithoutCommentaryInput[] | SyncReportUncheckedCreateWithoutCommentaryInput[]
+    connectOrCreate?: SyncReportCreateOrConnectWithoutCommentaryInput | SyncReportCreateOrConnectWithoutCommentaryInput[]
+    createMany?: SyncReportCreateManyCommentaryInputEnvelope
+    connect?: SyncReportWhereUniqueInput | SyncReportWhereUniqueInput[]
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
+  export type MatchUpdateOneRequiredWithoutCommentariesNestedInput = {
     create?: XOR<MatchCreateWithoutCommentariesInput, MatchUncheckedCreateWithoutCommentariesInput>
     connectOrCreate?: MatchCreateOrConnectWithoutCommentariesInput
+    upsert?: MatchUpsertWithoutCommentariesInput
     connect?: MatchWhereUniqueInput
+    update?: XOR<XOR<MatchUpdateToOneWithWhereWithoutCommentariesInput, MatchUpdateWithoutCommentariesInput>, MatchUncheckedUpdateWithoutCommentariesInput>
   }
 
   export type UserUpdateOneRequiredWithoutCommentariesNestedInput = {
@@ -5766,12 +10522,118 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCommentariesInput, UserUpdateWithoutCommentariesInput>, UserUncheckedUpdateWithoutCommentariesInput>
   }
 
-  export type MatchUpdateOneRequiredWithoutCommentariesNestedInput = {
-    create?: XOR<MatchCreateWithoutCommentariesInput, MatchUncheckedCreateWithoutCommentariesInput>
-    connectOrCreate?: MatchCreateOrConnectWithoutCommentariesInput
-    upsert?: MatchUpsertWithoutCommentariesInput
+  export type CommentaryEventUpdateManyWithoutCommentaryNestedInput = {
+    create?: XOR<CommentaryEventCreateWithoutCommentaryInput, CommentaryEventUncheckedCreateWithoutCommentaryInput> | CommentaryEventCreateWithoutCommentaryInput[] | CommentaryEventUncheckedCreateWithoutCommentaryInput[]
+    connectOrCreate?: CommentaryEventCreateOrConnectWithoutCommentaryInput | CommentaryEventCreateOrConnectWithoutCommentaryInput[]
+    upsert?: CommentaryEventUpsertWithWhereUniqueWithoutCommentaryInput | CommentaryEventUpsertWithWhereUniqueWithoutCommentaryInput[]
+    createMany?: CommentaryEventCreateManyCommentaryInputEnvelope
+    set?: CommentaryEventWhereUniqueInput | CommentaryEventWhereUniqueInput[]
+    disconnect?: CommentaryEventWhereUniqueInput | CommentaryEventWhereUniqueInput[]
+    delete?: CommentaryEventWhereUniqueInput | CommentaryEventWhereUniqueInput[]
+    connect?: CommentaryEventWhereUniqueInput | CommentaryEventWhereUniqueInput[]
+    update?: CommentaryEventUpdateWithWhereUniqueWithoutCommentaryInput | CommentaryEventUpdateWithWhereUniqueWithoutCommentaryInput[]
+    updateMany?: CommentaryEventUpdateManyWithWhereWithoutCommentaryInput | CommentaryEventUpdateManyWithWhereWithoutCommentaryInput[]
+    deleteMany?: CommentaryEventScalarWhereInput | CommentaryEventScalarWhereInput[]
+  }
+
+  export type SyncReportUpdateManyWithoutCommentaryNestedInput = {
+    create?: XOR<SyncReportCreateWithoutCommentaryInput, SyncReportUncheckedCreateWithoutCommentaryInput> | SyncReportCreateWithoutCommentaryInput[] | SyncReportUncheckedCreateWithoutCommentaryInput[]
+    connectOrCreate?: SyncReportCreateOrConnectWithoutCommentaryInput | SyncReportCreateOrConnectWithoutCommentaryInput[]
+    upsert?: SyncReportUpsertWithWhereUniqueWithoutCommentaryInput | SyncReportUpsertWithWhereUniqueWithoutCommentaryInput[]
+    createMany?: SyncReportCreateManyCommentaryInputEnvelope
+    set?: SyncReportWhereUniqueInput | SyncReportWhereUniqueInput[]
+    disconnect?: SyncReportWhereUniqueInput | SyncReportWhereUniqueInput[]
+    delete?: SyncReportWhereUniqueInput | SyncReportWhereUniqueInput[]
+    connect?: SyncReportWhereUniqueInput | SyncReportWhereUniqueInput[]
+    update?: SyncReportUpdateWithWhereUniqueWithoutCommentaryInput | SyncReportUpdateWithWhereUniqueWithoutCommentaryInput[]
+    updateMany?: SyncReportUpdateManyWithWhereWithoutCommentaryInput | SyncReportUpdateManyWithWhereWithoutCommentaryInput[]
+    deleteMany?: SyncReportScalarWhereInput | SyncReportScalarWhereInput[]
+  }
+
+  export type CommentaryEventUncheckedUpdateManyWithoutCommentaryNestedInput = {
+    create?: XOR<CommentaryEventCreateWithoutCommentaryInput, CommentaryEventUncheckedCreateWithoutCommentaryInput> | CommentaryEventCreateWithoutCommentaryInput[] | CommentaryEventUncheckedCreateWithoutCommentaryInput[]
+    connectOrCreate?: CommentaryEventCreateOrConnectWithoutCommentaryInput | CommentaryEventCreateOrConnectWithoutCommentaryInput[]
+    upsert?: CommentaryEventUpsertWithWhereUniqueWithoutCommentaryInput | CommentaryEventUpsertWithWhereUniqueWithoutCommentaryInput[]
+    createMany?: CommentaryEventCreateManyCommentaryInputEnvelope
+    set?: CommentaryEventWhereUniqueInput | CommentaryEventWhereUniqueInput[]
+    disconnect?: CommentaryEventWhereUniqueInput | CommentaryEventWhereUniqueInput[]
+    delete?: CommentaryEventWhereUniqueInput | CommentaryEventWhereUniqueInput[]
+    connect?: CommentaryEventWhereUniqueInput | CommentaryEventWhereUniqueInput[]
+    update?: CommentaryEventUpdateWithWhereUniqueWithoutCommentaryInput | CommentaryEventUpdateWithWhereUniqueWithoutCommentaryInput[]
+    updateMany?: CommentaryEventUpdateManyWithWhereWithoutCommentaryInput | CommentaryEventUpdateManyWithWhereWithoutCommentaryInput[]
+    deleteMany?: CommentaryEventScalarWhereInput | CommentaryEventScalarWhereInput[]
+  }
+
+  export type SyncReportUncheckedUpdateManyWithoutCommentaryNestedInput = {
+    create?: XOR<SyncReportCreateWithoutCommentaryInput, SyncReportUncheckedCreateWithoutCommentaryInput> | SyncReportCreateWithoutCommentaryInput[] | SyncReportUncheckedCreateWithoutCommentaryInput[]
+    connectOrCreate?: SyncReportCreateOrConnectWithoutCommentaryInput | SyncReportCreateOrConnectWithoutCommentaryInput[]
+    upsert?: SyncReportUpsertWithWhereUniqueWithoutCommentaryInput | SyncReportUpsertWithWhereUniqueWithoutCommentaryInput[]
+    createMany?: SyncReportCreateManyCommentaryInputEnvelope
+    set?: SyncReportWhereUniqueInput | SyncReportWhereUniqueInput[]
+    disconnect?: SyncReportWhereUniqueInput | SyncReportWhereUniqueInput[]
+    delete?: SyncReportWhereUniqueInput | SyncReportWhereUniqueInput[]
+    connect?: SyncReportWhereUniqueInput | SyncReportWhereUniqueInput[]
+    update?: SyncReportUpdateWithWhereUniqueWithoutCommentaryInput | SyncReportUpdateWithWhereUniqueWithoutCommentaryInput[]
+    updateMany?: SyncReportUpdateManyWithWhereWithoutCommentaryInput | SyncReportUpdateManyWithWhereWithoutCommentaryInput[]
+    deleteMany?: SyncReportScalarWhereInput | SyncReportScalarWhereInput[]
+  }
+
+  export type MatchCreateNestedOneWithoutEventsInput = {
+    create?: XOR<MatchCreateWithoutEventsInput, MatchUncheckedCreateWithoutEventsInput>
+    connectOrCreate?: MatchCreateOrConnectWithoutEventsInput
     connect?: MatchWhereUniqueInput
-    update?: XOR<XOR<MatchUpdateToOneWithWhereWithoutCommentariesInput, MatchUpdateWithoutCommentariesInput>, MatchUncheckedUpdateWithoutCommentariesInput>
+  }
+
+  export type MatchUpdateOneRequiredWithoutEventsNestedInput = {
+    create?: XOR<MatchCreateWithoutEventsInput, MatchUncheckedCreateWithoutEventsInput>
+    connectOrCreate?: MatchCreateOrConnectWithoutEventsInput
+    upsert?: MatchUpsertWithoutEventsInput
+    connect?: MatchWhereUniqueInput
+    update?: XOR<XOR<MatchUpdateToOneWithWhereWithoutEventsInput, MatchUpdateWithoutEventsInput>, MatchUncheckedUpdateWithoutEventsInput>
+  }
+
+  export type CommentaryCreateNestedOneWithoutEventsInput = {
+    create?: XOR<CommentaryCreateWithoutEventsInput, CommentaryUncheckedCreateWithoutEventsInput>
+    connectOrCreate?: CommentaryCreateOrConnectWithoutEventsInput
+    connect?: CommentaryWhereUniqueInput
+  }
+
+  export type CommentaryUpdateOneRequiredWithoutEventsNestedInput = {
+    create?: XOR<CommentaryCreateWithoutEventsInput, CommentaryUncheckedCreateWithoutEventsInput>
+    connectOrCreate?: CommentaryCreateOrConnectWithoutEventsInput
+    upsert?: CommentaryUpsertWithoutEventsInput
+    connect?: CommentaryWhereUniqueInput
+    update?: XOR<XOR<CommentaryUpdateToOneWithWhereWithoutEventsInput, CommentaryUpdateWithoutEventsInput>, CommentaryUncheckedUpdateWithoutEventsInput>
+  }
+
+  export type CommentaryCreateNestedOneWithoutSyncReportsInput = {
+    create?: XOR<CommentaryCreateWithoutSyncReportsInput, CommentaryUncheckedCreateWithoutSyncReportsInput>
+    connectOrCreate?: CommentaryCreateOrConnectWithoutSyncReportsInput
+    connect?: CommentaryWhereUniqueInput
+  }
+
+  export type UserCreateNestedOneWithoutSyncReportsInput = {
+    create?: XOR<UserCreateWithoutSyncReportsInput, UserUncheckedCreateWithoutSyncReportsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSyncReportsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type CommentaryUpdateOneRequiredWithoutSyncReportsNestedInput = {
+    create?: XOR<CommentaryCreateWithoutSyncReportsInput, CommentaryUncheckedCreateWithoutSyncReportsInput>
+    connectOrCreate?: CommentaryCreateOrConnectWithoutSyncReportsInput
+    upsert?: CommentaryUpsertWithoutSyncReportsInput
+    connect?: CommentaryWhereUniqueInput
+    update?: XOR<XOR<CommentaryUpdateToOneWithWhereWithoutSyncReportsInput, CommentaryUpdateWithoutSyncReportsInput>, CommentaryUncheckedUpdateWithoutSyncReportsInput>
+  }
+
+  export type UserUpdateOneWithoutSyncReportsNestedInput = {
+    create?: XOR<UserCreateWithoutSyncReportsInput, UserUncheckedCreateWithoutSyncReportsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSyncReportsInput
+    upsert?: UserUpsertWithoutSyncReportsInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSyncReportsInput, UserUpdateWithoutSyncReportsInput>, UserUncheckedUpdateWithoutSyncReportsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -5786,6 +10648,11 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -5827,6 +10694,14 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -5853,6 +10728,28 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -5899,7 +10796,7 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
-  export type NestedFloatFilter<$PrismaModel = never> = {
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
     notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
@@ -5907,92 +10804,126 @@ export namespace Prisma {
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
   }
 
-  export type CommentaryCreateWithoutUserInput = {
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type CommentaryCreateWithoutCommentatorInput = {
     id?: string
     title: string
     description?: string | null
-    audioUrl: string
-    duration: number
-    startTime?: number
-    likes?: number
+    audioUrl?: string | null
+    duration?: number
+    youtubeStreamUrl?: string | null
+    youtubeStreamId?: string | null
+    status?: string
+    language?: string
+    baselineOffset?: number
+    avgLatency?: number
+    viewCount?: number
+    rating?: number
+    startedAt?: Date | string | null
+    endedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     match: MatchCreateNestedOneWithoutCommentariesInput
+    events?: CommentaryEventCreateNestedManyWithoutCommentaryInput
+    syncReports?: SyncReportCreateNestedManyWithoutCommentaryInput
   }
 
-  export type CommentaryUncheckedCreateWithoutUserInput = {
+  export type CommentaryUncheckedCreateWithoutCommentatorInput = {
     id?: string
+    matchId: string
     title: string
     description?: string | null
-    audioUrl: string
-    duration: number
-    startTime?: number
-    likes?: number
+    audioUrl?: string | null
+    duration?: number
+    youtubeStreamUrl?: string | null
+    youtubeStreamId?: string | null
+    status?: string
+    language?: string
+    baselineOffset?: number
+    avgLatency?: number
+    viewCount?: number
+    rating?: number
+    startedAt?: Date | string | null
+    endedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    matchId: string
+    events?: CommentaryEventUncheckedCreateNestedManyWithoutCommentaryInput
+    syncReports?: SyncReportUncheckedCreateNestedManyWithoutCommentaryInput
   }
 
-  export type CommentaryCreateOrConnectWithoutUserInput = {
+  export type CommentaryCreateOrConnectWithoutCommentatorInput = {
     where: CommentaryWhereUniqueInput
-    create: XOR<CommentaryCreateWithoutUserInput, CommentaryUncheckedCreateWithoutUserInput>
+    create: XOR<CommentaryCreateWithoutCommentatorInput, CommentaryUncheckedCreateWithoutCommentatorInput>
   }
 
-  export type CommentaryCreateManyUserInputEnvelope = {
-    data: CommentaryCreateManyUserInput | CommentaryCreateManyUserInput[]
+  export type CommentaryCreateManyCommentatorInputEnvelope = {
+    data: CommentaryCreateManyCommentatorInput | CommentaryCreateManyCommentatorInput[]
     skipDuplicates?: boolean
   }
 
-  export type MatchCreateWithoutFavoritedByInput = {
+  export type SyncReportCreateWithoutUserInput = {
     id?: string
-    title: string
-    description?: string | null
-    competition: string
-    homeTeam: string
-    awayTeam: string
-    date: Date | string
-    duration?: number
+    reportedOffset: number
+    userAgent?: string | null
+    streamPlatform?: string | null
     createdAt?: Date | string
-    updatedAt?: Date | string
-    commentaries?: CommentaryCreateNestedManyWithoutMatchInput
+    commentary: CommentaryCreateNestedOneWithoutSyncReportsInput
   }
 
-  export type MatchUncheckedCreateWithoutFavoritedByInput = {
+  export type SyncReportUncheckedCreateWithoutUserInput = {
     id?: string
-    title: string
-    description?: string | null
-    competition: string
-    homeTeam: string
-    awayTeam: string
-    date: Date | string
-    duration?: number
+    commentaryId: string
+    reportedOffset: number
+    userAgent?: string | null
+    streamPlatform?: string | null
     createdAt?: Date | string
-    updatedAt?: Date | string
-    commentaries?: CommentaryUncheckedCreateNestedManyWithoutMatchInput
   }
 
-  export type MatchCreateOrConnectWithoutFavoritedByInput = {
-    where: MatchWhereUniqueInput
-    create: XOR<MatchCreateWithoutFavoritedByInput, MatchUncheckedCreateWithoutFavoritedByInput>
+  export type SyncReportCreateOrConnectWithoutUserInput = {
+    where: SyncReportWhereUniqueInput
+    create: XOR<SyncReportCreateWithoutUserInput, SyncReportUncheckedCreateWithoutUserInput>
   }
 
-  export type CommentaryUpsertWithWhereUniqueWithoutUserInput = {
+  export type SyncReportCreateManyUserInputEnvelope = {
+    data: SyncReportCreateManyUserInput | SyncReportCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CommentaryUpsertWithWhereUniqueWithoutCommentatorInput = {
     where: CommentaryWhereUniqueInput
-    update: XOR<CommentaryUpdateWithoutUserInput, CommentaryUncheckedUpdateWithoutUserInput>
-    create: XOR<CommentaryCreateWithoutUserInput, CommentaryUncheckedCreateWithoutUserInput>
+    update: XOR<CommentaryUpdateWithoutCommentatorInput, CommentaryUncheckedUpdateWithoutCommentatorInput>
+    create: XOR<CommentaryCreateWithoutCommentatorInput, CommentaryUncheckedCreateWithoutCommentatorInput>
   }
 
-  export type CommentaryUpdateWithWhereUniqueWithoutUserInput = {
+  export type CommentaryUpdateWithWhereUniqueWithoutCommentatorInput = {
     where: CommentaryWhereUniqueInput
-    data: XOR<CommentaryUpdateWithoutUserInput, CommentaryUncheckedUpdateWithoutUserInput>
+    data: XOR<CommentaryUpdateWithoutCommentatorInput, CommentaryUncheckedUpdateWithoutCommentatorInput>
   }
 
-  export type CommentaryUpdateManyWithWhereWithoutUserInput = {
+  export type CommentaryUpdateManyWithWhereWithoutCommentatorInput = {
     where: CommentaryScalarWhereInput
-    data: XOR<CommentaryUpdateManyMutationInput, CommentaryUncheckedUpdateManyWithoutUserInput>
+    data: XOR<CommentaryUpdateManyMutationInput, CommentaryUncheckedUpdateManyWithoutCommentatorInput>
   }
 
   export type CommentaryScalarWhereInput = {
@@ -6000,74 +10931,99 @@ export namespace Prisma {
     OR?: CommentaryScalarWhereInput[]
     NOT?: CommentaryScalarWhereInput | CommentaryScalarWhereInput[]
     id?: StringFilter<"Commentary"> | string
+    matchId?: StringFilter<"Commentary"> | string
+    commentatorId?: StringFilter<"Commentary"> | string
     title?: StringFilter<"Commentary"> | string
     description?: StringNullableFilter<"Commentary"> | string | null
-    audioUrl?: StringFilter<"Commentary"> | string
+    audioUrl?: StringNullableFilter<"Commentary"> | string | null
     duration?: IntFilter<"Commentary"> | number
-    startTime?: IntFilter<"Commentary"> | number
-    likes?: IntFilter<"Commentary"> | number
+    youtubeStreamUrl?: StringNullableFilter<"Commentary"> | string | null
+    youtubeStreamId?: StringNullableFilter<"Commentary"> | string | null
+    status?: StringFilter<"Commentary"> | string
+    language?: StringFilter<"Commentary"> | string
+    baselineOffset?: IntFilter<"Commentary"> | number
+    avgLatency?: IntFilter<"Commentary"> | number
+    viewCount?: IntFilter<"Commentary"> | number
+    rating?: FloatFilter<"Commentary"> | number
+    startedAt?: DateTimeNullableFilter<"Commentary"> | Date | string | null
+    endedAt?: DateTimeNullableFilter<"Commentary"> | Date | string | null
     createdAt?: DateTimeFilter<"Commentary"> | Date | string
     updatedAt?: DateTimeFilter<"Commentary"> | Date | string
-    userId?: StringFilter<"Commentary"> | string
-    matchId?: StringFilter<"Commentary"> | string
   }
 
-  export type MatchUpsertWithWhereUniqueWithoutFavoritedByInput = {
-    where: MatchWhereUniqueInput
-    update: XOR<MatchUpdateWithoutFavoritedByInput, MatchUncheckedUpdateWithoutFavoritedByInput>
-    create: XOR<MatchCreateWithoutFavoritedByInput, MatchUncheckedCreateWithoutFavoritedByInput>
+  export type SyncReportUpsertWithWhereUniqueWithoutUserInput = {
+    where: SyncReportWhereUniqueInput
+    update: XOR<SyncReportUpdateWithoutUserInput, SyncReportUncheckedUpdateWithoutUserInput>
+    create: XOR<SyncReportCreateWithoutUserInput, SyncReportUncheckedCreateWithoutUserInput>
   }
 
-  export type MatchUpdateWithWhereUniqueWithoutFavoritedByInput = {
-    where: MatchWhereUniqueInput
-    data: XOR<MatchUpdateWithoutFavoritedByInput, MatchUncheckedUpdateWithoutFavoritedByInput>
+  export type SyncReportUpdateWithWhereUniqueWithoutUserInput = {
+    where: SyncReportWhereUniqueInput
+    data: XOR<SyncReportUpdateWithoutUserInput, SyncReportUncheckedUpdateWithoutUserInput>
   }
 
-  export type MatchUpdateManyWithWhereWithoutFavoritedByInput = {
-    where: MatchScalarWhereInput
-    data: XOR<MatchUpdateManyMutationInput, MatchUncheckedUpdateManyWithoutFavoritedByInput>
+  export type SyncReportUpdateManyWithWhereWithoutUserInput = {
+    where: SyncReportScalarWhereInput
+    data: XOR<SyncReportUpdateManyMutationInput, SyncReportUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type MatchScalarWhereInput = {
-    AND?: MatchScalarWhereInput | MatchScalarWhereInput[]
-    OR?: MatchScalarWhereInput[]
-    NOT?: MatchScalarWhereInput | MatchScalarWhereInput[]
-    id?: StringFilter<"Match"> | string
-    title?: StringFilter<"Match"> | string
-    description?: StringNullableFilter<"Match"> | string | null
-    competition?: StringFilter<"Match"> | string
-    homeTeam?: StringFilter<"Match"> | string
-    awayTeam?: StringFilter<"Match"> | string
-    date?: DateTimeFilter<"Match"> | Date | string
-    duration?: IntFilter<"Match"> | number
-    createdAt?: DateTimeFilter<"Match"> | Date | string
-    updatedAt?: DateTimeFilter<"Match"> | Date | string
+  export type SyncReportScalarWhereInput = {
+    AND?: SyncReportScalarWhereInput | SyncReportScalarWhereInput[]
+    OR?: SyncReportScalarWhereInput[]
+    NOT?: SyncReportScalarWhereInput | SyncReportScalarWhereInput[]
+    id?: StringFilter<"SyncReport"> | string
+    commentaryId?: StringFilter<"SyncReport"> | string
+    userId?: StringNullableFilter<"SyncReport"> | string | null
+    reportedOffset?: IntFilter<"SyncReport"> | number
+    userAgent?: StringNullableFilter<"SyncReport"> | string | null
+    streamPlatform?: StringNullableFilter<"SyncReport"> | string | null
+    createdAt?: DateTimeFilter<"SyncReport"> | Date | string
   }
 
   export type CommentaryCreateWithoutMatchInput = {
     id?: string
     title: string
     description?: string | null
-    audioUrl: string
-    duration: number
-    startTime?: number
-    likes?: number
+    audioUrl?: string | null
+    duration?: number
+    youtubeStreamUrl?: string | null
+    youtubeStreamId?: string | null
+    status?: string
+    language?: string
+    baselineOffset?: number
+    avgLatency?: number
+    viewCount?: number
+    rating?: number
+    startedAt?: Date | string | null
+    endedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutCommentariesInput
+    commentator: UserCreateNestedOneWithoutCommentariesInput
+    events?: CommentaryEventCreateNestedManyWithoutCommentaryInput
+    syncReports?: SyncReportCreateNestedManyWithoutCommentaryInput
   }
 
   export type CommentaryUncheckedCreateWithoutMatchInput = {
     id?: string
+    commentatorId: string
     title: string
     description?: string | null
-    audioUrl: string
-    duration: number
-    startTime?: number
-    likes?: number
+    audioUrl?: string | null
+    duration?: number
+    youtubeStreamUrl?: string | null
+    youtubeStreamId?: string | null
+    status?: string
+    language?: string
+    baselineOffset?: number
+    avgLatency?: number
+    viewCount?: number
+    rating?: number
+    startedAt?: Date | string | null
+    endedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    userId: string
+    events?: CommentaryEventUncheckedCreateNestedManyWithoutCommentaryInput
+    syncReports?: SyncReportUncheckedCreateNestedManyWithoutCommentaryInput
   }
 
   export type CommentaryCreateOrConnectWithoutMatchInput = {
@@ -6080,29 +11036,36 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type UserCreateWithoutFavoriteMatchesInput = {
+  export type MatchEventCreateWithoutMatchInput = {
     id?: string
-    email: string
-    name: string
-    password: string
+    type: string
+    team?: string | null
+    player?: string | null
+    minute: number
+    timestamp: Date | string
+    description?: string | null
     createdAt?: Date | string
-    updatedAt?: Date | string
-    commentaries?: CommentaryCreateNestedManyWithoutUserInput
   }
 
-  export type UserUncheckedCreateWithoutFavoriteMatchesInput = {
+  export type MatchEventUncheckedCreateWithoutMatchInput = {
     id?: string
-    email: string
-    name: string
-    password: string
+    type: string
+    team?: string | null
+    player?: string | null
+    minute: number
+    timestamp: Date | string
+    description?: string | null
     createdAt?: Date | string
-    updatedAt?: Date | string
-    commentaries?: CommentaryUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type UserCreateOrConnectWithoutFavoriteMatchesInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutFavoriteMatchesInput, UserUncheckedCreateWithoutFavoriteMatchesInput>
+  export type MatchEventCreateOrConnectWithoutMatchInput = {
+    where: MatchEventWhereUniqueInput
+    create: XOR<MatchEventCreateWithoutMatchInput, MatchEventUncheckedCreateWithoutMatchInput>
+  }
+
+  export type MatchEventCreateManyMatchInputEnvelope = {
+    data: MatchEventCreateManyMatchInput | MatchEventCreateManyMatchInput[]
+    skipDuplicates?: boolean
   }
 
   export type CommentaryUpsertWithWhereUniqueWithoutMatchInput = {
@@ -6121,32 +11084,66 @@ export namespace Prisma {
     data: XOR<CommentaryUpdateManyMutationInput, CommentaryUncheckedUpdateManyWithoutMatchInput>
   }
 
-  export type UserUpsertWithWhereUniqueWithoutFavoriteMatchesInput = {
-    where: UserWhereUniqueInput
-    update: XOR<UserUpdateWithoutFavoriteMatchesInput, UserUncheckedUpdateWithoutFavoriteMatchesInput>
-    create: XOR<UserCreateWithoutFavoriteMatchesInput, UserUncheckedCreateWithoutFavoriteMatchesInput>
+  export type MatchEventUpsertWithWhereUniqueWithoutMatchInput = {
+    where: MatchEventWhereUniqueInput
+    update: XOR<MatchEventUpdateWithoutMatchInput, MatchEventUncheckedUpdateWithoutMatchInput>
+    create: XOR<MatchEventCreateWithoutMatchInput, MatchEventUncheckedCreateWithoutMatchInput>
   }
 
-  export type UserUpdateWithWhereUniqueWithoutFavoriteMatchesInput = {
-    where: UserWhereUniqueInput
-    data: XOR<UserUpdateWithoutFavoriteMatchesInput, UserUncheckedUpdateWithoutFavoriteMatchesInput>
+  export type MatchEventUpdateWithWhereUniqueWithoutMatchInput = {
+    where: MatchEventWhereUniqueInput
+    data: XOR<MatchEventUpdateWithoutMatchInput, MatchEventUncheckedUpdateWithoutMatchInput>
   }
 
-  export type UserUpdateManyWithWhereWithoutFavoriteMatchesInput = {
-    where: UserScalarWhereInput
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutFavoriteMatchesInput>
+  export type MatchEventUpdateManyWithWhereWithoutMatchInput = {
+    where: MatchEventScalarWhereInput
+    data: XOR<MatchEventUpdateManyMutationInput, MatchEventUncheckedUpdateManyWithoutMatchInput>
   }
 
-  export type UserScalarWhereInput = {
-    AND?: UserScalarWhereInput | UserScalarWhereInput[]
-    OR?: UserScalarWhereInput[]
-    NOT?: UserScalarWhereInput | UserScalarWhereInput[]
-    id?: StringFilter<"User"> | string
-    email?: StringFilter<"User"> | string
-    name?: StringFilter<"User"> | string
-    password?: StringFilter<"User"> | string
-    createdAt?: DateTimeFilter<"User"> | Date | string
-    updatedAt?: DateTimeFilter<"User"> | Date | string
+  export type MatchEventScalarWhereInput = {
+    AND?: MatchEventScalarWhereInput | MatchEventScalarWhereInput[]
+    OR?: MatchEventScalarWhereInput[]
+    NOT?: MatchEventScalarWhereInput | MatchEventScalarWhereInput[]
+    id?: StringFilter<"MatchEvent"> | string
+    matchId?: StringFilter<"MatchEvent"> | string
+    type?: StringFilter<"MatchEvent"> | string
+    team?: StringNullableFilter<"MatchEvent"> | string | null
+    player?: StringNullableFilter<"MatchEvent"> | string | null
+    minute?: IntFilter<"MatchEvent"> | number
+    timestamp?: DateTimeFilter<"MatchEvent"> | Date | string
+    description?: StringNullableFilter<"MatchEvent"> | string | null
+    createdAt?: DateTimeFilter<"MatchEvent"> | Date | string
+  }
+
+  export type MatchCreateWithoutCommentariesInput = {
+    id?: string
+    league: string
+    homeTeam: string
+    awayTeam: string
+    scheduledTime: Date | string
+    streamUrlPatterns?: MatchCreatestreamUrlPatternsInput | string[]
+    status: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    events?: MatchEventCreateNestedManyWithoutMatchInput
+  }
+
+  export type MatchUncheckedCreateWithoutCommentariesInput = {
+    id?: string
+    league: string
+    homeTeam: string
+    awayTeam: string
+    scheduledTime: Date | string
+    streamUrlPatterns?: MatchCreatestreamUrlPatternsInput | string[]
+    status: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    events?: MatchEventUncheckedCreateNestedManyWithoutMatchInput
+  }
+
+  export type MatchCreateOrConnectWithoutCommentariesInput = {
+    where: MatchWhereUniqueInput
+    create: XOR<MatchCreateWithoutCommentariesInput, MatchUncheckedCreateWithoutCommentariesInput>
   }
 
   export type UserCreateWithoutCommentariesInput = {
@@ -6154,9 +11151,10 @@ export namespace Prisma {
     email: string
     name: string
     password: string
+    isCommentator?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-    favoriteMatches?: MatchCreateNestedManyWithoutFavoritedByInput
+    syncReports?: SyncReportCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutCommentariesInput = {
@@ -6164,9 +11162,10 @@ export namespace Prisma {
     email: string
     name: string
     password: string
+    isCommentator?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
-    favoriteMatches?: MatchUncheckedCreateNestedManyWithoutFavoritedByInput
+    syncReports?: SyncReportUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutCommentariesInput = {
@@ -6174,37 +11173,97 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutCommentariesInput, UserUncheckedCreateWithoutCommentariesInput>
   }
 
-  export type MatchCreateWithoutCommentariesInput = {
+  export type CommentaryEventCreateWithoutCommentaryInput = {
     id?: string
-    title: string
-    description?: string | null
-    competition: string
-    homeTeam: string
-    awayTeam: string
-    date: Date | string
-    duration?: number
+    type: string
+    gameMinute: number
+    audioTimestamp: number
+    timestamp: Date | string
     createdAt?: Date | string
-    updatedAt?: Date | string
-    favoritedBy?: UserCreateNestedManyWithoutFavoriteMatchesInput
   }
 
-  export type MatchUncheckedCreateWithoutCommentariesInput = {
+  export type CommentaryEventUncheckedCreateWithoutCommentaryInput = {
     id?: string
-    title: string
-    description?: string | null
-    competition: string
-    homeTeam: string
-    awayTeam: string
-    date: Date | string
-    duration?: number
+    type: string
+    gameMinute: number
+    audioTimestamp: number
+    timestamp: Date | string
     createdAt?: Date | string
-    updatedAt?: Date | string
-    favoritedBy?: UserUncheckedCreateNestedManyWithoutFavoriteMatchesInput
   }
 
-  export type MatchCreateOrConnectWithoutCommentariesInput = {
-    where: MatchWhereUniqueInput
+  export type CommentaryEventCreateOrConnectWithoutCommentaryInput = {
+    where: CommentaryEventWhereUniqueInput
+    create: XOR<CommentaryEventCreateWithoutCommentaryInput, CommentaryEventUncheckedCreateWithoutCommentaryInput>
+  }
+
+  export type CommentaryEventCreateManyCommentaryInputEnvelope = {
+    data: CommentaryEventCreateManyCommentaryInput | CommentaryEventCreateManyCommentaryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SyncReportCreateWithoutCommentaryInput = {
+    id?: string
+    reportedOffset: number
+    userAgent?: string | null
+    streamPlatform?: string | null
+    createdAt?: Date | string
+    user?: UserCreateNestedOneWithoutSyncReportsInput
+  }
+
+  export type SyncReportUncheckedCreateWithoutCommentaryInput = {
+    id?: string
+    userId?: string | null
+    reportedOffset: number
+    userAgent?: string | null
+    streamPlatform?: string | null
+    createdAt?: Date | string
+  }
+
+  export type SyncReportCreateOrConnectWithoutCommentaryInput = {
+    where: SyncReportWhereUniqueInput
+    create: XOR<SyncReportCreateWithoutCommentaryInput, SyncReportUncheckedCreateWithoutCommentaryInput>
+  }
+
+  export type SyncReportCreateManyCommentaryInputEnvelope = {
+    data: SyncReportCreateManyCommentaryInput | SyncReportCreateManyCommentaryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type MatchUpsertWithoutCommentariesInput = {
+    update: XOR<MatchUpdateWithoutCommentariesInput, MatchUncheckedUpdateWithoutCommentariesInput>
     create: XOR<MatchCreateWithoutCommentariesInput, MatchUncheckedCreateWithoutCommentariesInput>
+    where?: MatchWhereInput
+  }
+
+  export type MatchUpdateToOneWithWhereWithoutCommentariesInput = {
+    where?: MatchWhereInput
+    data: XOR<MatchUpdateWithoutCommentariesInput, MatchUncheckedUpdateWithoutCommentariesInput>
+  }
+
+  export type MatchUpdateWithoutCommentariesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    league?: StringFieldUpdateOperationsInput | string
+    homeTeam?: StringFieldUpdateOperationsInput | string
+    awayTeam?: StringFieldUpdateOperationsInput | string
+    scheduledTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    streamUrlPatterns?: MatchUpdatestreamUrlPatternsInput | string[]
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    events?: MatchEventUpdateManyWithoutMatchNestedInput
+  }
+
+  export type MatchUncheckedUpdateWithoutCommentariesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    league?: StringFieldUpdateOperationsInput | string
+    homeTeam?: StringFieldUpdateOperationsInput | string
+    awayTeam?: StringFieldUpdateOperationsInput | string
+    scheduledTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    streamUrlPatterns?: MatchUpdatestreamUrlPatternsInput | string[]
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    events?: MatchEventUncheckedUpdateManyWithoutMatchNestedInput
   }
 
   export type UserUpsertWithoutCommentariesInput = {
@@ -6223,9 +11282,10 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    isCommentator?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    favoriteMatches?: MatchUpdateManyWithoutFavoritedByNestedInput
+    syncReports?: SyncReportUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCommentariesInput = {
@@ -6233,222 +11293,727 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    isCommentator?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    favoriteMatches?: MatchUncheckedUpdateManyWithoutFavoritedByNestedInput
+    syncReports?: SyncReportUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type MatchUpsertWithoutCommentariesInput = {
-    update: XOR<MatchUpdateWithoutCommentariesInput, MatchUncheckedUpdateWithoutCommentariesInput>
-    create: XOR<MatchCreateWithoutCommentariesInput, MatchUncheckedCreateWithoutCommentariesInput>
-    where?: MatchWhereInput
+  export type CommentaryEventUpsertWithWhereUniqueWithoutCommentaryInput = {
+    where: CommentaryEventWhereUniqueInput
+    update: XOR<CommentaryEventUpdateWithoutCommentaryInput, CommentaryEventUncheckedUpdateWithoutCommentaryInput>
+    create: XOR<CommentaryEventCreateWithoutCommentaryInput, CommentaryEventUncheckedCreateWithoutCommentaryInput>
   }
 
-  export type MatchUpdateToOneWithWhereWithoutCommentariesInput = {
-    where?: MatchWhereInput
-    data: XOR<MatchUpdateWithoutCommentariesInput, MatchUncheckedUpdateWithoutCommentariesInput>
+  export type CommentaryEventUpdateWithWhereUniqueWithoutCommentaryInput = {
+    where: CommentaryEventWhereUniqueInput
+    data: XOR<CommentaryEventUpdateWithoutCommentaryInput, CommentaryEventUncheckedUpdateWithoutCommentaryInput>
   }
 
-  export type MatchUpdateWithoutCommentariesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    competition?: StringFieldUpdateOperationsInput | string
-    homeTeam?: StringFieldUpdateOperationsInput | string
-    awayTeam?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    duration?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    favoritedBy?: UserUpdateManyWithoutFavoriteMatchesNestedInput
+  export type CommentaryEventUpdateManyWithWhereWithoutCommentaryInput = {
+    where: CommentaryEventScalarWhereInput
+    data: XOR<CommentaryEventUpdateManyMutationInput, CommentaryEventUncheckedUpdateManyWithoutCommentaryInput>
   }
 
-  export type MatchUncheckedUpdateWithoutCommentariesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    competition?: StringFieldUpdateOperationsInput | string
-    homeTeam?: StringFieldUpdateOperationsInput | string
-    awayTeam?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    duration?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    favoritedBy?: UserUncheckedUpdateManyWithoutFavoriteMatchesNestedInput
+  export type CommentaryEventScalarWhereInput = {
+    AND?: CommentaryEventScalarWhereInput | CommentaryEventScalarWhereInput[]
+    OR?: CommentaryEventScalarWhereInput[]
+    NOT?: CommentaryEventScalarWhereInput | CommentaryEventScalarWhereInput[]
+    id?: StringFilter<"CommentaryEvent"> | string
+    commentaryId?: StringFilter<"CommentaryEvent"> | string
+    type?: StringFilter<"CommentaryEvent"> | string
+    gameMinute?: IntFilter<"CommentaryEvent"> | number
+    audioTimestamp?: IntFilter<"CommentaryEvent"> | number
+    timestamp?: DateTimeFilter<"CommentaryEvent"> | Date | string
+    createdAt?: DateTimeFilter<"CommentaryEvent"> | Date | string
   }
 
-  export type CommentaryCreateManyUserInput = {
+  export type SyncReportUpsertWithWhereUniqueWithoutCommentaryInput = {
+    where: SyncReportWhereUniqueInput
+    update: XOR<SyncReportUpdateWithoutCommentaryInput, SyncReportUncheckedUpdateWithoutCommentaryInput>
+    create: XOR<SyncReportCreateWithoutCommentaryInput, SyncReportUncheckedCreateWithoutCommentaryInput>
+  }
+
+  export type SyncReportUpdateWithWhereUniqueWithoutCommentaryInput = {
+    where: SyncReportWhereUniqueInput
+    data: XOR<SyncReportUpdateWithoutCommentaryInput, SyncReportUncheckedUpdateWithoutCommentaryInput>
+  }
+
+  export type SyncReportUpdateManyWithWhereWithoutCommentaryInput = {
+    where: SyncReportScalarWhereInput
+    data: XOR<SyncReportUpdateManyMutationInput, SyncReportUncheckedUpdateManyWithoutCommentaryInput>
+  }
+
+  export type MatchCreateWithoutEventsInput = {
     id?: string
-    title: string
-    description?: string | null
-    audioUrl: string
-    duration: number
-    startTime?: number
-    likes?: number
+    league: string
+    homeTeam: string
+    awayTeam: string
+    scheduledTime: Date | string
+    streamUrlPatterns?: MatchCreatestreamUrlPatternsInput | string[]
+    status: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    matchId: string
+    commentaries?: CommentaryCreateNestedManyWithoutMatchInput
   }
 
-  export type CommentaryUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    audioUrl?: StringFieldUpdateOperationsInput | string
-    duration?: IntFieldUpdateOperationsInput | number
-    startTime?: IntFieldUpdateOperationsInput | number
-    likes?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    match?: MatchUpdateOneRequiredWithoutCommentariesNestedInput
+  export type MatchUncheckedCreateWithoutEventsInput = {
+    id?: string
+    league: string
+    homeTeam: string
+    awayTeam: string
+    scheduledTime: Date | string
+    streamUrlPatterns?: MatchCreatestreamUrlPatternsInput | string[]
+    status: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    commentaries?: CommentaryUncheckedCreateNestedManyWithoutMatchInput
   }
 
-  export type CommentaryUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    audioUrl?: StringFieldUpdateOperationsInput | string
-    duration?: IntFieldUpdateOperationsInput | number
-    startTime?: IntFieldUpdateOperationsInput | number
-    likes?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    matchId?: StringFieldUpdateOperationsInput | string
+  export type MatchCreateOrConnectWithoutEventsInput = {
+    where: MatchWhereUniqueInput
+    create: XOR<MatchCreateWithoutEventsInput, MatchUncheckedCreateWithoutEventsInput>
   }
 
-  export type CommentaryUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    audioUrl?: StringFieldUpdateOperationsInput | string
-    duration?: IntFieldUpdateOperationsInput | number
-    startTime?: IntFieldUpdateOperationsInput | number
-    likes?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    matchId?: StringFieldUpdateOperationsInput | string
+  export type MatchUpsertWithoutEventsInput = {
+    update: XOR<MatchUpdateWithoutEventsInput, MatchUncheckedUpdateWithoutEventsInput>
+    create: XOR<MatchCreateWithoutEventsInput, MatchUncheckedCreateWithoutEventsInput>
+    where?: MatchWhereInput
   }
 
-  export type MatchUpdateWithoutFavoritedByInput = {
+  export type MatchUpdateToOneWithWhereWithoutEventsInput = {
+    where?: MatchWhereInput
+    data: XOR<MatchUpdateWithoutEventsInput, MatchUncheckedUpdateWithoutEventsInput>
+  }
+
+  export type MatchUpdateWithoutEventsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    competition?: StringFieldUpdateOperationsInput | string
+    league?: StringFieldUpdateOperationsInput | string
     homeTeam?: StringFieldUpdateOperationsInput | string
     awayTeam?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    duration?: IntFieldUpdateOperationsInput | number
+    scheduledTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    streamUrlPatterns?: MatchUpdatestreamUrlPatternsInput | string[]
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     commentaries?: CommentaryUpdateManyWithoutMatchNestedInput
   }
 
-  export type MatchUncheckedUpdateWithoutFavoritedByInput = {
+  export type MatchUncheckedUpdateWithoutEventsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    competition?: StringFieldUpdateOperationsInput | string
+    league?: StringFieldUpdateOperationsInput | string
     homeTeam?: StringFieldUpdateOperationsInput | string
     awayTeam?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    duration?: IntFieldUpdateOperationsInput | number
+    scheduledTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    streamUrlPatterns?: MatchUpdatestreamUrlPatternsInput | string[]
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     commentaries?: CommentaryUncheckedUpdateManyWithoutMatchNestedInput
   }
 
-  export type MatchUncheckedUpdateManyWithoutFavoritedByInput = {
+  export type CommentaryCreateWithoutEventsInput = {
+    id?: string
+    title: string
+    description?: string | null
+    audioUrl?: string | null
+    duration?: number
+    youtubeStreamUrl?: string | null
+    youtubeStreamId?: string | null
+    status?: string
+    language?: string
+    baselineOffset?: number
+    avgLatency?: number
+    viewCount?: number
+    rating?: number
+    startedAt?: Date | string | null
+    endedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    match: MatchCreateNestedOneWithoutCommentariesInput
+    commentator: UserCreateNestedOneWithoutCommentariesInput
+    syncReports?: SyncReportCreateNestedManyWithoutCommentaryInput
+  }
+
+  export type CommentaryUncheckedCreateWithoutEventsInput = {
+    id?: string
+    matchId: string
+    commentatorId: string
+    title: string
+    description?: string | null
+    audioUrl?: string | null
+    duration?: number
+    youtubeStreamUrl?: string | null
+    youtubeStreamId?: string | null
+    status?: string
+    language?: string
+    baselineOffset?: number
+    avgLatency?: number
+    viewCount?: number
+    rating?: number
+    startedAt?: Date | string | null
+    endedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    syncReports?: SyncReportUncheckedCreateNestedManyWithoutCommentaryInput
+  }
+
+  export type CommentaryCreateOrConnectWithoutEventsInput = {
+    where: CommentaryWhereUniqueInput
+    create: XOR<CommentaryCreateWithoutEventsInput, CommentaryUncheckedCreateWithoutEventsInput>
+  }
+
+  export type CommentaryUpsertWithoutEventsInput = {
+    update: XOR<CommentaryUpdateWithoutEventsInput, CommentaryUncheckedUpdateWithoutEventsInput>
+    create: XOR<CommentaryCreateWithoutEventsInput, CommentaryUncheckedCreateWithoutEventsInput>
+    where?: CommentaryWhereInput
+  }
+
+  export type CommentaryUpdateToOneWithWhereWithoutEventsInput = {
+    where?: CommentaryWhereInput
+    data: XOR<CommentaryUpdateWithoutEventsInput, CommentaryUncheckedUpdateWithoutEventsInput>
+  }
+
+  export type CommentaryUpdateWithoutEventsInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    competition?: StringFieldUpdateOperationsInput | string
-    homeTeam?: StringFieldUpdateOperationsInput | string
-    awayTeam?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
     duration?: IntFieldUpdateOperationsInput | number
+    youtubeStreamUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeStreamId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    language?: StringFieldUpdateOperationsInput | string
+    baselineOffset?: IntFieldUpdateOperationsInput | number
+    avgLatency?: IntFieldUpdateOperationsInput | number
+    viewCount?: IntFieldUpdateOperationsInput | number
+    rating?: FloatFieldUpdateOperationsInput | number
+    startedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    match?: MatchUpdateOneRequiredWithoutCommentariesNestedInput
+    commentator?: UserUpdateOneRequiredWithoutCommentariesNestedInput
+    syncReports?: SyncReportUpdateManyWithoutCommentaryNestedInput
+  }
+
+  export type CommentaryUncheckedUpdateWithoutEventsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    matchId?: StringFieldUpdateOperationsInput | string
+    commentatorId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: IntFieldUpdateOperationsInput | number
+    youtubeStreamUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeStreamId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    language?: StringFieldUpdateOperationsInput | string
+    baselineOffset?: IntFieldUpdateOperationsInput | number
+    avgLatency?: IntFieldUpdateOperationsInput | number
+    viewCount?: IntFieldUpdateOperationsInput | number
+    rating?: FloatFieldUpdateOperationsInput | number
+    startedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    syncReports?: SyncReportUncheckedUpdateManyWithoutCommentaryNestedInput
+  }
+
+  export type CommentaryCreateWithoutSyncReportsInput = {
+    id?: string
+    title: string
+    description?: string | null
+    audioUrl?: string | null
+    duration?: number
+    youtubeStreamUrl?: string | null
+    youtubeStreamId?: string | null
+    status?: string
+    language?: string
+    baselineOffset?: number
+    avgLatency?: number
+    viewCount?: number
+    rating?: number
+    startedAt?: Date | string | null
+    endedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    match: MatchCreateNestedOneWithoutCommentariesInput
+    commentator: UserCreateNestedOneWithoutCommentariesInput
+    events?: CommentaryEventCreateNestedManyWithoutCommentaryInput
+  }
+
+  export type CommentaryUncheckedCreateWithoutSyncReportsInput = {
+    id?: string
+    matchId: string
+    commentatorId: string
+    title: string
+    description?: string | null
+    audioUrl?: string | null
+    duration?: number
+    youtubeStreamUrl?: string | null
+    youtubeStreamId?: string | null
+    status?: string
+    language?: string
+    baselineOffset?: number
+    avgLatency?: number
+    viewCount?: number
+    rating?: number
+    startedAt?: Date | string | null
+    endedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    events?: CommentaryEventUncheckedCreateNestedManyWithoutCommentaryInput
+  }
+
+  export type CommentaryCreateOrConnectWithoutSyncReportsInput = {
+    where: CommentaryWhereUniqueInput
+    create: XOR<CommentaryCreateWithoutSyncReportsInput, CommentaryUncheckedCreateWithoutSyncReportsInput>
+  }
+
+  export type UserCreateWithoutSyncReportsInput = {
+    id?: string
+    email: string
+    name: string
+    password: string
+    isCommentator?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    commentaries?: CommentaryCreateNestedManyWithoutCommentatorInput
+  }
+
+  export type UserUncheckedCreateWithoutSyncReportsInput = {
+    id?: string
+    email: string
+    name: string
+    password: string
+    isCommentator?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    commentaries?: CommentaryUncheckedCreateNestedManyWithoutCommentatorInput
+  }
+
+  export type UserCreateOrConnectWithoutSyncReportsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutSyncReportsInput, UserUncheckedCreateWithoutSyncReportsInput>
+  }
+
+  export type CommentaryUpsertWithoutSyncReportsInput = {
+    update: XOR<CommentaryUpdateWithoutSyncReportsInput, CommentaryUncheckedUpdateWithoutSyncReportsInput>
+    create: XOR<CommentaryCreateWithoutSyncReportsInput, CommentaryUncheckedCreateWithoutSyncReportsInput>
+    where?: CommentaryWhereInput
+  }
+
+  export type CommentaryUpdateToOneWithWhereWithoutSyncReportsInput = {
+    where?: CommentaryWhereInput
+    data: XOR<CommentaryUpdateWithoutSyncReportsInput, CommentaryUncheckedUpdateWithoutSyncReportsInput>
+  }
+
+  export type CommentaryUpdateWithoutSyncReportsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: IntFieldUpdateOperationsInput | number
+    youtubeStreamUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeStreamId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    language?: StringFieldUpdateOperationsInput | string
+    baselineOffset?: IntFieldUpdateOperationsInput | number
+    avgLatency?: IntFieldUpdateOperationsInput | number
+    viewCount?: IntFieldUpdateOperationsInput | number
+    rating?: FloatFieldUpdateOperationsInput | number
+    startedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    match?: MatchUpdateOneRequiredWithoutCommentariesNestedInput
+    commentator?: UserUpdateOneRequiredWithoutCommentariesNestedInput
+    events?: CommentaryEventUpdateManyWithoutCommentaryNestedInput
+  }
+
+  export type CommentaryUncheckedUpdateWithoutSyncReportsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    matchId?: StringFieldUpdateOperationsInput | string
+    commentatorId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: IntFieldUpdateOperationsInput | number
+    youtubeStreamUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeStreamId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    language?: StringFieldUpdateOperationsInput | string
+    baselineOffset?: IntFieldUpdateOperationsInput | number
+    avgLatency?: IntFieldUpdateOperationsInput | number
+    viewCount?: IntFieldUpdateOperationsInput | number
+    rating?: FloatFieldUpdateOperationsInput | number
+    startedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    events?: CommentaryEventUncheckedUpdateManyWithoutCommentaryNestedInput
+  }
+
+  export type UserUpsertWithoutSyncReportsInput = {
+    update: XOR<UserUpdateWithoutSyncReportsInput, UserUncheckedUpdateWithoutSyncReportsInput>
+    create: XOR<UserCreateWithoutSyncReportsInput, UserUncheckedCreateWithoutSyncReportsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutSyncReportsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutSyncReportsInput, UserUncheckedUpdateWithoutSyncReportsInput>
+  }
+
+  export type UserUpdateWithoutSyncReportsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    isCommentator?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    commentaries?: CommentaryUpdateManyWithoutCommentatorNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutSyncReportsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    isCommentator?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    commentaries?: CommentaryUncheckedUpdateManyWithoutCommentatorNestedInput
+  }
+
+  export type CommentaryCreateManyCommentatorInput = {
+    id?: string
+    matchId: string
+    title: string
+    description?: string | null
+    audioUrl?: string | null
+    duration?: number
+    youtubeStreamUrl?: string | null
+    youtubeStreamId?: string | null
+    status?: string
+    language?: string
+    baselineOffset?: number
+    avgLatency?: number
+    viewCount?: number
+    rating?: number
+    startedAt?: Date | string | null
+    endedAt?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SyncReportCreateManyUserInput = {
+    id?: string
+    commentaryId: string
+    reportedOffset: number
+    userAgent?: string | null
+    streamPlatform?: string | null
+    createdAt?: Date | string
+  }
+
+  export type CommentaryUpdateWithoutCommentatorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: IntFieldUpdateOperationsInput | number
+    youtubeStreamUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeStreamId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    language?: StringFieldUpdateOperationsInput | string
+    baselineOffset?: IntFieldUpdateOperationsInput | number
+    avgLatency?: IntFieldUpdateOperationsInput | number
+    viewCount?: IntFieldUpdateOperationsInput | number
+    rating?: FloatFieldUpdateOperationsInput | number
+    startedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    match?: MatchUpdateOneRequiredWithoutCommentariesNestedInput
+    events?: CommentaryEventUpdateManyWithoutCommentaryNestedInput
+    syncReports?: SyncReportUpdateManyWithoutCommentaryNestedInput
+  }
+
+  export type CommentaryUncheckedUpdateWithoutCommentatorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    matchId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: IntFieldUpdateOperationsInput | number
+    youtubeStreamUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeStreamId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    language?: StringFieldUpdateOperationsInput | string
+    baselineOffset?: IntFieldUpdateOperationsInput | number
+    avgLatency?: IntFieldUpdateOperationsInput | number
+    viewCount?: IntFieldUpdateOperationsInput | number
+    rating?: FloatFieldUpdateOperationsInput | number
+    startedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    events?: CommentaryEventUncheckedUpdateManyWithoutCommentaryNestedInput
+    syncReports?: SyncReportUncheckedUpdateManyWithoutCommentaryNestedInput
+  }
+
+  export type CommentaryUncheckedUpdateManyWithoutCommentatorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    matchId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    duration?: IntFieldUpdateOperationsInput | number
+    youtubeStreamUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeStreamId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    language?: StringFieldUpdateOperationsInput | string
+    baselineOffset?: IntFieldUpdateOperationsInput | number
+    avgLatency?: IntFieldUpdateOperationsInput | number
+    viewCount?: IntFieldUpdateOperationsInput | number
+    rating?: FloatFieldUpdateOperationsInput | number
+    startedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type SyncReportUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    reportedOffset?: IntFieldUpdateOperationsInput | number
+    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
+    streamPlatform?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    commentary?: CommentaryUpdateOneRequiredWithoutSyncReportsNestedInput
+  }
+
+  export type SyncReportUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    commentaryId?: StringFieldUpdateOperationsInput | string
+    reportedOffset?: IntFieldUpdateOperationsInput | number
+    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
+    streamPlatform?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SyncReportUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    commentaryId?: StringFieldUpdateOperationsInput | string
+    reportedOffset?: IntFieldUpdateOperationsInput | number
+    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
+    streamPlatform?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type CommentaryCreateManyMatchInput = {
     id?: string
+    commentatorId: string
     title: string
     description?: string | null
-    audioUrl: string
-    duration: number
-    startTime?: number
-    likes?: number
+    audioUrl?: string | null
+    duration?: number
+    youtubeStreamUrl?: string | null
+    youtubeStreamId?: string | null
+    status?: string
+    language?: string
+    baselineOffset?: number
+    avgLatency?: number
+    viewCount?: number
+    rating?: number
+    startedAt?: Date | string | null
+    endedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    userId: string
+  }
+
+  export type MatchEventCreateManyMatchInput = {
+    id?: string
+    type: string
+    team?: string | null
+    player?: string | null
+    minute: number
+    timestamp: Date | string
+    description?: string | null
+    createdAt?: Date | string
   }
 
   export type CommentaryUpdateWithoutMatchInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    audioUrl?: StringFieldUpdateOperationsInput | string
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
     duration?: IntFieldUpdateOperationsInput | number
-    startTime?: IntFieldUpdateOperationsInput | number
-    likes?: IntFieldUpdateOperationsInput | number
+    youtubeStreamUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeStreamId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    language?: StringFieldUpdateOperationsInput | string
+    baselineOffset?: IntFieldUpdateOperationsInput | number
+    avgLatency?: IntFieldUpdateOperationsInput | number
+    viewCount?: IntFieldUpdateOperationsInput | number
+    rating?: FloatFieldUpdateOperationsInput | number
+    startedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutCommentariesNestedInput
+    commentator?: UserUpdateOneRequiredWithoutCommentariesNestedInput
+    events?: CommentaryEventUpdateManyWithoutCommentaryNestedInput
+    syncReports?: SyncReportUpdateManyWithoutCommentaryNestedInput
   }
 
   export type CommentaryUncheckedUpdateWithoutMatchInput = {
     id?: StringFieldUpdateOperationsInput | string
+    commentatorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    audioUrl?: StringFieldUpdateOperationsInput | string
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
     duration?: IntFieldUpdateOperationsInput | number
-    startTime?: IntFieldUpdateOperationsInput | number
-    likes?: IntFieldUpdateOperationsInput | number
+    youtubeStreamUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeStreamId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    language?: StringFieldUpdateOperationsInput | string
+    baselineOffset?: IntFieldUpdateOperationsInput | number
+    avgLatency?: IntFieldUpdateOperationsInput | number
+    viewCount?: IntFieldUpdateOperationsInput | number
+    rating?: FloatFieldUpdateOperationsInput | number
+    startedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    userId?: StringFieldUpdateOperationsInput | string
+    events?: CommentaryEventUncheckedUpdateManyWithoutCommentaryNestedInput
+    syncReports?: SyncReportUncheckedUpdateManyWithoutCommentaryNestedInput
   }
 
   export type CommentaryUncheckedUpdateManyWithoutMatchInput = {
     id?: StringFieldUpdateOperationsInput | string
+    commentatorId?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    audioUrl?: StringFieldUpdateOperationsInput | string
+    audioUrl?: NullableStringFieldUpdateOperationsInput | string | null
     duration?: IntFieldUpdateOperationsInput | number
-    startTime?: IntFieldUpdateOperationsInput | number
-    likes?: IntFieldUpdateOperationsInput | number
+    youtubeStreamUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    youtubeStreamId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    language?: StringFieldUpdateOperationsInput | string
+    baselineOffset?: IntFieldUpdateOperationsInput | number
+    avgLatency?: IntFieldUpdateOperationsInput | number
+    viewCount?: IntFieldUpdateOperationsInput | number
+    rating?: FloatFieldUpdateOperationsInput | number
+    startedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    userId?: StringFieldUpdateOperationsInput | string
   }
 
-  export type UserUpdateWithoutFavoriteMatchesInput = {
+  export type MatchEventUpdateWithoutMatchInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    team?: NullableStringFieldUpdateOperationsInput | string | null
+    player?: NullableStringFieldUpdateOperationsInput | string | null
+    minute?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    commentaries?: CommentaryUpdateManyWithoutUserNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutFavoriteMatchesInput = {
+  export type MatchEventUncheckedUpdateWithoutMatchInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    team?: NullableStringFieldUpdateOperationsInput | string | null
+    player?: NullableStringFieldUpdateOperationsInput | string | null
+    minute?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    commentaries?: CommentaryUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type UserUncheckedUpdateManyWithoutFavoriteMatchesInput = {
+  export type MatchEventUncheckedUpdateManyWithoutMatchInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    team?: NullableStringFieldUpdateOperationsInput | string | null
+    player?: NullableStringFieldUpdateOperationsInput | string | null
+    minute?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CommentaryEventCreateManyCommentaryInput = {
+    id?: string
+    type: string
+    gameMinute: number
+    audioTimestamp: number
+    timestamp: Date | string
+    createdAt?: Date | string
+  }
+
+  export type SyncReportCreateManyCommentaryInput = {
+    id?: string
+    userId?: string | null
+    reportedOffset: number
+    userAgent?: string | null
+    streamPlatform?: string | null
+    createdAt?: Date | string
+  }
+
+  export type CommentaryEventUpdateWithoutCommentaryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    gameMinute?: IntFieldUpdateOperationsInput | number
+    audioTimestamp?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CommentaryEventUncheckedUpdateWithoutCommentaryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    gameMinute?: IntFieldUpdateOperationsInput | number
+    audioTimestamp?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CommentaryEventUncheckedUpdateManyWithoutCommentaryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    gameMinute?: IntFieldUpdateOperationsInput | number
+    audioTimestamp?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SyncReportUpdateWithoutCommentaryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    reportedOffset?: IntFieldUpdateOperationsInput | number
+    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
+    streamPlatform?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneWithoutSyncReportsNestedInput
+  }
+
+  export type SyncReportUncheckedUpdateWithoutCommentaryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    reportedOffset?: IntFieldUpdateOperationsInput | number
+    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
+    streamPlatform?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SyncReportUncheckedUpdateManyWithoutCommentaryInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    reportedOffset?: IntFieldUpdateOperationsInput | number
+    userAgent?: NullableStringFieldUpdateOperationsInput | string | null
+    streamPlatform?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

@@ -122,35 +122,75 @@ exports.Prisma.UserScalarFieldEnum = {
   email: 'email',
   name: 'name',
   password: 'password',
+  isCommentator: 'isCommentator',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
 
 exports.Prisma.MatchScalarFieldEnum = {
   id: 'id',
-  title: 'title',
-  description: 'description',
-  competition: 'competition',
+  league: 'league',
   homeTeam: 'homeTeam',
   awayTeam: 'awayTeam',
-  date: 'date',
-  duration: 'duration',
+  scheduledTime: 'scheduledTime',
+  streamUrlPatterns: 'streamUrlPatterns',
+  status: 'status',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
 
 exports.Prisma.CommentaryScalarFieldEnum = {
   id: 'id',
+  matchId: 'matchId',
+  commentatorId: 'commentatorId',
   title: 'title',
   description: 'description',
   audioUrl: 'audioUrl',
   duration: 'duration',
-  startTime: 'startTime',
-  likes: 'likes',
+  youtubeStreamUrl: 'youtubeStreamUrl',
+  youtubeStreamId: 'youtubeStreamId',
+  status: 'status',
+  language: 'language',
+  baselineOffset: 'baselineOffset',
+  avgLatency: 'avgLatency',
+  viewCount: 'viewCount',
+  rating: 'rating',
+  startedAt: 'startedAt',
+  endedAt: 'endedAt',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.MatchEventScalarFieldEnum = {
+  id: 'id',
+  matchId: 'matchId',
+  type: 'type',
+  team: 'team',
+  player: 'player',
+  minute: 'minute',
+  timestamp: 'timestamp',
+  description: 'description',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.CommentaryEventScalarFieldEnum = {
+  id: 'id',
+  commentaryId: 'commentaryId',
+  type: 'type',
+  gameMinute: 'gameMinute',
+  audioTimestamp: 'audioTimestamp',
+  timestamp: 'timestamp',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.SyncReportScalarFieldEnum = {
+  id: 'id',
+  commentaryId: 'commentaryId',
   userId: 'userId',
-  matchId: 'matchId'
+  reportedOffset: 'reportedOffset',
+  userAgent: 'userAgent',
+  streamPlatform: 'streamPlatform',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -172,7 +212,10 @@ exports.Prisma.NullsOrder = {
 exports.Prisma.ModelName = {
   User: 'User',
   Match: 'Match',
-  Commentary: 'Commentary'
+  Commentary: 'Commentary',
+  MatchEvent: 'MatchEvent',
+  CommentaryEvent: 'CommentaryEvent',
+  SyncReport: 'SyncReport'
 };
 
 /**

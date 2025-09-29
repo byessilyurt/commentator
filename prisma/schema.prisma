@@ -10,28 +10,110 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
-}
-
-model Commentary {
-  id          String   @id @default(uuid())
-  title       String
-  description String?
-  audioUrl    String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  userId      String?
-  match       String
-  duration    Int      @default(0) // Duration in seconds
-  timeMarkers Json?    // JSON array of time markers
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
-  id        String   @id @default(uuid())
-  name      String?
-  email     String   @unique
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id              String       @id @default(uuid())
+  email           String       @unique
+  name            String
+  password        String
+  isCommentator   Boolean      @default(false)
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  commentaries    Commentary[]
+  syncReports     SyncReport[]
+}
+
+model Match {
+  id                String       @id @default(uuid())
+  league            String       // "Premier League", "La Liga", etc.
+  homeTeam          String
+  awayTeam          String
+  scheduledTime     DateTime
+  streamUrlPatterns String[]     // URL patterns to detect match
+  status            String       // "scheduled", "live", "ended"
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+  
+  commentaries      Commentary[]
+  events            MatchEvent[]
+}
+
+model Commentary {
+  id              String   @id @default(uuid())
+  matchId         String
+  match           Match    @relation(fields: [matchId], references: [id])
+  commentatorId   String
+  commentator     User     @relation(fields: [commentatorId], references: [id])
+  
+  // Legacy fields (for backward compatibility)
+  title           String
+  description     String?
+  audioUrl        String?  // Made optional since live streams use YouTube
+  duration        Int      @default(0)
+  
+  // Live streaming details
+  youtubeStreamUrl String?  // YouTube Live stream URL
+  youtubeStreamId  String?  // Extracted YouTube video ID
+  status          String   @default("scheduled") // "scheduled", "live", "ended"
+  language        String   @default("en") // "en", "es", "tr", etc.
+  
+  // Sync data
+  baselineOffset  Int      @default(0) // Milliseconds offset from stream start
+  avgLatency      Int      @default(0) // Average latency in ms
+  
+  // Metadata
+  viewCount       Int      @default(0)
+  rating          Float    @default(0)
+  startedAt       DateTime?
+  endedAt         DateTime?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  events          CommentaryEvent[]
+  syncReports     SyncReport[]
+}
+
+model MatchEvent {
+  id          String   @id @default(uuid())
+  matchId     String
+  match       Match    @relation(fields: [matchId], references: [id])
+  
+  type        String   // "goal", "yellow_card", "red_card", "kickoff", "halftime", "fulltime"
+  team        String?  // "home" or "away"
+  player      String?
+  minute      Int      // Game minute (e.g., 23 for 23')
+  timestamp   DateTime // Real-world timestamp when it happened
+  description String?
+  
+  createdAt   DateTime @default(now())
+}
+
+model CommentaryEvent {
+  id            String   @id @default(uuid())
+  commentaryId  String
+  commentary    Commentary @relation(fields: [commentaryId], references: [id])
+  
+  type          String   // Same as MatchEvent types
+  gameMinute    Int      // When in the match (e.g., 23')
+  audioTimestamp Int     // Milliseconds into audio stream
+  timestamp     DateTime // When commentator marked it
+  
+  createdAt     DateTime @default(now())
+}
+
+model SyncReport {
+  id            String   @id @default(uuid())
+  commentaryId  String
+  commentary    Commentary @relation(fields: [commentaryId], references: [id])
+  userId        String?
+  user          User?    @relation(fields: [userId], references: [id])
+  
+  reportedOffset Int     // User's local offset in ms
+  userAgent     String?
+  streamPlatform String? // "netflix", "dazn", etc.
+  
+  createdAt     DateTime @default(now())
 }

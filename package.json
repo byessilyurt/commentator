@@ -9,8 +9,9 @@
     "lint": "next lint",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
+    "db:seed": "tsx prisma/seed.ts",
     "db:studio": "prisma studio",
-    "setup": "npm install && npm run db:generate && npm run db:migrate",
+    "setup": "npm install && npm run db:generate && npm run db:migrate && npm run db:seed",
     "docker:build": "docker-compose build",
     "docker:start": "docker-compose up -d",
     "docker:stop": "docker-compose down"
@@ -42,6 +43,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/uuid": "^10.0.0",
+    "tsx": "^4.7.0",
     "tailwindcss": "^4",
     "typescript": "^5.8.3"
   }
